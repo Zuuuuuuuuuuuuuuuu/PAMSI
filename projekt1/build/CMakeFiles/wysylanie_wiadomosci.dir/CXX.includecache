@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../inc/obsluga_plikow.hh
+iostream
+-
+string.h
+-
+
+/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/obsluga_plikow.cpp
+obsluga_plikow.hh
+/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/obsluga_plikow.hh
+

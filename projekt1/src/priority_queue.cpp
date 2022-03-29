@@ -38,7 +38,7 @@ void priority_queue::insert(int new_node_key, std::string new_node_text)
 void priority_queue::remove_minimum()
 {
     node *tmp;
-    tmp = &get_next(header);
+    tmp = get_next(header);
     int key1 = get_key(header);
     int key2 = get_key(tmp);
 

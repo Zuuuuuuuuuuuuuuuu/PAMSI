@@ -20,16 +20,14 @@ private:
     
 public:
     
-    inline node get_next(node *tmp)
+    inline node *get_next(node *tmp)
     {
-        node *got_next = tmp -> next;
-        return *got_next;
+        return tmp -> next;
     }
 
-    inline node get_prev(node *tmp)
-    {
-        node *got_prev = tmp -> prev;
-        return *got_prev;
+    inline node *get_prev(node *tmp)
+    { 
+        return tmp -> prev;
     }
 
     

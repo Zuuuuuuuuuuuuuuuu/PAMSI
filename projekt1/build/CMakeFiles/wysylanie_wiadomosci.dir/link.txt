@@ -1,0 +1,1 @@
+/bin/x86_64-linux-gnu-g++-9  -g  -rdynamic CMakeFiles/wysylanie_wiadomosci.dir/src/main.cpp.o CMakeFiles/wysylanie_wiadomosci.dir/src/obsluga_plikow.cpp.o CMakeFiles/wysylanie_wiadomosci.dir/src/priority_queue.cpp.o  -o wysylanie_wiadomosci 
