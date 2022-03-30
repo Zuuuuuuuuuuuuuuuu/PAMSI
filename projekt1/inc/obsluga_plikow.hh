@@ -16,7 +16,8 @@ class file
         void open_out_file(std::string name_file);
         void read_file(int &key, std::string &text);
         void write_out_file(const std::string &text);
-        void close_file();
+        void close_in_file();
+        void close_out_file();
         bool end_of_file();
 };
 

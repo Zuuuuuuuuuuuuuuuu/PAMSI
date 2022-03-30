@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(wysylanie_wiadomosci) #  <--- w nawiasie nazwa programu
+project(projekt1) #  <--- w nawiasie nazwa programu
 
 include_directories(inc)
 

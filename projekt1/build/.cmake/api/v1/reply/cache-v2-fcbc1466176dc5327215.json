@@ -839,7 +839,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "wysylanie_wiadomosci"
+			"value" : "projekt1"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1120,6 +1120,30 @@
 			],
 			"type" : "BOOL",
 			"value" : "FALSE"
+		},
+		{
+			"name" : "projekt1_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build"
+		},
+		{
+			"name" : "projekt1_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1"
 		},
 		{
 			"name" : "wysylanie_wiadomosci_BINARY_DIR",

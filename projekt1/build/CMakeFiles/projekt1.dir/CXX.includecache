@@ -21,14 +21,8 @@ iostream
 /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/main.cpp
 obsluga_plikow.hh
 /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/obsluga_plikow.hh
-iostream
--
-
-/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/obsluga_plikow.cpp
-obsluga_plikow.hh
-/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/obsluga_plikow.hh
-
-/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/priority_queue.cpp
 priority_queue.hh
 /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/priority_queue.hh
+iostream
+-
 

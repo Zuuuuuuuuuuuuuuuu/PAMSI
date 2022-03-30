@@ -26,7 +26,7 @@
 					[
 						0
 					],
-					"name" : "wysylanie_wiadomosci",
+					"name" : "projekt1",
 					"targetIndexes" : 
 					[
 						0
@@ -37,9 +37,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "wysylanie_wiadomosci::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-wysylanie_wiadomosci-Debug-ed414226e73282fa1f1c.json",
-					"name" : "wysylanie_wiadomosci",
+					"id" : "projekt1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-projekt1-Debug-1ad1d8a9917ae9d18d22.json",
+					"name" : "projekt1",
 					"projectIndex" : 0
 				}
 			]

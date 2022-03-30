@@ -1,3 +1,3 @@
 /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build/CMakeFiles/rebuild_cache.dir
 /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build/CMakeFiles/edit_cache.dir
-/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build/CMakeFiles/wysylanie_wiadomosci.dir
+/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build/CMakeFiles/projekt1.dir

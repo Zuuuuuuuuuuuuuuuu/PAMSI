@@ -53,7 +53,7 @@ CMAKE_BINARY_DIR = /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/wysylanie_wiadomosci.dir/all
+all: CMakeFiles/projekt1.dir/all
 
 .PHONY : all
 
@@ -63,36 +63,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/wysylanie_wiadomosci.dir/clean
+clean: CMakeFiles/projekt1.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/wysylanie_wiadomosci.dir
+# Target rules for target CMakeFiles/projekt1.dir
 
 # All Build rule for target.
-CMakeFiles/wysylanie_wiadomosci.dir/all:
-	$(MAKE) -f CMakeFiles/wysylanie_wiadomosci.dir/build.make CMakeFiles/wysylanie_wiadomosci.dir/depend
-	$(MAKE) -f CMakeFiles/wysylanie_wiadomosci.dir/build.make CMakeFiles/wysylanie_wiadomosci.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build/CMakeFiles --progress-num=1,2,3,4 "Built target wysylanie_wiadomosci"
-.PHONY : CMakeFiles/wysylanie_wiadomosci.dir/all
+CMakeFiles/projekt1.dir/all:
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/depend
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build/CMakeFiles --progress-num=1,2,3,4 "Built target projekt1"
+.PHONY : CMakeFiles/projekt1.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/wysylanie_wiadomosci.dir/rule: cmake_check_build_system
+CMakeFiles/projekt1.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/wysylanie_wiadomosci.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/projekt1.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build/CMakeFiles 0
-.PHONY : CMakeFiles/wysylanie_wiadomosci.dir/rule
+.PHONY : CMakeFiles/projekt1.dir/rule
 
 # Convenience name for target.
-wysylanie_wiadomosci: CMakeFiles/wysylanie_wiadomosci.dir/rule
+projekt1: CMakeFiles/projekt1.dir/rule
 
-.PHONY : wysylanie_wiadomosci
+.PHONY : projekt1
 
 # clean rule for target.
-CMakeFiles/wysylanie_wiadomosci.dir/clean:
-	$(MAKE) -f CMakeFiles/wysylanie_wiadomosci.dir/build.make CMakeFiles/wysylanie_wiadomosci.dir/clean
-.PHONY : CMakeFiles/wysylanie_wiadomosci.dir/clean
+CMakeFiles/projekt1.dir/clean:
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/clean
+.PHONY : CMakeFiles/projekt1.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -1,17 +1,17 @@
 [
 {
   "directory": "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/inc  -g   -o CMakeFiles/wysylanie_wiadomosci.dir/src/main.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/main.cpp",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/inc  -g   -o CMakeFiles/projekt1.dir/src/main.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/main.cpp",
   "file": "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/main.cpp"
 },
 {
   "directory": "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/inc  -g   -o CMakeFiles/wysylanie_wiadomosci.dir/src/obsluga_plikow.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/obsluga_plikow.cpp",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/inc  -g   -o CMakeFiles/projekt1.dir/src/obsluga_plikow.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/obsluga_plikow.cpp",
   "file": "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/obsluga_plikow.cpp"
 },
 {
   "directory": "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/inc  -g   -o CMakeFiles/wysylanie_wiadomosci.dir/src/priority_queue.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/priority_queue.cpp",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/inc  -g   -o CMakeFiles/projekt1.dir/src/priority_queue.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/priority_queue.cpp",
   "file": "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/priority_queue.cpp"
 }
 ]

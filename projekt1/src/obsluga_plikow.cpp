@@ -29,12 +29,16 @@ void file::write_out_file(const std::string &text)
 }
 
 
-void file::close_file()
+void file::close_in_file()
 {
     in_file.close();
-    out_file.close();       // on wie które to in_file i które out_file z funkcji open
 }
 
+
+void file::close_out_file()
+{
+    out_file.close();       
+}
 
 bool file::end_of_file()
 {

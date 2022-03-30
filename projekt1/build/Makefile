@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named wysylanie_wiadomosci
+# Target rules for targets named projekt1
 
 # Build rule for target.
-wysylanie_wiadomosci: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 wysylanie_wiadomosci
-.PHONY : wysylanie_wiadomosci
+projekt1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 projekt1
+.PHONY : projekt1
 
 # fast build rule for target.
-wysylanie_wiadomosci/fast:
-	$(MAKE) -f CMakeFiles/wysylanie_wiadomosci.dir/build.make CMakeFiles/wysylanie_wiadomosci.dir/build
-.PHONY : wysylanie_wiadomosci/fast
+projekt1/fast:
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/build
+.PHONY : projekt1/fast
 
 src/main.o: src/main.cpp.o
 
@@ -129,7 +129,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/wysylanie_wiadomosci.dir/build.make CMakeFiles/wysylanie_wiadomosci.dir/src/main.cpp.o
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -138,7 +138,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/wysylanie_wiadomosci.dir/build.make CMakeFiles/wysylanie_wiadomosci.dir/src/main.cpp.i
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -147,7 +147,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/wysylanie_wiadomosci.dir/build.make CMakeFiles/wysylanie_wiadomosci.dir/src/main.cpp.s
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 src/obsluga_plikow.o: src/obsluga_plikow.cpp.o
@@ -156,7 +156,7 @@ src/obsluga_plikow.o: src/obsluga_plikow.cpp.o
 
 # target to build an object file
 src/obsluga_plikow.cpp.o:
-	$(MAKE) -f CMakeFiles/wysylanie_wiadomosci.dir/build.make CMakeFiles/wysylanie_wiadomosci.dir/src/obsluga_plikow.cpp.o
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/src/obsluga_plikow.cpp.o
 .PHONY : src/obsluga_plikow.cpp.o
 
 src/obsluga_plikow.i: src/obsluga_plikow.cpp.i
@@ -165,7 +165,7 @@ src/obsluga_plikow.i: src/obsluga_plikow.cpp.i
 
 # target to preprocess a source file
 src/obsluga_plikow.cpp.i:
-	$(MAKE) -f CMakeFiles/wysylanie_wiadomosci.dir/build.make CMakeFiles/wysylanie_wiadomosci.dir/src/obsluga_plikow.cpp.i
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/src/obsluga_plikow.cpp.i
 .PHONY : src/obsluga_plikow.cpp.i
 
 src/obsluga_plikow.s: src/obsluga_plikow.cpp.s
@@ -174,7 +174,7 @@ src/obsluga_plikow.s: src/obsluga_plikow.cpp.s
 
 # target to generate assembly for a file
 src/obsluga_plikow.cpp.s:
-	$(MAKE) -f CMakeFiles/wysylanie_wiadomosci.dir/build.make CMakeFiles/wysylanie_wiadomosci.dir/src/obsluga_plikow.cpp.s
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/src/obsluga_plikow.cpp.s
 .PHONY : src/obsluga_plikow.cpp.s
 
 src/priority_queue.o: src/priority_queue.cpp.o
@@ -183,7 +183,7 @@ src/priority_queue.o: src/priority_queue.cpp.o
 
 # target to build an object file
 src/priority_queue.cpp.o:
-	$(MAKE) -f CMakeFiles/wysylanie_wiadomosci.dir/build.make CMakeFiles/wysylanie_wiadomosci.dir/src/priority_queue.cpp.o
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/src/priority_queue.cpp.o
 .PHONY : src/priority_queue.cpp.o
 
 src/priority_queue.i: src/priority_queue.cpp.i
@@ -192,7 +192,7 @@ src/priority_queue.i: src/priority_queue.cpp.i
 
 # target to preprocess a source file
 src/priority_queue.cpp.i:
-	$(MAKE) -f CMakeFiles/wysylanie_wiadomosci.dir/build.make CMakeFiles/wysylanie_wiadomosci.dir/src/priority_queue.cpp.i
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/src/priority_queue.cpp.i
 .PHONY : src/priority_queue.cpp.i
 
 src/priority_queue.s: src/priority_queue.cpp.s
@@ -201,7 +201,7 @@ src/priority_queue.s: src/priority_queue.cpp.s
 
 # target to generate assembly for a file
 src/priority_queue.cpp.s:
-	$(MAKE) -f CMakeFiles/wysylanie_wiadomosci.dir/build.make CMakeFiles/wysylanie_wiadomosci.dir/src/priority_queue.cpp.s
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/src/priority_queue.cpp.s
 .PHONY : src/priority_queue.cpp.s
 
 # Help Target
@@ -212,7 +212,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... wysylanie_wiadomosci"
+	@echo "... projekt1"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

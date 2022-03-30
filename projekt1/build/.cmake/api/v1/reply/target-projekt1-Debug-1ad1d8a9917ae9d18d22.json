@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "wysylanie_wiadomosci"
+			"path" : "projekt1"
 		}
 	],
 	"backtrace" : 1,
@@ -61,7 +61,7 @@
 			]
 		}
 	],
-	"id" : "wysylanie_wiadomosci::@6890427a1f51a3e7e1df",
+	"id" : "projekt1::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -77,8 +77,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "wysylanie_wiadomosci",
-	"nameOnDisk" : "wysylanie_wiadomosci",
+	"name" : "projekt1",
+	"nameOnDisk" : "projekt1",
 	"paths" : 
 	{
 		"build" : ".",
