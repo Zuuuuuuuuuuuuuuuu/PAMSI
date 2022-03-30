@@ -19,7 +19,7 @@ void priority_queue::display_text()
 
 
 void priority_queue::remove_minimum() 
-{
+{    
     node *tmp;
     tmp = header;
     if (header->next != nullptr)
@@ -28,16 +28,23 @@ void priority_queue::remove_minimum()
         delete tmp;
     }
     else delete header;
+    
 }
 
 
 void priority_queue::insert(int key, std::string text)
 {
+ 
     node *element = new node;
     element->key = key;
     element->text = text; // czy to jest potrzebne wlasciwie idk  
     
-
+    if (empty())
+    {
+        header = element;
+        element->next = nullptr;
+    }
+    
     // dodawanie na początku kolejki, czyli kiedy pierwsza wart key w kolejce jest wieksza od pobranego klucza
     if (comparison(key, header->key))   // czy comparison(element->key, header->key)?
     {  
