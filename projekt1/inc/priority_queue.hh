@@ -24,6 +24,7 @@ public:
     void remove_minimum(); 
     bool empty();
     std::string return_minimum();
+    int size();
 };
 
 #endif

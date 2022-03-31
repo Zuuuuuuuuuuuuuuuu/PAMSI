@@ -88,3 +88,8 @@ void priority_queue::insert(int key, std::string text)
         }
     }
 }
+
+int priority_queue::size()
+{
+    
+}

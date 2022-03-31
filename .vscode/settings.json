@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "*.tcc": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "iostream": "cpp"
     },
     "cmake.configureOnOpen": true
 }
