@@ -1,0 +1,146 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage[table,xcdraw,dvipsnames]{xcolor}
+\usepackage{color}
+\usepackage{subfig}
+\usepackage{sidecap}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{multirow}
+\setlength{\parindent}{0pt}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\titlelabel{\thetitle.\quad}
+\usepackage{amsmath}
+\usepackage{anyfontsize}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{pgfplots}
+\newgeometry{tmargin=1.8cm,bmargin=1.8cm,lmargin =1.8cm,rmargin=1.8cm}
+
+\begin{document}
+    
+\input{str_tytulowa.tex}
+
+\section{Wstępne założenia}
+Zadanie polegało na zaprojektowaniu i zaimplementowaniu algorytmu, który radziłby sobie z sortowaniem otrzymanych 
+pakietów składających się z numeru i tekstu wiadomości. Do wykonania zadania przyjęto pewne założenia. 
+Pierwszym z nich jest przyjęcie perspektywy Anny i jej komputera. Oznacza to tyle, że napisany program nie zajmuje się 
+dzieleniem wiadomości na \textit{n} pakietów oraz nie nadaje im numerów, gdyż wymienione czynności wykonywał,
+zgodnie z poleceniem, Jan na swoim komputerze. Zatem program został przygotowany tak, żeby pracować już z 
+losowo ułożonymi i ponumerowanymi pakietami. Drugim przyjętym założeniem jest przesyłanie tych pakietów w jednym 
+pliku tekstowym jako drugi argument wywołania podczas uruchamiania pliku wykonywalnego. Kolejnym założeniem jest
+forma zakończenia programu i wyświetlenie posortowanej wiadomości. Zdecydowano, że posortowana wiadomość
+nie tylko będzie wyświetlana na standardowym wyjściu, ale również będzie zapisywana do nowo 
+tworzonego pliku nazwanego ,,uporządkowany\_list.txt''. 
+
+\section{Struktura danych}
+W celu zrealizowania zadania wybrano strukturę danych do przechowywania informacji (numeru i tekstu wiadomości), 
+jaką jest kolejka priorytetowa na bazie listy dwukierunkowej. Poniżej przedstawiono uzasadnienie wyboru.
+Kolejka priorytetowa jest abstrakcyjnym typem danych, służącym do przechowywania 
+zbioru elementów, przy czym każdy element posiada dodatkowe pole do przechowywania priorytetu lub inaczej 
+klucza. Zatem, z założenia, do kolejki priorytetowej można wprowadzać takie pakiety, składające się 
+z numeru (priorytetu) i tekstu. Kolejnym argumentem przemawiającym za użyciem kolejki priorytetowej 
+jest układanie elementów w kolejce nie w kolejności wprowadzania, a w kolejności priorytetu rosnąco lub malejąco.
+Jako implementację kolejki priorytetowej wybrano listę dwukierunkową. Umożliwia ona wstawianie elementu 
+w dowolnym miejscu, nie tylko na początku lub na końcu listy, co pozwala na wydajne sortowanie elementów przy ich 
+wstawianiu do kolejki, a więc tworzenie listy uporządkowanej. Analogicznie, lista dwukierunkowa pozwala także na 
+usuwanie elementów z dowolnego miejsca.
+
+Operacje na kolejce priorytetowej uwzględniają takie metody jak: 
+\begin{itemize}
+    \item umieszczanie nowego elementu w kolejce,
+    \item usuwanie elementu z kolejki,
+    \item zwracanie informacji o tym, czy kolejka jest pusta czy nie,
+    \item informowanie o liczbie elementów umieszczonych w kolejce,
+    \item zwracanie wartości pierwszego elementu w kolejce.
+\end{itemize}
+Zaimplementowanie powyższych metod będzie omówione poniżej.
+
+
+\section{Omówienie programu}
+\subsection{Obsługa plików}
+Do obsługi plików została stworzona klasa o nazwie \textit{file} z dwoma prywatnymi polami 
+określającymi plik wejściowy \textit{in\_file} oraz plik wyjściowy \textit{out\_file}.
+Stworzone zostały metody służące do otwierania i zamykania plików wejściowych i wyjściowych 
+(\textit{open\_in\_file, open\_out\_file, close\_in\_file, close\_out\_file}), 
+czytania (\textit{read\_file}) i sprawdzania końca (\textit{end\_of\_file}) pliku wejściowego
+oraz zapisywania do pliku wyjściowego (\textit{write\_out\_file}).
+
+\colorbox{Dandelion}{+ listing kodu} 
+
+Plik wejściowy podawany przy uruchomieniu programu ma domyślnie formę przedstawioną 
+na poniższym zdjęciu. Na początku linii jest numer pakietu, a po spacji wiadomość. 
+
+\colorbox{Dandelion}{+ zdjęcie formy pliku}
+
+
+\subsection{Kolejka priorytetowa jako lista dwukierunkowa}
+Do zaimplementowania kolejki na liście dwukierunkowej, została stworzona struktura \textit{node}, 
+która ma dwa pola do przechowywania pakietu: \textit{key} oraz \textit{text}, oraz dwa wskaźniki 
+na następny i poprzedni element: \textit{*next} i \textit{*prev}. Została stworzona klasa 
+\textit{priority\_queue} z pierwszym wskaźnikiem na początek kolejki: \textit{*header} 
+typu struktury \textit{node}. Zostały zaimplementowane metody:
+\begin{itemize}
+    \item \textit{comparison} - służy do porównywania wartości dwóch kluczy i jest 
+    wykorzystywana przy sortowaniu elementów podczas wprowadzania do kolejki.
+    \item \textit{insert} - odpowiednik metody \textit{push}; służy do wstawiania elementów 
+    do kolejki. Metoda \textit{insert} różni się tym, że umożliwia umieszczenie elementu w 
+    dowolnym miejscu w kolejce, tak, aby tworzyć kolejkę uporządkowaną rosnąco. Przykładowo, jeżeli
+    do metody \textit{insert} zostanie przekazany pakiet z pliku o wartości klucza 4, a w kolejce
+    będą już elementy o wartościach kluczy 1,2,6,8, to metoda ta, wykorzystując metodę \textit{comparison}
+    znajdzie pierwszą większą wartość klucza od pobranej (4) i wstawi ją przed ten element (6).
+    \item \textit{display\_text} - odpowiednik metody \textit{top}; odpowiada za
+    wyświetlanie samego tekstu pierwszego elementu w kolejce.
+    \item \textit{remove\_minimum} - odpowiednik \textit{pop}; służy do usuwania elementu z 
+    początku kolejki. 
+    \item \textit{empty} - zwraca informację o tym, czy kolejka jest pusta.
+    \item \textit{return\_minimum} - jest funkcją pomocniczą do zwracania tekstu pierwszego 
+    elementu w kolejce. Wykorzystuje ją metoda zapisywania do pliku. 
+    \item \textit{size} - zwraca ilość elementów umieszczonych w kolejce priorytetowej.
+\end{itemize}
+
+\colorbox{Dandelion}{+listing kodu}
+
+\subsection{Działanie programu}
+Program wykonuje następujące działania:
+\begin{enumerate}
+    \item Otwiera zarówno plik wejściowy, podany jako argument wywołania pliku wykonywalnego, 
+    jak i wyjściowy, do którego będą zapisywane dane.
+    \item Aż do natrafienia na koniec danych w pliku, program sczytuje kolejne sekwencje, 
+    tworzy nowy element typu \textit{node}, przypisuje do niego wartości klucza i wiadomości,
+    a następnie wstawia w odpowiednie miejsce w kolejce, sortując rosnąco względem wartości klucza.  
+    \item Kiedy nie ma więcej danych w pliku i kolejka jest już utworzona, następuje wyświetlenie
+    tekstu elementu o najmniejszej wartości klucza na standardowe wyjście, zapisanie go do pliku 
+    wyjściowego oraz usunięcie go z kolejki priorytetowej. Ten etap powtarza się aż do wyczyszczenia 
+    całej kolejki.   
+\end{enumerate}
+
+
+\colorbox{Dandelion}{+listing kodu}
+
+\section{Analiza złożoności obliczeniowej}
+
+
+\section{Testy}
+
+
+\section{Podsumowanie i wnioski}
+
+
+\section{Literatura}
+\begin{enumerate}
+    \footnotesize
+    \item Wykład ,,Projektowanie Algorytmów i Metody Sztucznej Inteligencji''
+    \item M.T.Goodrich, R. Tamassia, D.Mount ,,Data Structures \& Algorithms in C++''
+    \item \url{ https://cpp0x.pl/kursy/Kurs-STL-C++/Adapter-kolejki-priorytetowej-std-priority_queue/118} (dostęp: 31.03.2022)
+\end{enumerate}
+
+\end{document}

@@ -28,7 +28,7 @@ void priority_queue::display_text()
 
 void priority_queue::remove_minimum() 
 {
-    if (header != nullptr)  // w razie czego, ale przemyslec czy to na pewno potrzebne
+    if (header != nullptr)  // w razie czego
     {    
         node *tmp;
         tmp = header;
@@ -91,5 +91,12 @@ void priority_queue::insert(int key, std::string text)
 
 int priority_queue::size()
 {
-    
+    int licznik = 0;
+    node *tmp = header;
+    while (tmp != nullptr)
+    {
+        licznik += 1;
+        tmp = tmp->next;
+    }
+    return licznik;
 }

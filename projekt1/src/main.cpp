@@ -29,3 +29,5 @@ int main(int argc, char *argv[])
   plik.close_in_file();
   plik.close_out_file();
 }
+
+
