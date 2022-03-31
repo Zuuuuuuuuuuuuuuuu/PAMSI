@@ -23,6 +23,7 @@ public:
     void display_text();
     void remove_minimum(); 
     bool empty();
+    std::string return_minimum();
 };
 
 #endif

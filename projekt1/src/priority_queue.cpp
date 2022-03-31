@@ -1,5 +1,10 @@
 #include "priority_queue.hh"
 
+std::string priority_queue::return_minimum()
+{
+    return header->text;
+}
+
 bool priority_queue::comparison(int x, int y)
 {
     return x < y;
@@ -14,21 +19,27 @@ bool priority_queue::empty()
 
 void priority_queue::display_text()
 {
-    std::cout << header->text;
+    if (header != nullptr)
+    {
+        std::cout << header->text;
+    }
 }
 
 
 void priority_queue::remove_minimum() 
-{    
-    node *tmp;
-    tmp = header;
-    if (header->next != nullptr)
-    {
-        header = tmp->next;
-        delete tmp;
+{
+    if (header != nullptr)  // w razie czego, ale przemyslec czy to na pewno potrzebne
+    {    
+        node *tmp;
+        tmp = header;
+
+        if (header->next != nullptr)
+        {
+            header = tmp->next;
+            delete tmp;
+        }
+        else header = nullptr;
     }
-    else delete header;
-    
 }
 
 
@@ -37,16 +48,16 @@ void priority_queue::insert(int key, std::string text)
  
     node *element = new node;
     element->key = key;
-    element->text = text; // czy to jest potrzebne wlasciwie idk  
+    element->text = text; 
     
-    if (empty())
+    if (empty())    // dodawanie pierwszego elementu do kolejki
     {
         header = element;
         element->next = nullptr;
     }
     
-    // dodawanie na początku kolejki, czyli kiedy pierwsza wart key w kolejce jest wieksza od pobranego klucza
-    if (comparison(key, header->key))   // czy comparison(element->key, header->key)?
+    // dodawanie na początku kolejki, czyli kiedy pierwsza wart key w kolejce jest wieksza od pobranego klucza (dodawanie przed)
+    if (comparison(key, header->key))
     {  
         header->prev = element;
         element->next = header;
@@ -67,7 +78,6 @@ void priority_queue::insert(int key, std::string text)
             element->prev = tmp->prev;
             (tmp->prev)->next = element;
             tmp->prev = element;
-            tmp = header;       // powrót
         }
 
         if (!comparison(key, tmp->key)) // dodawanie na końcu kolejki (gdy nie znajdzie w kolejce większego klucza od pobranego)
@@ -75,8 +85,6 @@ void priority_queue::insert(int key, std::string text)
             tmp->next = element;
             element->prev = tmp;
             element->next = nullptr;
-            tmp = header;   // powrót
-
         }
     }
 }
