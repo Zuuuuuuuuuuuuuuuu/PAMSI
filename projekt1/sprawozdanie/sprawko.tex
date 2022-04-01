@@ -23,6 +23,7 @@
 \usepackage{listings}
 \usepackage{multicol}
 \usepackage{pgfplots}
+\usepackage{listings}
 \newgeometry{tmargin=1.8cm,bmargin=1.8cm,lmargin =1.8cm,rmargin=1.8cm}
 
 \begin{document}
@@ -45,25 +46,13 @@ tworzonego pliku nazwanego ,,uporządkowany\_list.txt''.
 W celu zrealizowania zadania wybrano strukturę danych do przechowywania informacji (numeru i tekstu wiadomości), 
 jaką jest kolejka priorytetowa na bazie listy dwukierunkowej. Poniżej przedstawiono uzasadnienie wyboru.
 Kolejka priorytetowa jest abstrakcyjnym typem danych, służącym do przechowywania 
-zbioru elementów, przy czym każdy element posiada dodatkowe pole do przechowywania priorytetu lub inaczej 
-klucza. Zatem, z założenia, do kolejki priorytetowej można wprowadzać takie pakiety, składające się 
+zbioru elementów, przy czym każdy element posiada dodatkowe pole do przechowywania priorytetu 
+(klucza). Zatem, z założenia, do kolejki priorytetowej można wprowadzać pakiety, składające się 
 z numeru (priorytetu) i tekstu. Kolejnym argumentem przemawiającym za użyciem kolejki priorytetowej 
-jest układanie elementów w kolejce nie w kolejności wprowadzania, a w kolejności priorytetu rosnąco lub malejąco.
-Jako implementację kolejki priorytetowej wybrano listę dwukierunkową. Umożliwia ona wstawianie elementu 
+jest układanie elementów w kolejce kolejności priorytetu rosnąco. Lista dwukierunkowa umożliwia wstawianie elementu 
 w dowolnym miejscu, nie tylko na początku lub na końcu listy, co pozwala na wydajne sortowanie elementów przy ich 
-wstawianiu do kolejki, a więc tworzenie listy uporządkowanej. Analogicznie, lista dwukierunkowa pozwala także na 
+wstawianiu do kolejki. Analogicznie, lista dwukierunkowa pozwala także na 
 usuwanie elementów z dowolnego miejsca.
-
-Operacje na kolejce priorytetowej uwzględniają takie metody jak: 
-\begin{itemize}
-    \item umieszczanie nowego elementu w kolejce,
-    \item usuwanie elementu z kolejki,
-    \item zwracanie informacji o tym, czy kolejka jest pusta czy nie,
-    \item informowanie o liczbie elementów umieszczonych w kolejce,
-    \item zwracanie wartości pierwszego elementu w kolejce.
-\end{itemize}
-Zaimplementowanie powyższych metod będzie omówione poniżej.
-
 
 \section{Omówienie programu}
 \subsection{Obsługa plików}
@@ -74,12 +63,42 @@ Stworzone zostały metody służące do otwierania i zamykania plików wejściow
 czytania (\textit{read\_file}) i sprawdzania końca (\textit{end\_of\_file}) pliku wejściowego
 oraz zapisywania do pliku wyjściowego (\textit{write\_out\_file}).
 
-\colorbox{Dandelion}{+ listing kodu} 
+\lstset{language=C++, firstnumber=1, keywordstyle=\color{blue}, numbers=left, frame = single}
+\begin{lstlisting}
+#ifndef OBSLUGA_PLIKOW.HH
+#define OBSLUGA_PLIKOW.HH
+
+#include <iostream>
+#include <string>
+#include <fstream>
+
+class file
+{
+    private:
+        std::fstream in_file;
+        std::fstream out_file;
+
+    public:
+        void open_in_file(std::string name_file);
+        void open_out_file(std::string name_file);
+        void read_file(int &key, std::string &text);
+        void write_out_file(const std::string &text);
+        void close_in_file();
+        void close_out_file();
+        bool end_of_file();
+};
+#endif
+\end{lstlisting}
 
 Plik wejściowy podawany przy uruchomieniu programu ma domyślnie formę przedstawioną 
 na poniższym zdjęciu. Na początku linii jest numer pakietu, a po spacji wiadomość. 
 
-\colorbox{Dandelion}{+ zdjęcie formy pliku}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=7cm]{format_pliku.png}
+    \caption{Format pliku wejściowego}
+    \label{fig: format_plku}
+\end{figure}
 
 
 \subsection{Kolejka priorytetowa jako lista dwukierunkowa}
@@ -92,11 +111,7 @@ typu struktury \textit{node}. Zostały zaimplementowane metody:
     \item \textit{comparison} - służy do porównywania wartości dwóch kluczy i jest 
     wykorzystywana przy sortowaniu elementów podczas wprowadzania do kolejki.
     \item \textit{insert} - odpowiednik metody \textit{push}; służy do wstawiania elementów 
-    do kolejki. Metoda \textit{insert} różni się tym, że umożliwia umieszczenie elementu w 
-    dowolnym miejscu w kolejce, tak, aby tworzyć kolejkę uporządkowaną rosnąco. Przykładowo, jeżeli
-    do metody \textit{insert} zostanie przekazany pakiet z pliku o wartości klucza 4, a w kolejce
-    będą już elementy o wartościach kluczy 1,2,6,8, to metoda ta, wykorzystując metodę \textit{comparison}
-    znajdzie pierwszą większą wartość klucza od pobranej (4) i wstawi ją przed ten element (6).
+    do kolejki w dowolnym miejscu w kolejce, tak, aby tworzyć kolejkę uporządkowaną rosnąco. 
     \item \textit{display\_text} - odpowiednik metody \textit{top}; odpowiada za
     wyświetlanie samego tekstu pierwszego elementu w kolejce.
     \item \textit{remove\_minimum} - odpowiednik \textit{pop}; służy do usuwania elementu z 
@@ -107,7 +122,37 @@ typu struktury \textit{node}. Zostały zaimplementowane metody:
     \item \textit{size} - zwraca ilość elementów umieszczonych w kolejce priorytetowej.
 \end{itemize}
 
-\colorbox{Dandelion}{+listing kodu}
+\lstset{language=C++, firstnumber=1, keywordstyle=\color{blue}, numbers=left, frame = single}
+\begin{lstlisting}
+#ifndef PRIORITY_QUEUE.HH
+#define PRIORITY_QUEUE.HH
+#include <iostream>
+
+struct node
+{
+    int key;
+    std::string text;
+    node *prev = nullptr;
+    node *next = nullptr;
+};
+
+class priority_queue
+{
+
+private:
+    node *header = nullptr;
+    bool comparison(int x, int y);
+
+public:
+    void insert(int key, std::string text);
+    void display_text();
+    void remove_minimum(); 
+    bool empty();
+    std::string return_minimum();
+    int size();
+};
+#endif
+\end{lstlisting}
 
 \subsection{Działanie programu}
 Program wykonuje następujące działania:
@@ -123,16 +168,85 @@ Program wykonuje następujące działania:
     całej kolejki.   
 \end{enumerate}
 
+\lstset{language=C++, firstnumber=1, keywordstyle=\color{blue}, numbers=left, frame = single}
+\begin{lstlisting}
+    #include "obsluga_plikow.hh"
+    #include "priority_queue.hh"
+    #include <iostream>
+    
+    int main(int argc, char *argv[])
+    {
+      priority_queue kolejka;
+      file plik;
+      int klucz;
+      std::string tekst;
+      plik.open_in_file(argv[1]);
+      plik.open_out_file("uporzadkowany_list");
+    
+      while (!plik.end_of_file())
+      {
+        plik.read_file(klucz, tekst);
+        kolejka.insert(klucz, tekst);
+      }
+      
+      while(!kolejka.empty())
+      {
+        kolejka.display_text();
+        plik.write_out_file(kolejka.return_minimum());
+        kolejka.remove_minimum();
+      }
+      std::cout << "\n";
+    
+      plik.close_in_file();
+      plik.close_out_file();
+    }
+\end{lstlisting}
 
-\colorbox{Dandelion}{+listing kodu}
 
 \section{Analiza złożoności obliczeniowej}
+Najbardziej znaczące metody do badania złożoności obliczeniowej programu to metody 
+\textit{insert} oraz \textit{remove\_minimum}. Ze względu na zastosowanie implementacji 
+na liście posortowanej, można się spodziewać, że złożoność obliczeniowa metody 
+\textit{insert} będzie równa \textit{O(n)}, co oznaczałoby, że czas potrzebny do wykonania 
+się tej metody będzie liniowo zależny od liczby elementów w pliku.
+Z kolei złożoność obliczeniowa metody \textit{remove\_minimum} powinna wynosić \textit{O(1)}, 
+co oznaczałoby, że metoda ta jest stała w czasie - niezależna od liczby elementów w kolejce.
 
+Przeprowadzono testy, które miały potwierdzić lub odrzucić przedstawioną hipotezę.
+W tym celu wykorzystano bibliotekę \textit{chrono} i funkcję \textit{clock}.
+Zmierzono zależność czasu w nanosekundach od liczby elementów (ograniczając się 
+do 10 000 elementów). W przypadku badania metody \textit{insert}, wykorzystano najgorszy przypadek,
+to znaczy, że w pliku wejściowym wartości kluczy były zapisane rosnąco, tak, aby metoda za każdym razem dodawała 
+na koniec kolejki - wykonywała najwięcej przesunięć. Poniżej przedstawiono wykresy badanych zależności:
 
-\section{Testy}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{O_insert.png}
+    \caption{Zależność czasu działania metody \textit{insert} od liczby elementów w kolejce}
+    \label{fig: O_insert}
+\end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{O_remove.png}
+    \caption{Zależność czasu działania metody \textit{remove\_minimum} od liczby elementów w kolejce}
+    \label{fig: O_remove}
+\end{figure}
+
+Pomimo dużych odchyleń, można zauważyć, że wykresy potwierdziły hipotezę - metoda \textit{insert} ma złożoność obliczeniową 
+liniową \textit{O(n)}, a metoda \textit{remove\_minimum} ma złożoność obliczeniową stałą w czasie 
+\textit{O(1)}.
 
 \section{Podsumowanie i wnioski}
+\begin{itemize}
+    \item Dobór struktury danych okazał się być dobry. Lista dwukierunkowa bardzo usprawniła działanie programu i 
+    efektywność metod.
+    \item Lista uporządkowana sprawiła, że złożoność obliczeniowa metody \textit{insert} oraz \textit{remove\_minimum}
+    wyniosła kolejno \textit{O(n)} oraz \textit{O(1)}. Zastosowanie listy nieuporządkowanej nie zmieniłoby ogólnej 
+    złożoności obliczeniowej programu. 
+    \item Można powiedzieć, że złożoność obliczeniowa programu jest funkcją liniową. Jest to dobry wynik, lecz dla 
+    dużej ilości danych lepsza byłaby złożoność w funkcji logarytmicznej.
+\end{itemize}
 
 
 \section{Literatura}
