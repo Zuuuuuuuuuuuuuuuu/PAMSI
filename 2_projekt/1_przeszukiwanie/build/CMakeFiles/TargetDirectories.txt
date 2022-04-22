@@ -1,0 +1,3 @@
+/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build/CMakeFiles/rebuild_cache.dir
+/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build/CMakeFiles/edit_cache.dir
+/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build/CMakeFiles/przeszukiwanie.dir

@@ -1,0 +1,1 @@
+/bin/x86_64-linux-gnu-g++-9  -g  -rdynamic CMakeFiles/przeszukiwanie.dir/src/driver.cpp.o CMakeFiles/przeszukiwanie.dir/src/files.cpp.o CMakeFiles/przeszukiwanie.dir/src/vector.cpp.o  -o przeszukiwanie 
