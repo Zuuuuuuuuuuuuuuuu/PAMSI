@@ -204,6 +204,33 @@ src/priority_queue.cpp.s:
 	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/src/priority_queue.cpp.s
 .PHONY : src/priority_queue.cpp.s
 
+src/zlozonosc.o: src/zlozonosc.cpp.o
+
+.PHONY : src/zlozonosc.o
+
+# target to build an object file
+src/zlozonosc.cpp.o:
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/src/zlozonosc.cpp.o
+.PHONY : src/zlozonosc.cpp.o
+
+src/zlozonosc.i: src/zlozonosc.cpp.i
+
+.PHONY : src/zlozonosc.i
+
+# target to preprocess a source file
+src/zlozonosc.cpp.i:
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/src/zlozonosc.cpp.i
+.PHONY : src/zlozonosc.cpp.i
+
+src/zlozonosc.s: src/zlozonosc.cpp.s
+
+.PHONY : src/zlozonosc.s
+
+# target to generate assembly for a file
+src/zlozonosc.cpp.s:
+	$(MAKE) -f CMakeFiles/projekt1.dir/build.make CMakeFiles/projekt1.dir/src/zlozonosc.cpp.s
+.PHONY : src/zlozonosc.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,6 +249,9 @@ help:
 	@echo "... src/priority_queue.o"
 	@echo "... src/priority_queue.i"
 	@echo "... src/priority_queue.s"
+	@echo "... src/zlozonosc.o"
+	@echo "... src/zlozonosc.i"
+	@echo "... src/zlozonosc.s"
 .PHONY : help
 
 

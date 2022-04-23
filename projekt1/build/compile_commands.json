@@ -13,5 +13,10 @@
   "directory": "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build",
   "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/inc  -g   -o CMakeFiles/projekt1.dir/src/priority_queue.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/priority_queue.cpp",
   "file": "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/priority_queue.cpp"
+},
+{
+  "directory": "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/inc  -g   -o CMakeFiles/projekt1.dir/src/zlozonosc.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/zlozonosc.cpp",
+  "file": "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/zlozonosc.cpp"
 }
 ]

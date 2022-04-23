@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/projekt1.dir/src/main.cpp.o"
   "CMakeFiles/projekt1.dir/src/obsluga_plikow.cpp.o"
   "CMakeFiles/projekt1.dir/src/priority_queue.cpp.o"
+  "CMakeFiles/projekt1.dir/src/zlozonosc.cpp.o"
   "projekt1"
   "projekt1.pdb"
 )

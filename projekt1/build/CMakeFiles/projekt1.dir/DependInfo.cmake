@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/main.cpp" "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build/CMakeFiles/projekt1.dir/src/main.cpp.o"
   "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/obsluga_plikow.cpp" "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build/CMakeFiles/projekt1.dir/src/obsluga_plikow.cpp.o"
   "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/priority_queue.cpp" "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build/CMakeFiles/projekt1.dir/src/priority_queue.cpp.o"
+  "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/src/zlozonosc.cpp" "/home/zuzanna/Pulpit/sem4/PAMSI/projekt1/build/CMakeFiles/projekt1.dir/src/zlozonosc.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
