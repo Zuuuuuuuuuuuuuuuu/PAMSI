@@ -18,7 +18,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "",
 			"projects" : 
 			[
 				{
@@ -26,7 +26,7 @@
 					[
 						0
 					],
-					"name" : "przeszukiwanie",
+					"name" : "a.out",
 					"targetIndexes" : 
 					[
 						0
@@ -37,9 +37,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "przeszukiwanie::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-przeszukiwanie-Debug-9e113bcbd2cccb5f887d.json",
-					"name" : "przeszukiwanie",
+					"id" : "a.out::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-a.out-022e14828f8112b9ec12.json",
+					"name" : "a.out",
 					"projectIndex" : 0
 				}
 			]
@@ -48,8 +48,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build",
-		"source" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie"
+		"build" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build",
+		"source" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program"
 	},
 	"version" : 
 	{

@@ -1,0 +1,1 @@
+/bin/x86_64-linux-gnu-g++-9    -rdynamic CMakeFiles/a.out.dir/src/driver.cpp.o CMakeFiles/a.out.dir/src/files.cpp.o CMakeFiles/a.out.dir/src/merge_sort.cpp.o CMakeFiles/a.out.dir/src/quick_sort.cpp.o CMakeFiles/a.out.dir/src/vector.cpp.o  -o a.out 

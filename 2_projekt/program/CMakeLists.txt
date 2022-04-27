@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(przeszukiwanie) #  <--- w nawiasie nazwa programu
+project(a.out) #  <--- w nawiasie nazwa programu
 
 include_directories(inc)
 

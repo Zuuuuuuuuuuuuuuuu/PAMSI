@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie
+CMAKE_SOURCE_DIR = /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build
+CMAKE_BINARY_DIR = /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build/CMakeFiles /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build/CMakeFiles /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named przeszukiwanie
+# Target rules for targets named a.out
 
 # Build rule for target.
-przeszukiwanie: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 przeszukiwanie
-.PHONY : przeszukiwanie
+a.out: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 a.out
+.PHONY : a.out
 
 # fast build rule for target.
-przeszukiwanie/fast:
-	$(MAKE) -f CMakeFiles/przeszukiwanie.dir/build.make CMakeFiles/przeszukiwanie.dir/build
-.PHONY : przeszukiwanie/fast
+a.out/fast:
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/build
+.PHONY : a.out/fast
 
 src/driver.o: src/driver.cpp.o
 
@@ -129,7 +129,7 @@ src/driver.o: src/driver.cpp.o
 
 # target to build an object file
 src/driver.cpp.o:
-	$(MAKE) -f CMakeFiles/przeszukiwanie.dir/build.make CMakeFiles/przeszukiwanie.dir/src/driver.cpp.o
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/driver.cpp.o
 .PHONY : src/driver.cpp.o
 
 src/driver.i: src/driver.cpp.i
@@ -138,7 +138,7 @@ src/driver.i: src/driver.cpp.i
 
 # target to preprocess a source file
 src/driver.cpp.i:
-	$(MAKE) -f CMakeFiles/przeszukiwanie.dir/build.make CMakeFiles/przeszukiwanie.dir/src/driver.cpp.i
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/driver.cpp.i
 .PHONY : src/driver.cpp.i
 
 src/driver.s: src/driver.cpp.s
@@ -147,7 +147,7 @@ src/driver.s: src/driver.cpp.s
 
 # target to generate assembly for a file
 src/driver.cpp.s:
-	$(MAKE) -f CMakeFiles/przeszukiwanie.dir/build.make CMakeFiles/przeszukiwanie.dir/src/driver.cpp.s
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/driver.cpp.s
 .PHONY : src/driver.cpp.s
 
 src/files.o: src/files.cpp.o
@@ -156,7 +156,7 @@ src/files.o: src/files.cpp.o
 
 # target to build an object file
 src/files.cpp.o:
-	$(MAKE) -f CMakeFiles/przeszukiwanie.dir/build.make CMakeFiles/przeszukiwanie.dir/src/files.cpp.o
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/files.cpp.o
 .PHONY : src/files.cpp.o
 
 src/files.i: src/files.cpp.i
@@ -165,7 +165,7 @@ src/files.i: src/files.cpp.i
 
 # target to preprocess a source file
 src/files.cpp.i:
-	$(MAKE) -f CMakeFiles/przeszukiwanie.dir/build.make CMakeFiles/przeszukiwanie.dir/src/files.cpp.i
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/files.cpp.i
 .PHONY : src/files.cpp.i
 
 src/files.s: src/files.cpp.s
@@ -174,8 +174,62 @@ src/files.s: src/files.cpp.s
 
 # target to generate assembly for a file
 src/files.cpp.s:
-	$(MAKE) -f CMakeFiles/przeszukiwanie.dir/build.make CMakeFiles/przeszukiwanie.dir/src/files.cpp.s
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/files.cpp.s
 .PHONY : src/files.cpp.s
+
+src/merge_sort.o: src/merge_sort.cpp.o
+
+.PHONY : src/merge_sort.o
+
+# target to build an object file
+src/merge_sort.cpp.o:
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/merge_sort.cpp.o
+.PHONY : src/merge_sort.cpp.o
+
+src/merge_sort.i: src/merge_sort.cpp.i
+
+.PHONY : src/merge_sort.i
+
+# target to preprocess a source file
+src/merge_sort.cpp.i:
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/merge_sort.cpp.i
+.PHONY : src/merge_sort.cpp.i
+
+src/merge_sort.s: src/merge_sort.cpp.s
+
+.PHONY : src/merge_sort.s
+
+# target to generate assembly for a file
+src/merge_sort.cpp.s:
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/merge_sort.cpp.s
+.PHONY : src/merge_sort.cpp.s
+
+src/quick_sort.o: src/quick_sort.cpp.o
+
+.PHONY : src/quick_sort.o
+
+# target to build an object file
+src/quick_sort.cpp.o:
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/quick_sort.cpp.o
+.PHONY : src/quick_sort.cpp.o
+
+src/quick_sort.i: src/quick_sort.cpp.i
+
+.PHONY : src/quick_sort.i
+
+# target to preprocess a source file
+src/quick_sort.cpp.i:
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/quick_sort.cpp.i
+.PHONY : src/quick_sort.cpp.i
+
+src/quick_sort.s: src/quick_sort.cpp.s
+
+.PHONY : src/quick_sort.s
+
+# target to generate assembly for a file
+src/quick_sort.cpp.s:
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/quick_sort.cpp.s
+.PHONY : src/quick_sort.cpp.s
 
 src/vector.o: src/vector.cpp.o
 
@@ -183,7 +237,7 @@ src/vector.o: src/vector.cpp.o
 
 # target to build an object file
 src/vector.cpp.o:
-	$(MAKE) -f CMakeFiles/przeszukiwanie.dir/build.make CMakeFiles/przeszukiwanie.dir/src/vector.cpp.o
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/vector.cpp.o
 .PHONY : src/vector.cpp.o
 
 src/vector.i: src/vector.cpp.i
@@ -192,7 +246,7 @@ src/vector.i: src/vector.cpp.i
 
 # target to preprocess a source file
 src/vector.cpp.i:
-	$(MAKE) -f CMakeFiles/przeszukiwanie.dir/build.make CMakeFiles/przeszukiwanie.dir/src/vector.cpp.i
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/vector.cpp.i
 .PHONY : src/vector.cpp.i
 
 src/vector.s: src/vector.cpp.s
@@ -201,7 +255,7 @@ src/vector.s: src/vector.cpp.s
 
 # target to generate assembly for a file
 src/vector.cpp.s:
-	$(MAKE) -f CMakeFiles/przeszukiwanie.dir/build.make CMakeFiles/przeszukiwanie.dir/src/vector.cpp.s
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/vector.cpp.s
 .PHONY : src/vector.cpp.s
 
 # Help Target
@@ -212,13 +266,19 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... przeszukiwanie"
+	@echo "... a.out"
 	@echo "... src/driver.o"
 	@echo "... src/driver.i"
 	@echo "... src/driver.s"
 	@echo "... src/files.o"
 	@echo "... src/files.i"
 	@echo "... src/files.s"
+	@echo "... src/merge_sort.o"
+	@echo "... src/merge_sort.i"
+	@echo "... src/merge_sort.s"
+	@echo "... src/quick_sort.o"
+	@echo "... src/quick_sort.i"
+	@echo "... src/quick_sort.s"
 	@echo "... src/vector.o"
 	@echo "... src/vector.i"
 	@echo "... src/vector.s"

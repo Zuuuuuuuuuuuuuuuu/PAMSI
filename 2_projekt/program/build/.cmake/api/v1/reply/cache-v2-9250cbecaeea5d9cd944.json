@@ -2,30 +2,6 @@
 	"entries" : 
 	[
 		{
-			"name" : "2_projekt/1_przeszukiwanie_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build"
-		},
-		{
-			"name" : "2_projekt/1_przeszukiwanie_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie"
-		},
-		{
 			"name" : "CMAKE_ADDR2LINE",
 			"properties" : 
 			[
@@ -63,11 +39,11 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel ..."
 				}
 			],
 			"type" : "STRING",
-			"value" : "Debug"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -79,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build"
+			"value" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -543,11 +519,11 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "Enable/Disable output of compile commands during generation."
 				}
 			],
 			"type" : "BOOL",
-			"value" : "TRUE"
+			"value" : "OFF"
 		},
 		{
 			"name" : "CMAKE_EXTRA_GENERATOR",
@@ -619,7 +595,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie"
+			"value" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -863,7 +839,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "przeszukiwanie"
+			"value" : "a.out"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1146,7 +1122,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "przeszukiwanie_BINARY_DIR",
+			"name" : "a.out_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1155,10 +1131,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build"
+			"value" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build"
 		},
 		{
-			"name" : "przeszukiwanie_SOURCE_DIR",
+			"name" : "a.out_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1167,31 +1143,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie"
-		},
-		{
-			"name" : "wysylanie_wiadomosci_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build"
-		},
-		{
-			"name" : "wysylanie_wiadomosci_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie"
+			"value" : "/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program"
 		}
 	],
 	"kind" : "cache",

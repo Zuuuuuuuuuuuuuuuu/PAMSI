@@ -44,16 +44,16 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie
+CMAKE_SOURCE_DIR = /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build
+CMAKE_BINARY_DIR = /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/przeszukiwanie.dir/all
+all: CMakeFiles/a.out.dir/all
 
 .PHONY : all
 
@@ -63,36 +63,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/przeszukiwanie.dir/clean
+clean: CMakeFiles/a.out.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/przeszukiwanie.dir
+# Target rules for target CMakeFiles/a.out.dir
 
 # All Build rule for target.
-CMakeFiles/przeszukiwanie.dir/all:
-	$(MAKE) -f CMakeFiles/przeszukiwanie.dir/build.make CMakeFiles/przeszukiwanie.dir/depend
-	$(MAKE) -f CMakeFiles/przeszukiwanie.dir/build.make CMakeFiles/przeszukiwanie.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build/CMakeFiles --progress-num=1,2,3,4 "Built target przeszukiwanie"
-.PHONY : CMakeFiles/przeszukiwanie.dir/all
+CMakeFiles/a.out.dir/all:
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/depend
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target a.out"
+.PHONY : CMakeFiles/a.out.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/przeszukiwanie.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/przeszukiwanie.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/1_przeszukiwanie/build/CMakeFiles 0
-.PHONY : CMakeFiles/przeszukiwanie.dir/rule
+CMakeFiles/a.out.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/a.out.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build/CMakeFiles 0
+.PHONY : CMakeFiles/a.out.dir/rule
 
 # Convenience name for target.
-przeszukiwanie: CMakeFiles/przeszukiwanie.dir/rule
+a.out: CMakeFiles/a.out.dir/rule
 
-.PHONY : przeszukiwanie
+.PHONY : a.out
 
 # clean rule for target.
-CMakeFiles/przeszukiwanie.dir/clean:
-	$(MAKE) -f CMakeFiles/przeszukiwanie.dir/build.make CMakeFiles/przeszukiwanie.dir/clean
-.PHONY : CMakeFiles/przeszukiwanie.dir/clean
+CMakeFiles/a.out.dir/clean:
+	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/clean
+.PHONY : CMakeFiles/a.out.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
