@@ -1,9 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/a.out.dir/src/driver.cpp.o"
   "CMakeFiles/a.out.dir/src/files.cpp.o"
-  "CMakeFiles/a.out.dir/src/merge_sort.cpp.o"
-  "CMakeFiles/a.out.dir/src/quick_sort.cpp.o"
-  "CMakeFiles/a.out.dir/src/vector.cpp.o"
   "a.out"
   "a.out.pdb"
 )

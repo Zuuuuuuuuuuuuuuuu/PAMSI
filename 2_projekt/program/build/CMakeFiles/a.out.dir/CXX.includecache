@@ -6,7 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/src/merge_sort.cpp
+../inc/files.hh
 iostream
+-
+fstream
+-
+string
+-
+
+/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/src/driver.cpp
+files.hh
+/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/src/files.hh
+vector
 -
 

@@ -7,9 +7,3 @@ CMakeFiles/a.out.dir/src/driver.cpp.o: ../src/driver.cpp
 CMakeFiles/a.out.dir/src/files.cpp.o: ../inc/files.hh
 CMakeFiles/a.out.dir/src/files.cpp.o: ../src/files.cpp
 
-CMakeFiles/a.out.dir/src/merge_sort.cpp.o: ../src/merge_sort.cpp
-
-CMakeFiles/a.out.dir/src/quick_sort.cpp.o: ../src/quick_sort.cpp
-
-CMakeFiles/a.out.dir/src/vector.cpp.o: ../src/vector.cpp
-

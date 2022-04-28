@@ -177,87 +177,6 @@ src/files.cpp.s:
 	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/files.cpp.s
 .PHONY : src/files.cpp.s
 
-src/merge_sort.o: src/merge_sort.cpp.o
-
-.PHONY : src/merge_sort.o
-
-# target to build an object file
-src/merge_sort.cpp.o:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/merge_sort.cpp.o
-.PHONY : src/merge_sort.cpp.o
-
-src/merge_sort.i: src/merge_sort.cpp.i
-
-.PHONY : src/merge_sort.i
-
-# target to preprocess a source file
-src/merge_sort.cpp.i:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/merge_sort.cpp.i
-.PHONY : src/merge_sort.cpp.i
-
-src/merge_sort.s: src/merge_sort.cpp.s
-
-.PHONY : src/merge_sort.s
-
-# target to generate assembly for a file
-src/merge_sort.cpp.s:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/merge_sort.cpp.s
-.PHONY : src/merge_sort.cpp.s
-
-src/quick_sort.o: src/quick_sort.cpp.o
-
-.PHONY : src/quick_sort.o
-
-# target to build an object file
-src/quick_sort.cpp.o:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/quick_sort.cpp.o
-.PHONY : src/quick_sort.cpp.o
-
-src/quick_sort.i: src/quick_sort.cpp.i
-
-.PHONY : src/quick_sort.i
-
-# target to preprocess a source file
-src/quick_sort.cpp.i:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/quick_sort.cpp.i
-.PHONY : src/quick_sort.cpp.i
-
-src/quick_sort.s: src/quick_sort.cpp.s
-
-.PHONY : src/quick_sort.s
-
-# target to generate assembly for a file
-src/quick_sort.cpp.s:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/quick_sort.cpp.s
-.PHONY : src/quick_sort.cpp.s
-
-src/vector.o: src/vector.cpp.o
-
-.PHONY : src/vector.o
-
-# target to build an object file
-src/vector.cpp.o:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/vector.cpp.o
-.PHONY : src/vector.cpp.o
-
-src/vector.i: src/vector.cpp.i
-
-.PHONY : src/vector.i
-
-# target to preprocess a source file
-src/vector.cpp.i:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/vector.cpp.i
-.PHONY : src/vector.cpp.i
-
-src/vector.s: src/vector.cpp.s
-
-.PHONY : src/vector.s
-
-# target to generate assembly for a file
-src/vector.cpp.s:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/vector.cpp.s
-.PHONY : src/vector.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -273,15 +192,6 @@ help:
 	@echo "... src/files.o"
 	@echo "... src/files.i"
 	@echo "... src/files.s"
-	@echo "... src/merge_sort.o"
-	@echo "... src/merge_sort.i"
-	@echo "... src/merge_sort.s"
-	@echo "... src/quick_sort.o"
-	@echo "... src/quick_sort.i"
-	@echo "... src/quick_sort.s"
-	@echo "... src/vector.o"
-	@echo "... src/vector.i"
-	@echo "... src/vector.s"
 .PHONY : help
 
 

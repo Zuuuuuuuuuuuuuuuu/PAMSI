@@ -83,64 +83,19 @@ CMakeFiles/a.out.dir/src/files.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/src/files.cpp.s"
 	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/src/files.cpp -o CMakeFiles/a.out.dir/src/files.cpp.s
 
-CMakeFiles/a.out.dir/src/merge_sort.cpp.o: CMakeFiles/a.out.dir/flags.make
-CMakeFiles/a.out.dir/src/merge_sort.cpp.o: ../src/merge_sort.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/a.out.dir/src/merge_sort.cpp.o"
-	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.out.dir/src/merge_sort.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/src/merge_sort.cpp
-
-CMakeFiles/a.out.dir/src/merge_sort.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.out.dir/src/merge_sort.cpp.i"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/src/merge_sort.cpp > CMakeFiles/a.out.dir/src/merge_sort.cpp.i
-
-CMakeFiles/a.out.dir/src/merge_sort.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/src/merge_sort.cpp.s"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/src/merge_sort.cpp -o CMakeFiles/a.out.dir/src/merge_sort.cpp.s
-
-CMakeFiles/a.out.dir/src/quick_sort.cpp.o: CMakeFiles/a.out.dir/flags.make
-CMakeFiles/a.out.dir/src/quick_sort.cpp.o: ../src/quick_sort.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/a.out.dir/src/quick_sort.cpp.o"
-	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.out.dir/src/quick_sort.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/src/quick_sort.cpp
-
-CMakeFiles/a.out.dir/src/quick_sort.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.out.dir/src/quick_sort.cpp.i"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/src/quick_sort.cpp > CMakeFiles/a.out.dir/src/quick_sort.cpp.i
-
-CMakeFiles/a.out.dir/src/quick_sort.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/src/quick_sort.cpp.s"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/src/quick_sort.cpp -o CMakeFiles/a.out.dir/src/quick_sort.cpp.s
-
-CMakeFiles/a.out.dir/src/vector.cpp.o: CMakeFiles/a.out.dir/flags.make
-CMakeFiles/a.out.dir/src/vector.cpp.o: ../src/vector.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/a.out.dir/src/vector.cpp.o"
-	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.out.dir/src/vector.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/src/vector.cpp
-
-CMakeFiles/a.out.dir/src/vector.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.out.dir/src/vector.cpp.i"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/src/vector.cpp > CMakeFiles/a.out.dir/src/vector.cpp.i
-
-CMakeFiles/a.out.dir/src/vector.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/src/vector.cpp.s"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/src/vector.cpp -o CMakeFiles/a.out.dir/src/vector.cpp.s
-
 # Object files for target a.out
 a_out_OBJECTS = \
 "CMakeFiles/a.out.dir/src/driver.cpp.o" \
-"CMakeFiles/a.out.dir/src/files.cpp.o" \
-"CMakeFiles/a.out.dir/src/merge_sort.cpp.o" \
-"CMakeFiles/a.out.dir/src/quick_sort.cpp.o" \
-"CMakeFiles/a.out.dir/src/vector.cpp.o"
+"CMakeFiles/a.out.dir/src/files.cpp.o"
 
 # External object files for target a.out
 a_out_EXTERNAL_OBJECTS =
 
 a.out: CMakeFiles/a.out.dir/src/driver.cpp.o
 a.out: CMakeFiles/a.out.dir/src/files.cpp.o
-a.out: CMakeFiles/a.out.dir/src/merge_sort.cpp.o
-a.out: CMakeFiles/a.out.dir/src/quick_sort.cpp.o
-a.out: CMakeFiles/a.out.dir/src/vector.cpp.o
 a.out: CMakeFiles/a.out.dir/build.make
 a.out: CMakeFiles/a.out.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable a.out"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable a.out"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/a.out.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
