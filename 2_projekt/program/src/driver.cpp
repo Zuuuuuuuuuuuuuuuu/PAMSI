@@ -89,7 +89,7 @@ void merge_sort(float array[], int const begin, int const end)                  
 
 int partition(float array[], int begin, int end)
 {
-    int middle = (end - begin) / 2;     // środek w tablicy
+    int middle = (end + begin) / 2;     // środek w tablicy
     int pivot = array[middle];          // wartość wyznaczonego elementu środkowego tablicy jako piwot (E)
 
     int count = 0;
@@ -103,20 +103,6 @@ int partition(float array[], int begin, int end)
 
     int new_index_pivot = begin + count - 1;            // -1 bo w powyższej pętli wliczono piwot; nowy indeks piwota
     std::swap(array[new_index_pivot], array[middle]);   // E w dobrym miejscu
-
-
-    // int pivot = array[begin];
- 
-    // int count = 0;
-    // for (int i = begin + 1; i <= end; i++) {
-    //     if (array[i] <= pivot)
-    //         count++;
-    // }
- 
-    // // Giving pivot element its correct position
-    // int new_index_pivot = begin + count;
-    // std::swap(array[new_index_pivot], array[begin]);
-
 
     
     // sortowanie co po lewej (L) i co po prawej (G) stronie piwota
@@ -152,14 +138,7 @@ void quicksort(float array[], int begin, int end)
 
     int p_index = partition(array, begin, end);
     quicksort(array, begin, p_index-1);
-    
     quicksort(array, p_index + 1, end);
-    
-    std::cout << "Tekst\n";
-    // for( int i = 0; i < 10; i++)
-    // {
-    //     std::cout << array[i] << " ";
-    // }
 }
 
 
