@@ -173,12 +173,13 @@ int main()
     std::string rating;
     std::vector<std::pair<std::string, std::string>> structure;
 
-    plik.open_input_file(" test_dane.csv ");
+    plik.open_input_file("projekt2_dane.csv");
 
     while(true)
     {
         plik.read_file(title, rating);
         structure.push_back( std::make_pair (title, rating) );  // wpisywanie pary do wektora
+        //std::cout << title << " " << rating << "\n";
         if (plik.end_of_file() )
         {
             break;
@@ -188,8 +189,7 @@ int main()
     plik.close_input_file();
 
 
-    //auto begin = std::chrono::high_resolution_clock::now();
-
+    auto begin = std::chrono::high_resolution_clock::now();
     // pętla przeszukiwania pustych pól w vectorze w rating
     for (int i = 0; i< structure.size(); ++i)
     {
@@ -199,14 +199,14 @@ int main()
         }
     }
 
-    for ( int i = 0; i< structure.size(); ++i )
-    {
-        std::cout << structure[i].first  << " " <<  structure[i].second  << std::endl;
-    }
+    // for ( int i = 0; i< structure.size(); ++i )
+    // {
+    //     std::cout << structure[i].first  << " " <<  structure[i].second  << std::endl;
+    // }
 
-    //auto end = std::chrono::high_resolution_clock::now();
-    //auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-    //dane << elapsed.count() << "\n";
+    auto end = std::chrono::high_resolution_clock::now();
+    auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    dane << elapsed.count() << "\n";
 
 
 
