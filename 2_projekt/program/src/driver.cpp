@@ -10,26 +10,23 @@
 /*                                                    */
 /******************************************************/
 
-void merge(std::pair<std::string, float> array[], int left, int middle, int right)    // funkcja do scalania sub-tablic
+void merge(float array[], int left, int middle, int right)    // funkcja do scalania sub-tablic
 {
     // podział tablicy na dwie części
     int sub_array1 = middle - left + 1;           // liczba elementów do pierwszej i drugiej sub-tablicy
     int sub_array2 = right - middle;
 
-    std::pair<std::string, float> *left_array = new std::pair<std::string, float>[sub_array1];    // tworzenie nowych dynamicznych sub-tablic o zadanej liczbie elementów
-    std::pair<std::string, float> *right_array = new std::pair<std::string, float>[sub_array2];
+    float *left_array = new float[sub_array1];    // tworzenie nowych dynamicznych sub-tablic o zadanej liczbie elementów
+    float *right_array = new float[sub_array2];
     
     for (int i = 0; i < sub_array1; i++)          //  wpisywanie odpowiednich elementów z podstawowej tablicy array do lewej sub-tablicy
     {
-        left_array[i].first = array[left + i].first;
-        left_array[i].second = array[left + i].second;
+        left_array[i] = array[left + i];
     }
     
     for (int i = 0; i < sub_array2; i++)          //  wpisywanie odpowiednich elementów z podstawowej tablicy array do prawej sub-tablicy
     {
-        // right_array[i].first = array[middle + 1 + i].first; // TU SEG FAULT 
-        // right_array[i].second = array[middle + 1 + i].second;
-        right_array[i] = array[middle + i];
+        right_array[i] = array[middle + 1 + i];
     }
 
     int index_sub_array1 = 0;                     // pierwsze indeksy sub-tablic 
@@ -39,10 +36,9 @@ void merge(std::pair<std::string, float> array[], int left, int middle, int righ
     // sortowanie --> wkładanie odpowiednich elementów do wyjściowej tablicy
     while (index_sub_array1 < sub_array1 && index_sub_array2 < sub_array2)          // dopóki w obydwu sub-tablicach coś jest
     {
-        if (left_array[index_sub_array1].second <= right_array[index_sub_array2].second )         // jeżeli dany element lewej tablicy jest mniejszy ...
+        if (left_array[index_sub_array1] <= right_array[index_sub_array2] )         // jeżeli dany element lewej tablicy jest mniejszy ...
         {
-            array[index_merged_arrays].first = left_array[index_sub_array1].first;              // przypisanie do tablicy wyjściowej mniejszego elementu // TU SEG FAULT 
-            array[index_merged_arrays].second = left_array[index_sub_array1].second;
+            array[index_merged_arrays] = left_array[index_sub_array1];              // przypisanie do tablicy wyjściowej mniejszego elementu // TU SEG FAULT 
             index_sub_array1++;
         }
 
@@ -72,7 +68,7 @@ void merge(std::pair<std::string, float> array[], int left, int middle, int righ
     }
 }
 
-void merge_sort(std::pair<std::string, float> array[], int const begin, int const end)                      // funkcja do sortowania przez scalanie
+void merge_sort(float array[], int const begin, int const end)                      // funkcja do sortowania przez scalanie
 {   
     // krok podstawowy
     if (begin >= end)                                    // jeżeli po dzieleniu sub-tablic zostanie 1 element --> zostanie zwrócony
@@ -173,39 +169,46 @@ int main()
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11 usuniecie pierwszego wiersza
 
-    file plik;
+   // file plik;
+    std::fstream only_ratings_file("plik_z_danymi_tylko_rating.txt", std::ios::in);
     std::fstream dane("przefiltrowane_dane_10tys.txt", std::ios::out);    // plik do zapisu czasu
     std::fstream dane1("przefiltrowane_dane_100tys.txt", std::ios::out);    // plik do zapisu czasu
     std::fstream dane2("przefiltrowane_dane_500tys.txt", std::ios::out);    // plik do zapisu czasu
     std::fstream dane3("przefiltrowane_dane_max.txt", std::ios::out);    // plik do zapisu czasu
 
-    std::string title;
-    std::string rating;
-    std::vector<std::pair<std::string, std::string>> structure;
+    // std::string title;
+    // std::string rating;
+    // std::vector<std::pair<std::string, std::string>> structure;
 
-    plik.open_input_file("projekt2_dane.csv");
+    // plik.open_input_file("projekt2_dane.csv");
 
 
-    while(true)
-    {
-        plik.read_file(title, rating);
-        structure.push_back( std::make_pair (title, rating) );  // wpisywanie pary do wektora
-        if (plik.end_of_file()) 
-        {
-            break;
-        }
-    }
+    // while(true)
+    // {
+    //     plik.read_file(title, rating);
+    //     structure.push_back( std::make_pair (title, rating) );  // wpisywanie pary do wektora
+    //     if (plik.end_of_file()) 
+    //     {
+    //         break;
+    //     }
+    // }
 
-    plik.close_input_file();
+    // plik.close_input_file();
 
-    // pętla przeszukiwania pustych pól w vectorze w rating
-        for (int i = 0; i< structure.size(); ++i)
-    {
-        if ( structure[i].second.empty() )      // znalezienie pustego pola rating
-        {
-            structure.erase(structure.begin() + i--);
-        }
-    }
+    // // pętla przeszukiwania pustych pól w vectorze w rating
+    // for (int i = 0; i< structure.size(); ++i)
+    // {
+    //     if ( structure[i].second.empty() )      // znalezienie pustego pola rating
+    //     {
+    //         structure.erase(structure.begin() + i--);
+    //     }
+    // }
+
+    // for (int i = 0; i < structure.size(); ++i)
+    // {
+    //     only_ratings_file << structure[i].second << "\n";
+    // }
+
 
     // auto begin = std::chrono::high_resolution_clock::now();
     // auto end = std::chrono::high_resolution_clock::now();
@@ -215,13 +218,31 @@ int main()
 
 
     // konwersja string na float
-    std::vector<std::pair<std::string, float>> structure2;
-    for (int i = 0; i < structure.size(); ++i)
+    // std::vector<std::pair<std::string, float>> structure2;
+    // for (int i = 0; i < structure.size(); ++i)
+    // {
+    //     float rating = std::stof(structure[i].second);
+    //     structure2.push_back( std::make_pair (title, rating) );
+    // }
+
+    std::vector <float> structure3;
+    std::string tmp;
+    
+    while (true)
     {
-        float rating = std::stof(structure[i].second);
-        structure2.push_back( std::make_pair (title, rating) );
+        if (only_ratings_file.eof())
+        {
+            break;
+        }
+        std::getline(only_ratings_file, tmp);
+        structure3.push_back(std::stof(tmp));
     }
 
+    // for (int i = 0; i < structure3.size(); ++i)
+    // {
+    //     float rating = std::stof(structure[i].second);
+    //     structure3.push_back(rating);
+    // }
 
 
 
@@ -247,66 +268,73 @@ int main()
     std::random_device rd;
     std::mt19937 g(rd());
 
-    // for (int i = 100; i < 10000; i+=100)
-    // {
-    //     std::cout << "Zaczynam działanie kapitanie\n";
-    //     auto begin = std::chrono::high_resolution_clock::now();
-
-    //     merge_sort(structure2.data(), 0, i);
-
-    //     auto end = std::chrono::high_resolution_clock::now();
-    //     auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-    //     dane << elapsed.count() << "\n";
-    //     std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
+    std::cout << "Zaczynam działanie kapitanie dla 10tys\n";
 
 
-    //     std::shuffle(structure2.data(), structure2.data() + i, g);
-    // }
+    for (int i = 100; i < 10000; i+=100)
+    {
+        auto begin = std::chrono::high_resolution_clock::now();
 
-    // for (int i = 100; i < 100000; i+=1000)
-    // {
-    //     auto begin = std::chrono::high_resolution_clock::now();
+        merge_sort(structure3.data(), 0, i);
 
-    //     merge_sort(structure2.data(), 0, i);
+        auto end = std::chrono::high_resolution_clock::now();
+        auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+        dane << elapsed.count() << "\n";
+        std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
 
-    //     auto end = std::chrono::high_resolution_clock::now();
-    //     auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-    //     dane1 << elapsed.count() << "\n";
-    //     std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
+        std::shuffle(structure3.data(), structure3.data() + i, g);
+    }
 
-    //     std::shuffle(structure2.data(), structure2.data() + i, g);
+    std::cout << "Zaczynam działanie kapitanie dla 100tys\n";
 
-    // }
+    for (int i = 100; i < 100000; i+=1000)
+    {
+        auto begin = std::chrono::high_resolution_clock::now();
+
+        merge_sort(structure3.data(), 0, i);
+
+        auto end = std::chrono::high_resolution_clock::now();
+        auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+        dane1 << elapsed.count() << "\n";
+        std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
+
+        std::shuffle(structure3.data(), structure3.data() + i, g);
+
+    }
+
+    std::cout << "Zaczynam działanie kapitanie dla 500tys\n";
 
     for (int i = 100; i < 500000; i+=5000)
     {
         auto begin = std::chrono::high_resolution_clock::now();
 
-        merge_sort(structure2.data(), 0, i);
+        merge_sort(structure3.data(), 0, i);
 
         auto end = std::chrono::high_resolution_clock::now();
         auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
         dane2 << elapsed.count() << "\n";
         std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
 
-        std::shuffle(structure2.data(), structure2.data() + i, g);
+        std::shuffle(structure3.data(), structure3.data() + i, g);
 
     }
 
-    //     for (int i = 100; i < structure2.size(); i+=10000)
-    // {
-    //     auto begin = std::chrono::high_resolution_clock::now();
+    std::cout << "Zaczynam działanie kapitanie dla maxa. Zapnij pasy.\n";
 
-    //     merge_sort(structure2.data(), 0, i);
+        for (int i = 100; i < structure3.size(); i+=10000)
+    {
+        auto begin = std::chrono::high_resolution_clock::now();
 
-    //     auto end = std::chrono::high_resolution_clock::now();
-    //     auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-    //     dane3 << elapsed.count() << "\n";
-    //     std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
+        merge_sort(structure3.data(), 0, i);
 
-    //     std::shuffle(structure2.data(), structure2.data() + i, g);
+        auto end = std::chrono::high_resolution_clock::now();
+        auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+        dane3 << elapsed.count() << "\n";
+        std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
 
-    // }
+        std::shuffle(structure3.data(), structure3.data() + i, g);
+
+    }
 
 
 
