@@ -1,0 +1,18 @@
+\babel@toc {polish}{}
+\contentsline {section}{\numberline {1}Wprowadzenie}{2}{section.1}%
+\contentsline {section}{\numberline {2}Opis badanych algorytmów i ich złożoność obliczeniowa}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Sortowanie przez scalanie}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Sortowanie szybkie}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Sortowanie introspektywne}{2}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Porównanie złożoności obliczeniowych wybranych algorytmów}{2}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Zadanie 1 - przeszukanie i przefiltrowanie danych}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Krótki opis}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Analiza złożoności}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Czas przeszukiwania}{4}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Analiza złożoności algorytmów sortowań}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Przebieg eksperymentów}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Sortowanie przez scalanie}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Sortowanie szybkie}{4}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Sortowanie introspektywne}{4}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Podsumowanie i wnioski}{4}{section.5}%
+\contentsline {section}{\numberline {6}Bibliografia}{4}{section.6}%

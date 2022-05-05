@@ -24,16 +24,45 @@
 \usepackage{multicol}
 \usepackage{pgfplots}
 \usepackage{listings}
+\usepackage{fancyhdr}
 \newgeometry{tmargin=1.8cm,bmargin=1.8cm,lmargin =1.8cm,rmargin=1.8cm}
+
+
+\newgeometry{tmargin=1.8cm,bmargin=1.8cm,lmargin =1.8cm,rmargin=1.8cm}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textit{Zuzanna Mejer} }
+\lhead{\textit{Algorytmy sortowania} }
+\cfoot{\thepage}
+
 
 \begin{document}
     
 \input{str_tytulowa.tex}
+\tableofcontents
+\newpage
 
 \section{Wprowadzenie}
-\section{Algorytmy i ich złożoność obliczeniowa}
-\section{Przebieg eksperymentów (i wyniki)}
+Zadanie miało na celu zapoznanie się z algorytmami sortowania oraz przeprowadzenie analizy efektywności wybranych i zaimplementowanych sortowań. Z wymienionych algorytmów wybrałam sortowania: przez scalanie, szybkie oraz introspektywne. 
+
+\section{Opis badanych algorytmów i ich złożoność obliczeniowa}
+\input{opis_badanych_algorytmow.tex}
+
+\section{Zadanie 1 - przeszukanie i przefiltrowanie danych}
+\subsection{Krótki opis}
+Plik udostępniony do sortowania był okrojoną bazą filmów ,,IMDb Largest Review Dataset'' ze strony kaggle.com. Plik zawierał tytuły filmów oraz przypisane im oceny. Niektóre pola z ocenami były puste, zatem przed wykonaniem zadań związanych z sortowaniem, należało wykonać przeszukanie i usunięcie wpisów bez ocen. Do wykonania tego zadania, zastosowano gotową strukturę z biblioteki STL: \textit{std::vector}. Mimo chęci wykonania sortowań na strukturze dwuelementowej: \textit{std::vector< std::pair <std::string, float> >}, przechowującej i tytuł filmu, i ocenę, komputery, na których wykonywałam testy złożoności obliczeniowej, nie były w stanie wykonać sortowań dla maksymalnej liczby elementów z pliku. Podsumowując, wykonane zostało przeszukiwanie, wykorzystujące strukturę jednoelementową, a następnie sortowane były jedynie oceny filmów.
+\subsection{Analiza złożoności}
+\subsection{Czas przeszukiwania}
+
+\section{Analiza złożoności algorytmów sortowań}
+\subsection{Przebieg eksperymentów}
+\subsection{Sortowanie przez scalanie}
+\subsection{Sortowanie szybkie}
+\subsection{Sortowanie introspektywne}
+
+
 \section{Podsumowanie i wnioski}
+
 \section{Bibliografia}
 
 \end{document}
