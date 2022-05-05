@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.3.8)  5 MAY 2022 18:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.3.8)  6 MAY 2022 01:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -678,7 +678,9 @@ Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
 \f@nch@O@erf=\skip73
 \f@nch@O@olf=\skip74
 \f@nch@O@orf=\skip75
-)
+) (/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplotstable.sty (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplotstable 2018/03/28 v1.16 Table typesetting and Pretty-printing (1.16)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable.coltype.code.tex)))
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: 
 * paper: <default>
@@ -747,7 +749,12 @@ Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count330
 \l__pdf_internal_box=\box114
-) (/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/main.aux)
+)
+(/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/main.aux
+
+LaTeX Warning: Label `fig: scalanie' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
@@ -879,7 +886,7 @@ Package pgfplots Warning: running in backwards compatibility mode (unsuitable ti
  on input line 39.
 
 (/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/str_tytulowa.tex
-<logo-PWr.png, id=75, 540.0978pt x 135.8676pt>
+<logo-PWr.png, id=91, 540.0978pt x 135.8676pt>
 File: logo-PWr.png Graphic file (type png)
 <use logo-PWr.png>
 Package pdftex.def Info: logo-PWr.png  used on input line 4.
@@ -902,33 +909,71 @@ This may cause the page layout to be inconsistent, however.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.43 \newpage
+l.45 \newpage
               [1] (/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/opis_badanych_algorytmow.tex [2]
 NOTE: coordinate (0Y0.0e0],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
 Missing character: There is no ; in font nullfont!
-) [3] [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 68.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 68.
+
+Overfull \hbox (6.28731pt too wide) in paragraph at lines 50--51
+ [][] 
+ []
+
+) (/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/implementacja_algorytmow.tex) (/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/zadanie1.tex (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2019/09/10 1.8c listings language file
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2019/09/10 1.8c listings language file
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
+) [3]
+PGFPlots: reading {empty.txt}
+PGFPlots: reading {empty.txt}
+PGFPlots: reading {erase.txt}
+PGFPlots: reading {erase.txt}
+ [4]
+PGFPlots: reading {zad1.txt}
+Missing character: There is no ; in font nullfont!
+ [5]) (/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/analiza_zlozonosci.tex
+PGFPlots: reading {przefiltrowane_dane_10tys.txt}
+PGFPlots: reading {przefiltrowane_dane_100tys.txt}
+PGFPlots: reading {przefiltrowane_dane_500tys.txt}
+PGFPlots: reading {przefiltrowane_dane_max.txt}
+ [6]
+PGFPlots: reading {quick_przefiltrowane_dane_10tys.txt}
+PGFPlots: reading {quick_przefiltrowane_dane_100tys.txt}
+PGFPlots: reading {quick_przefiltrowane_dane_500tys.txt}
+PGFPlots: reading {quick_przefiltrowane_dane_max.txt}
+ [7]
+PGFPlots: reading {intro_przefiltrowane_dane_10tys.txt}
+PGFPlots: reading {intro_przefiltrowane_dane_100tys.txt}
+PGFPlots: reading {intro_przefiltrowane_dane_500tys.txt}
+PGFPlots: reading {intro_przefiltrowane_dane_max.txt}
+ [8]) (/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/srednia_mediana.tex) [9] [10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 73.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 73.
  (/home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 68.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 68.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 73.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 73.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 476E5542D1F677E20788D3BFB5F0A3D0;1236.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 68.
+(rerunfilecheck)             Checksum: 842CCAF83890249E75D68494E0D1619E;1520.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 73.
  ) 
 Here is how much of TeX's memory you used:
- 31340 strings out of 483148
- 725367 string characters out of 5965417
- 1647052 words of memory out of 5000000
- 45770 multiletter control sequences out of 15000+600000
- 544060 words of font info for 47 fonts, out of 8000000 for 9000
+ 32595 strings out of 483148
+ 755130 string characters out of 5965417
+ 1440488 words of memory out of 5000000
+ 46920 multiletter control sequences out of 15000+600000
+ 545816 words of font info for 50 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
- 68i,19n,98p,968b,2189s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2488.603pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm3583.670pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2488.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/main.pdf (5 pages, 202599 bytes).
+ 68i,21n,98p,1081b,2236s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2488.603pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm3583.670pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2488.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
+Output written on /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/main.pdf (11 pages, 370123 bytes).
 PDF statistics:
- 496 PDF objects out of 1000 (max. 8388607)
- 173 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
- 154 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 659 PDF objects out of 1000 (max. 8388607)
+ 272 compressed objects within 3 object streams
+ 68 named destinations out of 1000 (max. 500000)
+ 186 words of extra memory for PDF output out of 10000 (max. 10000000)
 

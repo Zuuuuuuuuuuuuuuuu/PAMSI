@@ -4,14 +4,18 @@
 \BOOKMARK [2][-]{subsection.2.2}{Sortowanie szybkie}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{Sortowanie introspektywne}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.4}{Por\363wnanie z\233ozonosci obliczeniowych wybranych algorytm\363w}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Zadanie 1 - przeszukanie i przefiltrowanie danych}{}% 7
-\BOOKMARK [2][-]{subsection.3.1}{Kr\363tki opis}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.2}{Analiza z\233ozonosci}{section.3}% 9
-\BOOKMARK [2][-]{subsection.3.3}{Czas przeszukiwania}{section.3}% 10
-\BOOKMARK [1][-]{section.4}{Analiza z\233ozonosci algorytm\363w sortowan}{}% 11
-\BOOKMARK [2][-]{subsection.4.1}{Przebieg eksperyment\363w}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.2}{Sortowanie przez scalanie}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.3}{Sortowanie szybkie}{section.4}% 14
-\BOOKMARK [2][-]{subsection.4.4}{Sortowanie introspektywne}{section.4}% 15
-\BOOKMARK [1][-]{section.5}{Podsumowanie i wnioski}{}% 16
-\BOOKMARK [1][-]{section.6}{Bibliografia}{}% 17
+\BOOKMARK [1][-]{section.3}{Implementacja algorytm\363w sortowania}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Sortowanie przez scalanie}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Sortowanie szybkie}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Sortowanie introspektywne}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Zadanie 1 - przeszukanie i przefiltrowanie danych}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Kr\363tki opis}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.2}{Analiza z\233ozonosci}{section.4}% 13
+\BOOKMARK [1][-]{section.5}{Analiza z\233ozonosci algorytm\363w sortowan}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{Przebieg eksperyment\363w}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.2}{Sortowanie przez scalanie}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.3}{Sortowanie szybkie}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.4}{Sortowanie introspektywne}{section.5}% 18
+\BOOKMARK [1][-]{section.6}{Srednia wartosc i mediana}{}% 19
+\BOOKMARK [1][-]{section.7}{Podsumowanie i wnioski}{}% 20
+\BOOKMARK [1][-]{section.8}{Bibliografia}{}% 21

@@ -260,7 +260,30 @@ void intro_sort(float *arr , int size ) {
 }
 
 
+float arithmetic_mean(std::vector<float> structure3, int j)
+    {
+        float srednia=0;
+        for (int i = 0; i < j; i++)
+        {
+            srednia += structure3[i];
+        }
 
+        return srednia/j; 
+    }
+
+    float mediana(std::vector<float> structure3, int j)
+    {
+        float k=0;
+        if (j%2 == 0)   //jest parzysta liczba elementow
+        {
+            return structure3[j/2];
+        }
+        else 
+        {
+            k = ( j/2 + j/2+1 ) / 2;
+            return k; 
+        }
+    }
 
 
 int main()
@@ -284,10 +307,12 @@ int main()
     // std::fstream dane1_quick("quick_przefiltrowane_dane_100tys.txt", std::ios::out);    // plik do zapisu czasu
     // std::fstream dane2_quick("quick_przefiltrowane_dane_500tys.txt", std::ios::out);    // plik do zapisu czasu
     // std::fstream dane3_quick("quick_przefiltrowane_dane_max.txt", std::ios::out);    // plik do zapisu czasu
-    std::fstream dane_intro("intro_przefiltrowane_dane_10tys.txt", std::ios::out);    // plik do zapisu czasu
-    std::fstream dane1_intro("intro_przefiltrowane_dane_100tys.txt", std::ios::out);    // plik do zapisu czasu
-    std::fstream dane2_intro("intro_przefiltrowane_dane_500tys.txt", std::ios::out);    // plik do zapisu czasu
-    std::fstream dane3_intro("intro_przefiltrowane_dane_max.txt", std::ios::out);    // plik do zapisu czasu
+    // std::fstream dane_intro("intro_przefiltrowane_dane_10tys.txt", std::ios::out);    // plik do zapisu czasu
+    // std::fstream dane1_intro("intro_przefiltrowane_dane_100tys.txt", std::ios::out);    // plik do zapisu czasu
+    // std::fstream dane2_intro("intro_przefiltrowane_dane_500tys.txt", std::ios::out);    // plik do zapisu czasu
+    // std::fstream dane3_intro("intro_przefiltrowane_dane_max.txt", std::ios::out);    // plik do zapisu czasu
+
+
 
     // std::string title;
     // std::string rating;
@@ -382,6 +407,123 @@ int main()
     // std::mt19937 g(rd());
 
     // std::cout << "Zaczynam działanie kapitanie dla 10tys\n";
+
+    
+    // ŚREDNIA I MEDIANA
+
+
+    // merge_sort(structure3.data(), 0, 10000);
+    // float aa = arithmetic_mean(structure3, 10000);
+    // float bb = mediana(structure3, 10000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   merge_sort 10 000 \n";
+
+    // merge_sort(structure3.data(), 0, 100000);
+    // aa = arithmetic_mean(structure3, 100000);
+    // bb = mediana(structure3, 100000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   merge_sort 100 000 \n";
+
+    // merge_sort(structure3.data(), 0, 500000);
+    // aa = arithmetic_mean(structure3, 500000);
+    // bb = mediana(structure3, 500000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   merge_sort 500 000 \n";
+
+    // merge_sort(structure3.data(), 0, structure3.size()-1);
+    // aa = arithmetic_mean(structure3, structure3.size()-1);
+    // bb = mediana(structure3, structure3.size()-1);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   merge_sort max \n";
+
+    
+
+    quicksort(structure3.data(), 0, 10000);
+    float aa = arithmetic_mean(structure3, 10000);
+    float bb = mediana(structure3, 10000);
+    std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   quicksort 10 000 \n";
+
+    quicksort(structure3.data(), 0, 100000);
+    aa = arithmetic_mean(structure3, 100000);
+    bb = mediana(structure3, 100000);
+    std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   quicksort 100 000 \n";
+
+    quicksort(structure3.data(), 0, 500000);
+    aa = arithmetic_mean(structure3, 500000);
+    bb = mediana(structure3, 500000);
+    std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   quicksort 500 000 \n";
+
+    quicksort(structure3.data(), 0, structure3.size()-1);
+    aa = arithmetic_mean(structure3, structure3.size()-1);
+    bb = mediana(structure3, structure3.size()-1);
+    std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   quicksort max \n";
+
+
+
+    // intro_sort(structure3.data(), 10000);
+    // aa = arithmetic_mean(structure3, 10000);
+    // bb = mediana(structure3, 10000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   intro_sort 10 000 \n";
+
+    // intro_sort(structure3.data(), 100000);
+    // aa = arithmetic_mean(structure3, 100000);
+    // bb = mediana(structure3, 100000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "    intro_sort 100 000 \n";
+
+    // intro_sort(structure3.data(), 500000);
+    // aa = arithmetic_mean(structure3, 500000);
+    // bb = mediana(structure3, 500000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   intro_sort 500 000 \n";
+
+    // intro_sort(structure3.data(), structure3.size()-1);
+    // aa = arithmetic_mean(structure3, structure3.size()-1);
+    // bb = mediana(structure3, structure3.size()-1);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   intro_sort max \n";
+    // std :: cout << "Kocham Zuzuie" << '\n';
+    // std :: sort(structure3.begin(),structure3.begin() + 10000);
+    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 10000, 0);
+    // std :: cout << aa / 10000 << '\n';
+
+    // std :: sort(structure3.begin(),structure3.begin() + 100000);
+    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 100000, 0);
+    // std :: cout << aa / 100000 << '\n';
+
+    // std :: sort(structure3.begin(),structure3.begin() + 500000);
+    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 500000, 0);
+    // std :: cout << aa / 500000 << '\n';
+    // std :: cout << "Kocham Zuzuie <3" << '\n';
+
+    // std :: sort(structure3.begin(),structure3.end());
+    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 10000, 0);
+    // std :: cout << aa / 10000 << '\n';
+    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 100000, 0);
+    // std :: cout << aa / 100000 << '\n';
+    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 500000, 0);
+    // std :: cout << aa / 500000 << '\n';
+
+    // aa =  std :: accumulate(structure3.begin(), structure3.end(), 0);
+    // std :: cout << aa / structure3.size() << '\n';
+
+
+
+
+
+
+
+    // for (int i = 100; i < 10000; i+=100)
+    // {
+
+    //     merge_sort(structure3.data(), 0, i);
+
+    //     aut elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    //     dane << elapsed.count() << "\n";
+    //     std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
+
+    //     std::shuffle(structure3.data(), structure3.data() + i, g);
+    // }
+
+
+
+
+
+
+
 
 
     // for (int i = 100; i < 10000; i+=100)
@@ -572,76 +714,76 @@ int main()
 /******************************************************/
 
 
-    std::random_device rd;
-    std::mt19937 g(rd());
+    // std::random_device rd;
+    // std::mt19937 g(rd());
 
-    std::cout << "Zaczynam działanie kapitanie dla 10tys\n";
+    // std::cout << "Zaczynam działanie kapitanie dla 10tys\n";
 
 
-    for (int i = 100; i < 10000; i+=100)
-    {
-        auto begin = std::chrono::high_resolution_clock::now();
+    // for (int i = 100; i < 10000; i+=100)
+    // {
+    //     auto begin = std::chrono::high_resolution_clock::now();
 
-        intro_sort(structure3.data(), i);
+    //     intro_sort(structure3.data(), i);
 
-        auto end = std::chrono::high_resolution_clock::now();
-        auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-        dane_intro << elapsed.count() << "\n";
-        std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
+    //     auto end = std::chrono::high_resolution_clock::now();
+    //     auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    //     dane_intro << elapsed.count() << "\n";
+    //     std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
 
-        std::shuffle(structure3.data(), structure3.data() + i, g);
-    }
+    //     std::shuffle(structure3.data(), structure3.data() + i, g);
+    // }
 
-    std::cout << "Zaczynam działanie kapitanie dla 100tys\n";
+    // std::cout << "Zaczynam działanie kapitanie dla 100tys\n";
 
-    for (int i = 100; i < 100000; i+=1000)
-    {
-        auto begin = std::chrono::high_resolution_clock::now();
+    // for (int i = 100; i < 100000; i+=1000)
+    // {
+    //     auto begin = std::chrono::high_resolution_clock::now();
 
-        intro_sort(structure3.data(), i);
+    //     intro_sort(structure3.data(), i);
 
-        auto end = std::chrono::high_resolution_clock::now();
-        auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-        dane1_intro << elapsed.count() << "\n";
-        std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
+    //     auto end = std::chrono::high_resolution_clock::now();
+    //     auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    //     dane1_intro << elapsed.count() << "\n";
+    //     std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
 
-        std::shuffle(structure3.data(), structure3.data() + i, g);
+    //     std::shuffle(structure3.data(), structure3.data() + i, g);
 
-    }
+    // }
 
-    std::cout << "Zaczynam działanie kapitanie dla 500tys\n";
+    // std::cout << "Zaczynam działanie kapitanie dla 500tys\n";
 
-    for (int i = 100; i < 500000; i+=5000)
-    {
-        auto begin = std::chrono::high_resolution_clock::now();
+    // for (int i = 100; i < 500000; i+=5000)
+    // {
+    //     auto begin = std::chrono::high_resolution_clock::now();
 
-        intro_sort(structure3.data(), i);
+    //     intro_sort(structure3.data(), i);
 
-        auto end = std::chrono::high_resolution_clock::now();
-        auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-        dane2_intro << elapsed.count() << "\n";
-        std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
+    //     auto end = std::chrono::high_resolution_clock::now();
+    //     auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    //     dane2_intro << elapsed.count() << "\n";
+    //     std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
 
-        std::shuffle(structure3.data(), structure3.data() + i, g);
+    //     std::shuffle(structure3.data(), structure3.data() + i, g);
 
-    }
+    // }
 
-    std::cout << "Zaczynam działanie kapitanie dla maxa. Zapnij pasy.\n";
+    // std::cout << "Zaczynam działanie kapitanie dla maxa. Zapnij pasy.\n";
 
-        for (int i = 100; i < structure3.size(); i+=10000)
-    {
-        auto begin = std::chrono::high_resolution_clock::now();
+    //     for (int i = 100; i < structure3.size(); i+=10000)
+    // {
+    //     auto begin = std::chrono::high_resolution_clock::now();
 
-        intro_sort(structure3.data(), i);
+    //     intro_sort(structure3.data(), i);
 
-        auto end = std::chrono::high_resolution_clock::now();
-        auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-        dane3_intro << elapsed.count() << "\n";
-        std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
+    //     auto end = std::chrono::high_resolution_clock::now();
+    //     auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    //     dane3_intro << elapsed.count() << "\n";
+    //     std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
 
-        std::shuffle(structure3.data(), structure3.data() + i, g);
+    //     std::shuffle(structure3.data(), structure3.data() + i, g);
 
-    }
+    // }
 
 
 

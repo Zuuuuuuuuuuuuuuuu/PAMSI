@@ -1,0 +1,174 @@
+\subsection{Krótki opis}
+Plik udostępniony do sortowania był okrojoną bazą filmów ,,IMDb Largest Review Dataset'' ze strony kaggle.com. Plik zawierał tytuły filmów oraz przypisane im oceny. Niektóre pola z ocenami były puste, zatem przed wykonaniem zadań związanych z sortowaniem, należało wykonać przeszukanie i usunięcie wpisów bez ocen. Do wykonania tego zadania, zastosowano gotową strukturę z biblioteki STL: \textit{std::vector}. Mimo chęci wykonania sortowań na strukturze dwuelementowej: \textit{std::vector< std::pair <std::string, float> >}, przechowującej i tytuł filmu, i ocenę, komputery, na których wykonywałam testy złożoności obliczeniowej, nie były w stanie wykonać sortowań dla maksymalnej liczby elementów z pliku. Podsumowując, wykonane zostało przeszukiwanie, wykorzystujące strukturę jednoelementową, a następnie sortowane były jedynie oceny filmów. Poniżej przedstawiono algorytm przeszukiwania struktury i usuwania pól z pustymi ocenami:
+
+\lstset{language=C++, firstnumber=1, keywordstyle=\color{blue}, numbers=left, frame = single}
+\begin{lstlisting}
+    for (int i = 0; i< structure.size(); ++i)
+    {
+        if ( structure[i].second.empty() )    
+        {
+            structure.erase(structure.begin() + i--);
+        }
+    }
+\end{lstlisting}
+
+\subsection{Analiza złożoności}
+Kluczową rolę w kodzie odgrywają 2 funkcje: \textit{empty} oraz \textit{erase}. Funkcja \textit{empty} ma złożoność obliczeniową stałą dla jednego elementu, jednak zaimplementowana jak w powyższy sposób, wykona się dla $n$ elementów, zatem jej złożoność w tym przypadku powinna być liniowa $O(n)$. Funkcja \textit{erase} ma oczekiwaną złożoność obliczeniową także liniową $O(n)$. Przeprowadzone zostały testy dla różnych danych w pliku i zmierzone zostały czasy działania obydwu funkcji. Wyniki przedstawia poniższa tabela.
+
+\begin{table}[H]
+    \centering
+    \caption{Czas działania funkcji \textit{empty} i \textit{erase} dla różnej liczby elementów}
+    \label{tab: przeszukiwanie_empty_erase}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    liczba elementów & czas działania empty  [ns]  & czas działania erase [ns]   \\ \hline
+    0                & 381      & 734      \\ \hline
+    50000            & 1092756  & 1280059  \\ \hline
+    100000           & 1486812  & 2285586  \\ \hline
+    150000           & 910546   & 3468263  \\ \hline
+    200000           & 1502636  & 4828635  \\ \hline
+    250000           & 3267864  & 6575286  \\ \hline
+    300000           & 7089495  & 7404888  \\ \hline
+    350000           & 7015680  & 9116657  \\ \hline
+    400000           & 2745055  & 10978655 \\ \hline
+    450000           & 8849012  & 17499953 \\ \hline
+    500000           & 6976789  & 27862306 \\ \hline
+    550000           & 9457213  & 25233448 \\ \hline
+    600000           & 7641937  & 25103366 \\ \hline
+    650000           & 11925197 & 30027679 \\ \hline
+    700000           & 8479812  & 28277875 \\ \hline
+    750000           & 13310083 & 28351194 \\ \hline
+    800000           & 14939825 & 31133886 \\ \hline
+    850000           & 14277732 & 32570166 \\ \hline
+    900000           & 16023509 & 34344044 \\ \hline
+    950000           & 17258645 & 35836178 \\ \hline
+    1000000          & 19971461 & 38559105 \\ \hline
+    \end{tabular}
+\end{table}
+
+
+
+Na podstawie tabeli \ref{tab: przeszukiwanie_empty_erase} wygenerowane zostały charakterystyki działania obydwu funkcji dla różnej liczby danych w pliku. Jak pokazują poniższe wykresy, obydwie funkcje przypominają oczekiwaną charakterystykę liniową. Zatem, funkcje \textit{empty} oraz \textit{erase} w przedstawionej implementacji, mają liniowe złożoności obliczeniowe $O(n)$. 
+
+\begin{figure}[H]
+    \centering
+    \subfloat[empty]
+    {
+        \begin{tikzpicture}[scale=0.9]
+            \begin{axis}
+                [
+                    /pgf/number format/.cd,use comma,1000 sep={},   %europejski format
+                    ylabel={czas},
+                    xlabel={liczba elementów},
+                    xmin=0, xmax=1000000,
+                    ymin=0, ymax=19971461,
+                    ymajorgrids=true, xmajorgrids=true, grid style=dashed
+                ]
+            
+            \addplot[color=blue] table [x=x, y={create col/linear regression={y=y}}] {empty.txt};
+
+            \addlegendentry{$ y =
+            \pgfmathprintnumber{\pgfplotstableregressiona}
+            \cdot x
+            \pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$ }
+
+            \addplot[color=WildStrawberry, only marks, mark size=0.04cm] table {empty.txt};
+            \end{axis}
+        \end{tikzpicture}
+    } \quad
+    \subfloat[erase]
+    {
+        \begin{tikzpicture}[scale=0.9]
+            \begin{axis}
+                [
+                    /pgf/number format/.cd,use comma,1000 sep={},   %europejski format
+                    ylabel={czas},
+                    xlabel={liczba elementów},
+                    xmin=0, xmax=1000000,
+                    ymin=0, ymax=38559105,
+                    ymajorgrids=true, xmajorgrids=true, grid style=dashed
+                ]
+            
+            \addplot[color=blue] table [x=x, y={create col/linear regression={y=y}}] {erase.txt};
+
+            \addlegendentry{$ y =
+            \pgfmathprintnumber{\pgfplotstableregressiona}
+            \cdot x
+            \pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$ }
+
+            \addplot[color=WildStrawberry, only marks, mark size=0.04cm] table {erase.txt};
+            \end{axis}
+        \end{tikzpicture}
+    }
+    \caption{Złożoności obliczeniowe funkcji \textit{empty} i  \textit{erase} w przedstawionej implementacji}
+    \label{fig: empty_erase}
+\end{figure}
+
+
+Złożoności obydwu funkcji są liniowe, zatem całość - przeszukanie i przefiltrowanie danych powinno mieć złożoność kwadratową: $n \cdot n=n^2$. W poniższej tabeli przedstawiono zebrane pomiary działania całego algorytmu. 
+
+\begin{table}[H]
+    \centering
+    \caption{Pomiary czasu działania całego algorytmu przeszukiwania i usuwania wybranych pól dla różnej liczby danych}
+    \begin{tabular}{|c|c|}
+    \hline
+    liczba elementów & czas [ns] \\ \hline
+    10000            & 99010         \\ \hline
+    50000            & 2233885       \\ \hline
+    100000           & 1916298094    \\ \hline
+    150000           & 7481184919    \\ \hline
+    200000           & 16730176118   \\ \hline
+    300000           & 41073112025   \\ \hline
+    400000           & 71606117902   \\ \hline
+    500000           & 108592553455  \\ \hline
+    600000           & 153867195664  \\ \hline
+    700000           & 204008003164  \\ \hline
+    800000           & 261449177263  \\ \hline
+    900000           & 325313418247  \\ \hline
+    1000000          & 397092989768  \\ \hline
+    1010294          & 426561982926  \\ \hline
+    \end{tabular}
+    \label{tab: zad1}
+\end{table}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=1.2]
+        \begin{axis}
+            [
+                /pgf/number format/.cd,use comma,1000 sep={},   %europejski format
+                ylabel={czas},
+                xlabel={liczba elementów},
+                xmin=0, xmax=1000000,
+                ymin=0, ymax=426561982926,
+                ymajorgrids=true, xmajorgrids=true, grid style=dashed,
+                legend style = {font=\tiny}
+            ]
+        
+        % \addplot[color=blue] table [x=x, y={create col/linear regression={y=y}}] {zad1.txt};
+
+        % \addlegendentry{$ y =
+        % \pgfmathprintnumber{\pgfplotstableregressiona}
+        % \cdot x
+        % \pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$ }
+
+        \addplot[color=WildStrawberry, only marks, mark size=0.04cm] table {zad1.txt};
+        \addplot [color=blue, domain=0:1000000] {0.378*x^2+30041.92*x-2844859911.14};
+        \legend {\\ $f(x) = 0,378x^2+30041,92x-2844859911,14x$ \\ };
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Złożoność obliczeniowa całego algorytmu przeszukiwania i usuwania wybranych elementów}
+    \label{fig: zad1}
+\end{figure}
+
+
+
+
+
+
+Jak widać na powyższym wykresie, przeszukanie i przefiltrowanie danych ma kwadratową złożoność obliczeniową $O(n^2)$. Dla ponad miliona danych, nie jest to optymalna złożoność. Łączny czas wykonywania przeszukiwania i usuwania wybranych pól zajęła: \textbf{426561982926 ns}, czyli około \textbf{7,10 min}.
+
+
+
+

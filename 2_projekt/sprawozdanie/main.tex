@@ -25,8 +25,8 @@
 \usepackage{pgfplots}
 \usepackage{listings}
 \usepackage{fancyhdr}
+\usepackage{pgfplotstable}
 \newgeometry{tmargin=1.8cm,bmargin=1.8cm,lmargin =1.8cm,rmargin=1.8cm}
-
 
 \newgeometry{tmargin=1.8cm,bmargin=1.8cm,lmargin =1.8cm,rmargin=1.8cm}
 \pagestyle{fancy}
@@ -37,6 +37,8 @@
 
 
 \begin{document}
+\renewcommand{\figurename}{Rys.}
+\renewcommand{\tablename}{Tab.}
     
 \input{str_tytulowa.tex}
 \tableofcontents
@@ -48,20 +50,23 @@ Zadanie miało na celu zapoznanie się z algorytmami sortowania oraz przeprowadz
 \section{Opis badanych algorytmów i ich złożoność obliczeniowa}
 \input{opis_badanych_algorytmow.tex}
 
+\section{Implementacja algorytmów sortowania}
+\input{implementacja_algorytmow.tex}
+
 \section{Zadanie 1 - przeszukanie i przefiltrowanie danych}
-\subsection{Krótki opis}
-Plik udostępniony do sortowania był okrojoną bazą filmów ,,IMDb Largest Review Dataset'' ze strony kaggle.com. Plik zawierał tytuły filmów oraz przypisane im oceny. Niektóre pola z ocenami były puste, zatem przed wykonaniem zadań związanych z sortowaniem, należało wykonać przeszukanie i usunięcie wpisów bez ocen. Do wykonania tego zadania, zastosowano gotową strukturę z biblioteki STL: \textit{std::vector}. Mimo chęci wykonania sortowań na strukturze dwuelementowej: \textit{std::vector< std::pair <std::string, float> >}, przechowującej i tytuł filmu, i ocenę, komputery, na których wykonywałam testy złożoności obliczeniowej, nie były w stanie wykonać sortowań dla maksymalnej liczby elementów z pliku. Podsumowując, wykonane zostało przeszukiwanie, wykorzystujące strukturę jednoelementową, a następnie sortowane były jedynie oceny filmów.
-\subsection{Analiza złożoności}
-\subsection{Czas przeszukiwania}
+\input{zadanie1.tex}
 
 \section{Analiza złożoności algorytmów sortowań}
-\subsection{Przebieg eksperymentów}
-\subsection{Sortowanie przez scalanie}
-\subsection{Sortowanie szybkie}
-\subsection{Sortowanie introspektywne}
+\input{analiza_zlozonosci.tex}
+
+\section{Średnia wartość i mediana}
+\input{srednia_mediana.tex}
 
 
 \section{Podsumowanie i wnioski}
+
+
+\colorbox{WildStrawberry}{pkt 3 - opis + zaznajomienie się na jutro ; wnioski ; ewentualnie komentarze }
 
 \section{Bibliografia}
 

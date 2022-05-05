@@ -16,7 +16,6 @@ Poniższa tabela zestawia oczekiwane i najgorsze przypadki złożoności wybrany
 
 \begin{table}[H]
     \centering
-    \renewcommand{\tablename}{Tab.}
     \caption{Porównanie oczekiwanych i najgorszych przypadków złożoności obliczeniowej dla wybranych algorytmów sortowania}
     \label{tab: opis_zlozonosc}
     \begin{tabular}{c|ccc|}
@@ -29,29 +28,28 @@ Poniższa tabela zestawia oczekiwane i najgorsze przypadki złożoności wybrany
 
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}[scale=1.4]
+    \begin{tikzpicture}
         \begin{axis}
             [
                 /pgf/number format/.cd,use comma,1000 sep={},   %europejski format
-                % width={\textwidth},
-                % height={\textheight},
+                width={\textwidth},
+                height={0.3*\textheight},
                 % scale only axis=true,
                 ylabel={czas},
                 xlabel={liczba elementów},
-                xmin=0, xmax=10,
+                xmin=0, xmax=20,
                 ymin=0, ymax=10,
                 ymajorgrids=true, xmajorgrids=true, grid style=dashed
             ]
-        \addplot[color=WildStrawberry, samples=1000, line width=1pt, domain=0:30] {x};
-        \addplot[color=BurntOrange, samples=1000, line width=1pt, domain=0:30] {x^2};
-        \addplot[color=Cerulean, samples=1000, line width=1pt, domain=0:30] {x*log2 x};
-        \addplot[color=OliveGreen, samples=1000, line width=1pt, domain=0:30] {log2 x};
-        \legend {$f(x)=x$ \\ $f(x) = x^2 $ \\ $f(x)=x*log2 x$ \\ $f(x)=log2 x$ \\};
+        \addplot[color=WildStrawberry, samples=500, line width=1pt, domain=0:30] {x};
+        \addplot[color=BurntOrange, samples=500, line width=1pt, domain=0:30] {x^2};
+        \addplot[color=Cerulean, samples=500, line width=1pt, domain=0:30] {x*log2 x};
+        \addplot[color=OliveGreen, samples=500, line width=1pt, domain=0:30] {log2 x};
+        \legend {$f(x)=x$ \\ $f(x) = x^2 $ \\ $f(x)=xlog2 x$ \\ $f(x)=log2 x$ \\};
         \end{axis}
     \end{tikzpicture}
-    \renewcommand{\figurename}{Rys.}
-    \caption{}
-    \label{fig: }
+    \caption{Poglądowe wykresy funkcji możliwych złożoności obliczeniowych}
+    \label{fig: pogladowe_wykresy}
 \end{figure}
 
 
