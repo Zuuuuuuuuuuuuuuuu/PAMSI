@@ -90,69 +90,174 @@ void merge_sort(float array[], int const begin, int const end)                  
 /*                                                    */
 /******************************************************/
 
-int partition(float array[], int begin, int end)
-{
-    int middle = (end + begin) / 2;     // środek w tablicy
-    int pivot = array[middle];          // wartość wyznaczonego elementu środkowego tablicy jako piwot (E)
+// int partition(float array[], int begin, int end)
+// {
+//     int middle = (end + begin) / 2;     // środek w tablicy
+//     int pivot = array[middle];          // wartość wyznaczonego elementu środkowego tablicy jako piwot (E)
 
-    int count = 0;
-    for (int i = begin; i <= end; i++)  // ile elementów w tablicy jest <= piwot --> L
-    {
-        if (array[i] <= pivot)
-        {
-            count++;
-        }
-    }
+//     int count = 0;
+//     for (int i = begin; i <= end; i++)  // ile elementów w tablicy jest <= piwot --> L
+//     {
+//         if (array[i] <= pivot)
+//         {
+//             count++;
+//         }
+//     }
 
-    int new_index_pivot = begin + count - 1;            // -1 bo w powyższej pętli wliczono piwot; nowy indeks piwota
-    std::swap(array[new_index_pivot], array[middle]);   // E w dobrym miejscu
+//     int new_index_pivot = begin + count - 1;            // -1 bo w powyższej pętli wliczono piwot; nowy indeks piwota
+//     std::swap(array[new_index_pivot], array[middle]);   // E w dobrym miejscu
 
     
-    // sortowanie co po lewej (L) i co po prawej (G) stronie piwota
-    int i = begin, j = end;
+//     // sortowanie co po lewej (L) i co po prawej (G) stronie piwota
+//     int i = begin, j = end;
 
-    while ( i < new_index_pivot && j > new_index_pivot )
-    {
-        while (array[i] <= pivot)
-        {
+//     while ( i < new_index_pivot && j > new_index_pivot )
+//     {
+//         while (array[i] <= pivot)
+//         {
+//             i++;
+//         }
+
+//         while (array[j] > pivot)
+//         {
+//             j--;
+//         }
+
+//         if ( i < new_index_pivot && j > new_index_pivot)
+//         {
+//             std::swap(array[i++], array[j--]);              // std::swap(array[i], array[j]); i++; j++;
+//         }
+//     }
+//     return new_index_pivot;
+// }
+
+
+// void quicksort(float array[], int begin, int end)
+// {
+//     if (begin >= end)   //krok podstawowy
+//     {
+//         return;
+//     }
+
+//     int p_index = partition(array, begin, end);
+//     quicksort(array, begin, p_index-1);
+//     quicksort(array, p_index + 1, end);
+// }
+
+void quicksort(float *tab, int left, int right){
+	if(right <= left) return;
+	
+	int i = left - 1;
+    int j = right + 1; 
+    int pivot = tab[(left+right)/2]; 
+	
+	while(1){
+		
+		while(pivot>tab[++i]);
+		while(pivot<tab[--j]);
+		
+		
+		if( i <= j)
+			std :: swap(tab[i],tab[j]);
+		else
+			break;
+	}
+
+	if(j > left)
+	    quicksort(tab, left, j);
+	if(i < right)
+	    quicksort(tab, i, right);
+}
+
+/******************************************************/
+/*                                                    */
+/*  - SORTOWANIE  - funkcje INTROSORT                 */
+/*                                                    */
+/******************************************************/
+
+void heapify(float arr[], int n, int i){
+    int largest = i; 
+    int l = 2 * i + 1; 
+    int r = 2 * i + 2; 
+ 
+   
+    if (l < n && arr[l] > arr[largest])
+        largest = l;
+ 
+ 
+    if (r < n && arr[r] > arr[largest])
+        largest = r;
+ 
+   
+    if (largest != i) {
+       std ::  swap(arr[i], arr[largest]);
+ 
+       
+        heapify(arr, n, largest);
+    }
+}
+
+void heap_sort(float arr[], int n){
+    
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
+ 
+    
+    for (int i = n - 1; i > 0; i--) {
+        // Move current root to end
+        std :: swap(arr[0], arr[i]);
+ 
+       
+        heapify(arr, i, 0);
+    }
+}
+
+
+void insertion_sort (float *Array, int N){
+  int i, j;
+  float temp;
+  for (i=1; i<N; ++i)
+  {
+    temp=Array[i];
+    for (j=i; j>0 && temp<Array[j-1]; --j)
+      Array[j]=Array[j-1];
+    Array[j]=temp;
+  }
+}
+
+
+int partition (float *data, int left , int right ) {
+    int pivot = data[right ];
+    int temp;
+    int i = left ;
+    for ( int j = left ; j < right; ++j){
+        if (data[j ] <= pivot){
+            temp = data[j];
+            data[j ] = data[i ];
+            data[i ] = temp;
             i++;
         }
-
-        while (array[j] > pivot)
-        {
-            j--;
-        }
-
-        if ( i < new_index_pivot && j > new_index_pivot)
-        {
-            std::swap(array[i++], array[j--]);              // std::swap(array[i], array[j]); i++; j++;
-        }
     }
-    return new_index_pivot;
+
+     data[right ] = data[i ];
+    data[i ] = pivot;
+
+    return i;
 }
 
 
-void quicksort(float array[], int begin, int end)
-{
-    if (begin >= end)   //krok podstawowy
-    {
-        return;
-    }
-
-    int p_index = partition(array, begin, end);
-    quicksort(array, begin, p_index-1);
-    quicksort(array, p_index + 1, end);
+void intro_sort(float *arr , int size ) {
+    int partitionSize = partition(arr , 0, size - 1);
+        if ( partitionSize < 16){
+            insertion_sort(arr , size );
+        }
+        else if ( partitionSize >(2 * std :: log( size ))){
+            heap_sort(arr, size );
+        }
+        else{
+            quicksort(arr, 0, size -1);
+        }
 }
-
-
-
-/******************************************************/
-/*                                                    */
-/*  - SORTOWANIE  - funkcje   */
-/*                                                    */
-/******************************************************/
-
-
 
 
 
@@ -175,10 +280,14 @@ int main()
     // std::fstream dane1("przefiltrowane_dane_100tys.txt", std::ios::out);    // plik do zapisu czasu
     // std::fstream dane2("przefiltrowane_dane_500tys.txt", std::ios::out);    // plik do zapisu czasu
     // std::fstream dane3("przefiltrowane_dane_max.txt", std::ios::out);    // plik do zapisu czasu
-    std::fstream dane_quick("quick_przefiltrowane_dane_10tys.txt", std::ios::out);    // plik do zapisu czasu
-    std::fstream dane1_quick("quick_przefiltrowane_dane_100tys.txt", std::ios::out);    // plik do zapisu czasu
-    std::fstream dane2_quick("quick_przefiltrowane_dane_500tys.txt", std::ios::out);    // plik do zapisu czasu
-    std::fstream dane3_quick("quick_przefiltrowane_dane_max.txt", std::ios::out);    // plik do zapisu czasu
+    // std::fstream dane_quick("quick_przefiltrowane_dane_10tys.txt", std::ios::out);    // plik do zapisu czasu
+    // std::fstream dane1_quick("quick_przefiltrowane_dane_100tys.txt", std::ios::out);    // plik do zapisu czasu
+    // std::fstream dane2_quick("quick_przefiltrowane_dane_500tys.txt", std::ios::out);    // plik do zapisu czasu
+    // std::fstream dane3_quick("quick_przefiltrowane_dane_max.txt", std::ios::out);    // plik do zapisu czasu
+    std::fstream dane_intro("intro_przefiltrowane_dane_10tys.txt", std::ios::out);    // plik do zapisu czasu
+    std::fstream dane1_intro("intro_przefiltrowane_dane_100tys.txt", std::ios::out);    // plik do zapisu czasu
+    std::fstream dane2_intro("intro_przefiltrowane_dane_500tys.txt", std::ios::out);    // plik do zapisu czasu
+    std::fstream dane3_intro("intro_przefiltrowane_dane_max.txt", std::ios::out);    // plik do zapisu czasu
 
     // std::string title;
     // std::string rating;
@@ -383,6 +492,86 @@ int main()
     // }
     // std::cout << std::endl;
 
+    // std::random_device rd;
+    // std::mt19937 g(rd());
+
+    // std::cout << "Zaczynam działanie kapitanie dla 10tys\n";
+
+
+    // for (int i = 100; i < 10000; i+=100)
+    // {
+    //     auto begin = std::chrono::high_resolution_clock::now();
+
+    //     quicksort(structure3.data(), 0, i);
+
+    //     auto end = std::chrono::high_resolution_clock::now();
+    //     auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    //     dane_quick << elapsed.count() << "\n";
+    //     std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
+
+    //     std::shuffle(structure3.data(), structure3.data() + i, g);
+    // }
+
+    // std::cout << "Zaczynam działanie kapitanie dla 100tys\n";
+
+    // for (int i = 100; i < 100000; i+=1000)
+    // {
+    //     auto begin = std::chrono::high_resolution_clock::now();
+
+    //     quicksort(structure3.data(), 0, i);
+
+    //     auto end = std::chrono::high_resolution_clock::now();
+    //     auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    //     dane1_quick << elapsed.count() << "\n";
+    //     std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
+
+    //     std::shuffle(structure3.data(), structure3.data() + i, g);
+
+    // }
+
+    // std::cout << "Zaczynam działanie kapitanie dla 500tys\n";
+
+    // for (int i = 100; i < 500000; i+=5000)
+    // {
+    //     auto begin = std::chrono::high_resolution_clock::now();
+
+    //     quicksort(structure3.data(), 0, i);
+
+    //     auto end = std::chrono::high_resolution_clock::now();
+    //     auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    //     dane2_quick << elapsed.count() << "\n";
+    //     std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
+
+    //     std::shuffle(structure3.data(), structure3.data() + i, g);
+
+    // }
+
+    // std::cout << "Zaczynam działanie kapitanie dla maxa. Zapnij pasy.\n";
+
+    //     for (int i = 100; i < structure3.size(); i+=10000)
+    // {
+    //     auto begin = std::chrono::high_resolution_clock::now();
+
+    //     quicksort(structure3.data(), 0, i);
+
+    //     auto end = std::chrono::high_resolution_clock::now();
+    //     auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    //     dane3_quick << elapsed.count() << "\n";
+    //     std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
+
+    //     std::shuffle(structure3.data(), structure3.data() + i, g);
+
+    // }
+
+
+
+/******************************************************/
+/*                                                    */
+/* ZADANIE 2 - SORTOWANIE INTROSORT                   */
+/*                                                    */
+/******************************************************/
+
+
     std::random_device rd;
     std::mt19937 g(rd());
 
@@ -393,11 +582,11 @@ int main()
     {
         auto begin = std::chrono::high_resolution_clock::now();
 
-        quicksort(structure3.data(), 0, i);
+        intro_sort(structure3.data(), i);
 
         auto end = std::chrono::high_resolution_clock::now();
         auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-        dane_quick << elapsed.count() << "\n";
+        dane_intro << elapsed.count() << "\n";
         std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
 
         std::shuffle(structure3.data(), structure3.data() + i, g);
@@ -409,11 +598,11 @@ int main()
     {
         auto begin = std::chrono::high_resolution_clock::now();
 
-        quicksort(structure3.data(), 0, i);
+        intro_sort(structure3.data(), i);
 
         auto end = std::chrono::high_resolution_clock::now();
         auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-        dane1_quick << elapsed.count() << "\n";
+        dane1_intro << elapsed.count() << "\n";
         std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
 
         std::shuffle(structure3.data(), structure3.data() + i, g);
@@ -426,11 +615,11 @@ int main()
     {
         auto begin = std::chrono::high_resolution_clock::now();
 
-        quicksort(structure3.data(), 0, i);
+        intro_sort(structure3.data(), i);
 
         auto end = std::chrono::high_resolution_clock::now();
         auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-        dane2_quick << elapsed.count() << "\n";
+        dane2_intro << elapsed.count() << "\n";
         std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
 
         std::shuffle(structure3.data(), structure3.data() + i, g);
@@ -443,11 +632,11 @@ int main()
     {
         auto begin = std::chrono::high_resolution_clock::now();
 
-        quicksort(structure3.data(), 0, i);
+        intro_sort(structure3.data(), i);
 
         auto end = std::chrono::high_resolution_clock::now();
         auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-        dane3_quick << elapsed.count() << "\n";
+        dane3_intro << elapsed.count() << "\n";
         std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
 
         std::shuffle(structure3.data(), structure3.data() + i, g);
