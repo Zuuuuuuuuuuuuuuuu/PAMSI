@@ -1,5 +1,5 @@
 \subsection{Przebieg eksperymentów}
-Sortowane były jedynie oceny filmów. Sortowania odbyły się dla 10 000, 100 000, 500 000 oraz maksymalnej ilości danych z pliku po przefiltrowaniu. Dla każdego zstawu danych wykonano po 100 pomiarów.
+Sortowane były jedynie oceny filmów. Sortowania odbyły się dla 10 000, 100 000, 500 000 oraz maksymalnej ilości danych z pliku po przefiltrowaniu. Dla każdego zestawu danych wykonano po 100 pomiarów.
 
 
 
@@ -80,7 +80,7 @@ Sortowane były jedynie oceny filmów. Sortowania odbyły się dla 10 000, 100 0
 
 \begin{table}[H]
     \centering
-    \caption{Dokładny i przybliżony czas sortowania przez scalania}
+    \caption{Dokładny i przybliżony czas sortowania przez scalanie}
     \label{tab: czas_scalanie}
     \begin{tabular}{c|cccc|}
     \cline{2-5}
@@ -92,14 +92,7 @@ Sortowane były jedynie oceny filmów. Sortowania odbyły się dla 10 000, 100 0
     \end{table}
 
 
-
-
-
-
-
-
-
-
+Algorytm sortowania przez scalanie wykazał złożoność obliczeniową liniową dla każdego zestawu danych. Czas sortowania dla maksymalnej liczby elementów z pliku wyniósł \textbf{138,48 ms $\approx$ 0,14 s}.
 
 
 
@@ -193,6 +186,12 @@ Sortowane były jedynie oceny filmów. Sortowania odbyły się dla 10 000, 100 0
     \end{table}
 
 
+
+Dla małej ilości danych (10 000), algorytm sortowania szybkiego wykazał cechy złożoności kwadratowej, natomiast dla większych ilości danych - liniowej. Czas sortowania dla maksymalnej liczby elementów z pliku wyniósł \textbf{106,92 ms $\approx$ 0,11 s}.
+
+
+
+
 \subsection{Sortowanie introspektywne}
 
 \begin{figure}[H]
@@ -276,4 +275,7 @@ Sortowane były jedynie oceny filmów. Sortowania odbyły się dla 10 000, 100 0
     \multicolumn{1}{|c|}{dokładny czas sortowań {[}ns{]}}    & \multicolumn{1}{c|}{287312} & \multicolumn{1}{c|}{36543660} & \multicolumn{1}{c|}{148902464} & 292090659  \\ \hline
     \multicolumn{1}{|c|}{przybliżony czas sortowań {[}ms{]}} & \multicolumn{1}{c|}{0,29}   & \multicolumn{1}{c|}{36,54}    & \multicolumn{1}{c|}{148,90}    & 292,09     \\ \hline
     \end{tabular}
-    \end{table}
+\end{table}
+
+Algorytm sortowania introspektywnego wykazał złożoność obliczeniową liniową dla każdego zestawu
+danych. Czas sortowania dla maksymalnej liczby elementów z pliku wyniósł \textbf{292,09 ms $\approx$ 0,29 s}.

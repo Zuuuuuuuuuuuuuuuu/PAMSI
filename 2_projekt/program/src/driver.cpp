@@ -38,7 +38,7 @@ void merge(float array[], int left, int middle, int right)    // funkcja do scal
     {
         if (left_array[index_sub_array1] <= right_array[index_sub_array2] )         // jeżeli dany element lewej tablicy jest mniejszy ...
         {
-            array[index_merged_arrays] = left_array[index_sub_array1];              // przypisanie do tablicy wyjściowej mniejszego elementu // TU SEG FAULT 
+            array[index_merged_arrays] = left_array[index_sub_array1];              // przypisanie do tablicy wyjściowej mniejszego elementu
             index_sub_array1++;
         }
 
@@ -144,29 +144,30 @@ void merge_sort(float array[], int const begin, int const end)                  
 //     quicksort(array, p_index + 1, end);
 // }
 
-void quicksort(float *tab, int left, int right){
+void quicksort(float array[], int left, int right)
+{
 	if(right <= left) return;
 	
 	int i = left - 1;
     int j = right + 1; 
-    int pivot = tab[(left+right)/2]; 
+    int pivot = array[(left+right)/2]; 
 	
-	while(1){
-		
-		while(pivot>tab[++i]);
-		while(pivot<tab[--j]);
+	while(1)
+    {
+		while(pivot>array[++i]);
+		while(pivot<array[--j]);
 		
 		
 		if( i <= j)
-			std :: swap(tab[i],tab[j]);
+			std::swap(array[i],array[j]);
 		else
 			break;
 	}
 
 	if(j > left)
-	    quicksort(tab, left, j);
+	    quicksort(array, left, j);
 	if(i < right)
-	    quicksort(tab, i, right);
+	    quicksort(array, i, right);
 }
 
 /******************************************************/
@@ -175,87 +176,91 @@ void quicksort(float *tab, int left, int right){
 /*                                                    */
 /******************************************************/
 
-void heapify(float arr[], int n, int i){
-    int largest = i; 
+void heapify(float array[], int n, int i)   // n to size ; i to index w tablicy
+{
+    int largest = i;        // najwiekszy jako ojciec
     int l = 2 * i + 1; 
     int r = 2 * i + 2; 
  
    
-    if (l < n && arr[l] > arr[largest])
+    if (l < n && array[l] > array[largest])
         largest = l;
  
  
-    if (r < n && arr[r] > arr[largest])
+    if (r < n && array[r] > array[largest])
         largest = r;
  
    
-    if (largest != i) {
-       std ::  swap(arr[i], arr[largest]);
- 
-       
-        heapify(arr, n, largest);
+    if (largest != i) 
+    {
+       std::swap(array[i], array[largest]);
+       heapify(array, n, largest);
     }
 }
 
-void heap_sort(float arr[], int n){
-    
+void heap_sort(float array[], int n)
+{    
     for (int i = n / 2 - 1; i >= 0; i--)
-        heapify(arr, n, i);
+        heapify(array, n, i);
  
     
-    for (int i = n - 1; i > 0; i--) {
-        // Move current root to end
-        std :: swap(arr[0], arr[i]);
- 
-       
-        heapify(arr, i, 0);
+    for (int i = n - 1; i > 0; i--) 
+    {
+        std :: swap(array[0], array[i]);
+        heapify(array, i, 0);
     }
 }
 
 
-void insertion_sort (float *Array, int N){
-  int i, j;
-  float temp;
-  for (i=1; i<N; ++i)
-  {
-    temp=Array[i];
-    for (j=i; j>0 && temp<Array[j-1]; --j)
-      Array[j]=Array[j-1];
-    Array[j]=temp;
-  }
+void insertion_sort (float array[], int N)
+{
+    int i, j;
+    float temp;
+    for (i=1; i<N; ++i)
+    {
+        temp=array[i];
+        for (j=i; j>0 && temp<array[j-1]; --j)
+          array[j]=array[j-1];
+        array[j]=temp;
+    }
 }
 
 
-int partition (float *data, int left , int right ) {
-    int pivot = data[right ];
+int partition (float data[], int left , int right )
+{
+    int pivot = data[right];
     int temp;
-    int i = left ;
-    for ( int j = left ; j < right; ++j){
-        if (data[j ] <= pivot){
-            temp = data[j];
-            data[j ] = data[i ];
-            data[i ] = temp;
+    int i = left;
+    for (int j = left ; j < right; ++j)
+    {
+        if (data[j] <= pivot)
+        {
+            std::swap(data[j], data[i]);
             i++;
         }
     }
 
-     data[right ] = data[i ];
-    data[i ] = pivot;
+    data[right] = data[i];
+    data[i] = pivot;
 
     return i;
 }
 
 
-void intro_sort(float *arr , int size ) {
-    int partitionSize = partition(arr , 0, size - 1);
-        if ( partitionSize < 16){
-            insertion_sort(arr , size );
+void intro_sort(float array[] , int size)
+{
+    int partition_size = partition(array , 0, size - 1);
+        if ( partition_size < 16)
+        {
+            insertion_sort(array , size );
         }
-        else if ( partitionSize >(2 * std :: log( size ))){
-            heap_sort(arr, size );
+        else if (partition_size > (2 * std :: log( size )))
+        {
+            heap_sort(array, size );
         }
-        else{
-            quicksort(arr, 0, size -1);
+        else
+        {
+            quicksort(array, 0, size -1);
         }
 }
 
@@ -271,7 +276,7 @@ float arithmetic_mean(std::vector<float> structure3, int j)
         return srednia/j; 
     }
 
-    float mediana(std::vector<float> structure3, int j)
+float mediana(std::vector<float> structure3, int j)
     {
         float k=0;
         if (j%2 == 0)   //jest parzysta liczba elementow

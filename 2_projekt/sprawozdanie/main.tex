@@ -64,10 +64,38 @@ Zadanie miało na celu zapoznanie się z algorytmami sortowania oraz przeprowadz
 
 
 \section{Podsumowanie i wnioski}
+\begin{enumerate}
+    \item Algorytm napisany do przeszukania i przefiltrowania danych okazał się niewydajny. Jego złożoność obliczeniowa wyniosła $O(n^2)$, co bardzo spowalniało cały program.
+    \item Łączny czas wykonywania przeszukiwania i usuwania wybranych pól zajęła: 426561982926 ns, czyli około 7,10 min.
+    \item Żadne z sortowań nie wykazało oczekiwanych złożoności obliczeniowych. Według tabeli \ref{tab: opis_zlozonosc}, typowa złożoność powinna wynieść $O(n log2 n)$. Sortowanie przez scalanie oraz sortowanie introspektywne wykazało złożoność liniową $O(n)$. Sortowanie szybkie dla najmniejszej liczby elementów, wykazało najgorszy przypadek - złożoność kwadratową $O(n^2)$, dla pozostałych zestawów danych - także złożoność liniową $O(n)$.
+    \item W poniższej tabeli zestawiono czasy sortowań poszczególnych zestawów danych za pomocą zaimplementowanych algorytmów.
+    \begin{table}[H]
+        \centering
+        \caption{Porównanie czasów sortowań}
+        \label{tab:por_czas}
+        \begin{tabular}{|c|cccc|}
+        \hline
+                               & \multicolumn{4}{c|}{liczba elementów}                                                                  \\ \hline
+        czas sortowań {[}ms{]} & \multicolumn{1}{c|}{10 000} & \multicolumn{1}{c|}{100 000} & \multicolumn{1}{c|}{500 000} & maksymalna \\ \hline
+        przez scalanie         & \multicolumn{1}{c|}{1,29}   & \multicolumn{1}{c|}{13,97}   & \multicolumn{1}{c|}{70,05}   & 138,48     \\ \hline
+        szybkie                & \multicolumn{1}{c|}{1,49}   & \multicolumn{1}{c|}{11,71}   & \multicolumn{1}{c|}{57,67}   & 106,92     \\ \hline
+        introspektywne         & \multicolumn{1}{c|}{0,29}   & \multicolumn{1}{c|}{36,54}   & \multicolumn{1}{c|}{148,90}  & 292,09     \\ \hline
+        \end{tabular}
+    \end{table}
+    Zdecydowanie najlepszy czas, wyróżniający się dla małej liczby elementów (10 000) osiągnął algorytm sortowania introspektywnego, jednak dla większej liczby danych, zajął on najwięcej czasu. Sortowanie szybkie, zgodnie z oczekiwaniami, zajął najwięcej czasu podczas sortowania małej liczby elementów (10 000), natomiast wykazał się wydajnością dla większych zbiorów elementów. Sortowanie przez scalanie, w porównaniu do pozostałych 2 algorytmów, wypadło po środku.
+    \item Wyznaczone średnie wartości i mediany dla każdego zestawu danych zostały przetestowane wszystkimi zaimplementowanymi algorytmami sortowań i dodatkowo potwierdzone funkcją \textit{std::sort}.
 
+\end{enumerate}
 
-\colorbox{WildStrawberry}{pkt 3 - opis + zaznajomienie się na jutro ; wnioski ; ewentualnie komentarze }
 
 \section{Bibliografia}
+\begin{itemize}
+    \item M. T. Goodrich, R. Tamassia, D. M. Mount; \textit{Data Structures and Algorithms in C++}
+    \item https://en.cppreference.com/w/cpp/container/vector [dostęp: 6.05.2022]
+    \item https://www.geeksforgeeks.org/introsort-or-introspective-sort/ [dostęp: 6.05.2022]
+    \item https://pl.wikipedia.org/wiki/Sortowanie\_introspektywne [dostęp: 6.05.2022]
+    \item http://www.algorytm.edu.pl/algorytmy-maturalne/quick-sort.html [dostęp: 6.05.2022]
+    \item https://www.geeksforgeeks.org/merge-sort/ [dostęp: 6.05.2022]
+\end{itemize}
 
 \end{document}

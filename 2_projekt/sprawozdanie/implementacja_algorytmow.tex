@@ -1,8 +1,226 @@
 \subsection{Sortowanie przez scalanie}
+Poniżej przedstawiona została implementacja sortowania przez scalanie. Składa się ona z 2 funkcji: \textit{merge} oraz \textit{mergesort}. Funkcja \textit{merge} tworzy dwie podtablice o odpowiedniej liczbie komórek, do których zapisuje odpowiednie elementy. Następnie w tej funkcji odbywa się sortowanie, czyli ,,wkładanie'' odpowiednich elementów do wyjściowej tablicy, dopóki w obydwu podtablicach coś jest. Jeżeli któraś z podtablic stanie się pusta, następuje ,,wkładanie'' pozostałych elementów drugiej podtablicy do wyjściowej tablicy. Funkcja \textit{mergesort} zawiera w sobie oprócz kroku podstawowego, rekurencyjne wywołania samej siebie dla 2 podtablic i wywołanie wcześniej wymienionej funkcji \textit{merge} do scalania powstałych podtablic.
+
+\lstset{language=C++, firstnumber=1, keywordstyle=\color{blue}, numbers=left, frame = single}
+\begin{lstlisting}
+    void merge(float array[], int left, int middle, int right)    
+    {
+        int sub_array1 = middle - left + 1;      
+        int sub_array2 = right - middle;
+
+        float *left_array = new float[sub_array1];    
+        float *right_array = new float[sub_array2];
+
+        for (int i = 0; i < sub_array1; i++)          
+        {
+            left_array[i] = array[left + i];
+        }
+
+        for (int i = 0; i < sub_array2; i++)          
+        {
+            right_array[i] = array[middle + 1 + i];
+        }
+
+        int index_sub_array1 = 0;                    
+        int index_sub_array2 = 0;
+        int index_merged_arrays = left;               
+
+        while (index_sub_array1 < sub_array1 
+                && index_sub_array2 < sub_array2)         
+        {
+            if (left_array[index_sub_array1] 
+                <= right_array[index_sub_array2] )         
+            {
+                array[index_merged_arrays] 
+                = left_array[index_sub_array1];              
+                index_sub_array1++;
+            }
+
+            else                                                                        
+            {
+                array[index_merged_arrays] 
+                    = right_array[index_sub_array2];
+                index_sub_array2++;
+            }
+            index_merged_arrays++;
+        }
+
+
+        while (index_sub_array1 < sub_array1)                                           
+        {
+            array[index_merged_arrays] = left_array[index_sub_array1];
+            index_sub_array1++;
+            index_merged_arrays++;
+        }
+
+
+        while (index_sub_array2 < sub_array2)                                           
+        {
+            array[index_merged_arrays] = right_array[index_sub_array2];
+            index_sub_array2++;
+            index_merged_arrays++;
+        }
+    }
+
+    void merge_sort(float array[], int const begin, int const end)                      
+    {   
+        // krok podstawowy
+        if (begin >= end)                                    
+        {
+            return;
+        }
+
+        int middle = begin + (end - begin) / 2;              
+        merge_sort(array, begin, middle);                   
+        merge_sort(array, middle + 1, end);
+        merge(array, begin, middle, end);
+    }
+\end{lstlisting}
+
+
+
+
 
 
 \subsection{Sortowanie szybkie}
+Poniżej przedstawiona została implementacja sortowania szybkiego. Wybrana implementacja ustawia 2 pomocnicze zmienne - \textit{i} przed tablicą oraz \textit{j} za tablicą. Następnie wyznacza piwot, który w celu uniknięcia najgorszego przypadku złożoności obliczeniowej, zostaje ustawiony po środku tablicy. Następnie odbywa się przechodzenie po tablicy i porównywanie elementów z piwotem, oraz, w określonych przypadkach, zamiana miejscami elementów znajdujących się na prawo i na lewo od piwotu. Funkcja \textit{quicksort} także wywołuje się rekurencyjnie.
+
+\lstset{language=C++, firstnumber=1, keywordstyle=\color{blue}, numbers=left, frame = single}
+\begin{lstlisting}
+    void quicksort(float array[], int left, int right)
+    {
+	    if(right <= left) return;
+    
+	    int i = left - 1;
+        int j = right + 1; 
+        int pivot = array[(left+right)/2]; 
+    
+	    while(1)
+        {
+        	while(pivot > array[++i]);
+	    	while(pivot < array[--j]);
+    
+	    	if( i <= j)
+	    		std::swap(array[i], array[j]);
+	    	else
+	    		break;
+	    }
+
+	    if(j > left)
+	        quicksort(array, left, j);
+	    if(i < right)
+	        quicksort(array, i, right);
+    }
+\end{lstlisting}
+
+
+
+
+
 
 
 \subsection{Sortowanie introspektywne}
+Poniżej przedstawiona została implementacja sortowania introspektywnego. Składa się ona z 5 funkcji: \textit{heapify, heap\_sort, insertion\_sort, partition} oraz \textit{intro\_sort}.
+\begin{itemize}
+    \item Funkcje \textit{heapify, heap\_sort} są algorytmami sortowania przez kopcowanie. Algorytm sortowania przez kopcowanie składa się z dwóch faz. W pierwszej sortowane elementy reorganizowane są w celu utworzenia kopca. Zatem znajdowany jest największy element w kopcu i ustawiany jako ,,ojciec''. W drugiej fazie dokonywane jest właściwe sortowanie - budowany jest poprawny kopiec, następnie zamieniany jest ,,ojciec'' z ,,najmłodszym synem'' (przeniesienie największej wartości na koniec tablicy) i wywoływana jest znowu funkcja kopcowania, już dla zredukowanej tablicy. 
+    \item Funkcja \textit{insertion\_sort} odpowiada za algorytm sortowania przez wstawianie. W tym algorytmie następuje przejście po elementach tablicy i porównanie obecnej wartości elementu z wartością elementu poprzedniego. W zależności od wartości tych elementów - są one albo zamieniane, kontynuując porównanie zamienianej wartości aż do początku tablicy, albo są zostawiane na swoich pozycjach i algorytm wykonuje się dla dalszych elementów tablicy.
+    \item Funkcja \textit{partition} jest funkcją, która dzieli tablicę wejściową tak, jak w algorytmie sortowania szybkiego. Wybierany jest piwot - w tym przypadku jest to element na końcu tablicy, następnie wartości elementów od początku tablicy są porównywane z piwotem i odpowiednio przemieniane.
+    \item Funkcja \textit{intro\_sort} wykorzystuje badanie głębokości rekurencji - w zależności od rozmiaru tablicy, wywołane zostaje sortowanie szybkie, przez kopcowanie, lub przez wstawianie. Sortowanie szybkie zostaje wywołane dla małej liczby danych (ze względu na złożoność kwadratową), jednak dla najmniejszych tablic wywołane zostaje sortowanie przez wstawianie, a dla największych, po przekroczeniu progu $2 \cdot log2 (size)$ - sortowanie przez kopcowanie.
+    
+\end{itemize}
 
+\lstset{language=C++, firstnumber=1, keywordstyle=\color{blue}, numbers=left, frame = single}
+\begin{lstlisting}
+    void heapify(float array[], int n, int i)
+    {
+        int largest = i; 
+        int l = 2 * i + 1; 
+        int r = 2 * i + 2; 
+    
+    
+        if (l < n && array[l] > array[largest])
+            largest = l;
+    
+    
+        if (r < n && array[r] > array[largest])
+            largest = r;
+    
+    
+        if (largest != i) 
+        {
+           std::swap(array[i], array[largest]);
+           heapify(array, n, largest);
+        }
+    }
+
+
+
+    void heap_sort(float array[], int n)
+    {    
+        for (int i = n / 2 - 1; i >= 0; i--)
+            heapify(array, n, i);
+    
+
+        for (int i = n - 1; i > 0; i--) 
+        {
+            std :: swap(array[0], array[i]);
+            heapify(array, i, 0);
+        }
+    }
+
+
+
+    void insertion_sort (float array[], int N)
+    {
+        int i, j;
+        float temp;
+        for (i=1; i<N; ++i)
+        {
+            temp=array[i];
+            for (j=i; j>0 && temp<array[j-1]; --j)
+              array[j]=array[j-1];
+            array[j]=temp;
+        }
+    }
+
+
+
+    int partition (float data[], int left , int right )
+    {
+        int pivot = data[right];
+        int temp;
+        int i = left;
+        for (int j = left ; j < right; ++j)
+        {
+            if (data[j] <= pivot)
+            {
+                std::swap(data[j], data[i]);
+                i++;
+            }
+        }
+
+        data[right] = data[i];
+        data[i] = pivot;
+
+        return i;
+    }
+
+
+
+    void intro_sort(float array[] , int size)
+    {
+        int partition_size = partition(array , 0, size - 1);
+            if ( partition_size < 16)
+            {
+                insertion_sort(array , size );
+            }
+            else if (partition_size > (2 * std::log( size )))
+            {
+                heap_sort(array, size );
+            }
+            else
+            {
+                quicksort(array, 0, size -1);
+            }
+    }
+\end{lstlisting}

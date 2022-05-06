@@ -355,14 +355,15 @@ INPUT /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/opis_badanych_algor
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm
 INPUT /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/implementacja_algorytmow.tex
 INPUT /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/implementacja_algorytmow.tex
-INPUT /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/zadanie1.tex
-INPUT /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/zadanie1.tex
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm
+INPUT /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/zadanie1.tex
+INPUT /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/zadanie1.tex
 INPUT /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/empty.txt
 INPUT /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/empty.txt
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm
@@ -391,6 +392,7 @@ INPUT /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/main.aux
 INPUT /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/main.out
 INPUT /home/zuzanna/Pulpit/sem4/PAMSI/2_projekt/sprawozdanie/main.out
 INPUT /home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk
+INPUT /home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk
 INPUT /home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk
 INPUT /home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk
 INPUT /home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk
