@@ -146,19 +146,19 @@ void merge_sort(float array[], int const begin, int const end)                  
 
 void quicksort(float array[], int left, int right)
 {
-	if(right <= left) return;
+	if(right <= left) return;       //krok podstawowy
 	
 	int i = left - 1;
     int j = right + 1; 
-    int pivot = array[(left+right)/2]; 
+    int pivot = array[(left+right)/2];      // piwot i 2 zmienne pomocnicze przed i za
 	
 	while(1)
     {
-		while(pivot>array[++i]);
+		while(pivot>array[++i]);            // dopoki mniejsze sa przed piwotem i wieksze za piwotem
 		while(pivot<array[--j]);
 		
 		
-		if( i <= j)
+		if( i <= j)                          // zamiana miejscami
 			std::swap(array[i],array[j]);
 		else
 			break;
@@ -182,7 +182,7 @@ void heapify(float array[], int n, int i)   // n to size ; i to index w tablicy
     int l = 2 * i + 1; 
     int r = 2 * i + 2; 
  
-   
+ // ustawianie prawidlowego kopca  
     if (l < n && array[l] > array[largest])
         largest = l;
  
@@ -193,7 +193,7 @@ void heapify(float array[], int n, int i)   // n to size ; i to index w tablicy
    
     if (largest != i) 
     {
-       std::swap(array[i], array[largest]);
+       std::swap(array[i], array[largest]);     //zamiana ojca z najmlodszym synem
        heapify(array, n, largest);
     }
 }
@@ -216,24 +216,24 @@ void insertion_sort (float array[], int N)
 {
     int i, j;
     float temp;
-    for (i=1; i<N; ++i)
+    for (i=1; i<N; ++i)             // przejscie po tablicy, porownanie i zamiana
     {
         temp=array[i];
-        for (j=i; j>0 && temp<array[j-1]; --j)
+        for (j=i; j>0 && temp<array[j-1]; --j)  
           array[j]=array[j-1];
         array[j]=temp;
     }
 }
 
 
-int partition (float data[], int left , int right )
+int partition (float data[], int left , int right )     // tak jak w quicksort
 {
-    int pivot = data[right];
+    int pivot = data[right];                            // to do: przerobic na lepszy przypadek - czy ma znaczenie?
     int temp;
     int i = left;
     for (int j = left ; j < right; ++j)
     {
-        if (data[j] <= pivot)
+        if (data[j] <= pivot)                           // porownanie z piwotem i ewentualna zamiana
         {
             std::swap(data[j], data[i]);
             i++;
@@ -254,7 +254,7 @@ void intro_sort(float array[] , int size)
         {
             insertion_sort(array , size );
         }
-        else if (partition_size > (2 * std :: log( size )))
+        else if (partition_size > (2 * std::log( size )))
         {
             heap_sort(array, size );
         }
@@ -265,7 +265,7 @@ void intro_sort(float array[] , int size)
 }
 
 
-float arithmetic_mean(std::vector<float> structure3, int j)
+float arithmetic_mean(std::vector<float> structure3, int j)         // do obliczenia sredniej
     {
         float srednia=0;
         for (int i = 0; i < j; i++)
@@ -276,7 +276,7 @@ float arithmetic_mean(std::vector<float> structure3, int j)
         return srednia/j; 
     }
 
-float mediana(std::vector<float> structure3, int j)
+float mediana(std::vector<float> structure3, int j)                 // do obliczenia mediany
     {
         float k=0;
         if (j%2 == 0)   //jest parzysta liczba elementow
@@ -296,14 +296,81 @@ int main()
 
 /******************************************************/
 /*                                                    */
+/*                        DRIVER                      */
+/*                                                    */
+/******************************************************/
+//merge_sort
+    float tab1[10] = {1.0, 14.0, 9.0, 3.0, 8.0, 0.0, 15.0, 9.0, 6.0, 5.0};
+
+    std::cout << "\nTablica nieposortowana: " << std::endl;
+    for( int i = 0; i < 10; i++)
+    {
+        std::cout << tab1[i] << " ";
+    }
+    std::cout << std::endl;
+
+    merge_sort(tab1, 0, 9);
+
+    std::cout << "Tablica posortowana merge_sort: " << std::endl;
+    for( int i = 0; i < 10; i++)
+    {
+        std::cout << tab1[i] << " ";
+    }
+    std::cout << std::endl;
+
+//quick_sort
+    float tab2[10] = {0.0, 3.0, 19.0, 5.0, 8.0, 0.0, 15.0, 7.0, 6.0, 3.0};
+
+    std::cout << "\nTablica nieposortowana: " << std::endl;
+    for( int i = 0; i < 10; i++)
+    {
+        std::cout << tab2[i] << " ";
+    }
+    std::cout << std::endl;
+
+    quicksort(tab2, 0, 9);
+
+    std::cout << "Tablica posortowana quick_sort: " << std::endl;
+    for( int i = 0; i < 10; i++)
+    {
+        std::cout << tab2[i] << " ";
+    }
+    std::cout << std::endl;
+
+//intro_sort
+    float tab3[10] = {13.0, 8.0, 19.0, 5.0, 6.0, 0.0, 14.0, 5.0, 6.0, 1.0};
+
+    std::cout << "\nTablica nieposortowana: " << std::endl;
+    for( int i = 0; i < 10; i++)
+    {
+        std::cout << tab3[i] << " ";
+    }
+    std::cout << std::endl;
+
+    intro_sort(tab3, 10);
+
+    std::cout << "Tablica posortowana intro_sort: " << std::endl;
+    for( int i = 0; i < 10; i++)
+    {
+        std::cout << tab3[i] << " ";
+    }
+    std::cout << std::endl;
+
+
+
+
+
+
+
+
+/******************************************************/
+/*                                                    */
 /*          ZADANIE 1 - PRZESZUKIWANIE PLIKU          */
 /*                                                    */
 /******************************************************/
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11 usuniecie pierwszego wiersza
-
-   // file plik;
-    std::fstream only_ratings_file("plik_z_danymi_tylko_rating.txt", std::ios::in);
+    // file plik;
+    // std::fstream only_ratings_file("plik_z_danymi_tylko_rating.txt", std::ios::in);
     // std::fstream dane("przefiltrowane_dane_10tys.txt", std::ios::out);    // plik do zapisu czasu
     // std::fstream dane1("przefiltrowane_dane_100tys.txt", std::ios::out);    // plik do zapisu czasu
     // std::fstream dane2("przefiltrowane_dane_500tys.txt", std::ios::out);    // plik do zapisu czasu
@@ -347,45 +414,21 @@ int main()
     //     }
     // }
 
-    // for (int i = 0; i < structure.size(); ++i)
-    // {
-    //     only_ratings_file << structure[i].second << "\n";
-    // }
 
-
-    // auto begin = std::chrono::high_resolution_clock::now();
-    // auto end = std::chrono::high_resolution_clock::now();
-    // auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-    // dane << elapsed.count() << "\n";
-    // std::cout << "\nCzas: " << elapsed.count() << std::endl;
-
-
-    // konwersja string na float
-    // std::vector<std::pair<std::string, float>> structure2;
-    // for (int i = 0; i < structure.size(); ++i)
-    // {
-    //     float rating = std::stof(structure[i].second);
-    //     structure2.push_back( std::make_pair (title, rating) );
-    // }
-
-    std::vector <float> structure3;
-    std::string tmp;
+// to juz do sortowania na innym pliku
+    // std::vector <float> structure3;
+    // std::string tmp;
     
-    while (true)
-    {
-        if (only_ratings_file.eof())
-        {
-            break;
-        }
-        std::getline(only_ratings_file, tmp);
-        structure3.push_back(std::stof(tmp));
-    }
-
-    // for (int i = 0; i < structure3.size(); ++i)
+    // while (true)
     // {
-    //     float rating = std::stof(structure[i].second);
-    //     structure3.push_back(rating);
+    //     if (only_ratings_file.eof())
+    //     {
+    //         break;
+    //     }
+    //     std::getline(only_ratings_file, tmp);
+    //     structure3.push_back(std::stof(tmp));
     // }
+
 
 
 
@@ -396,140 +439,9 @@ int main()
 /*                                                    */
 /******************************************************/
 
-// TESTY / DRIVER
-    // float tab[10] = {1.0, 14.0, 9.0, 3.0, 8.0, 0.0, 15.0, 9.0, 6.0, 5.0};
 
-    // std::cout << "Tablica nieposortowana: " << std::endl;
-    // for( int i = 0; i < 10; i++)
-    // {
-    //     std::cout << tab[i] << " ";
-    // }
-    // std::cout << std::endl;
-
-    // 10 000   ; 100 000 ;     500 000 ;   max z pliku
-    
     // std::random_device rd;
     // std::mt19937 g(rd());
-
-    // std::cout << "Zaczynam działanie kapitanie dla 10tys\n";
-
-    
-    // ŚREDNIA I MEDIANA
-
-
-    // merge_sort(structure3.data(), 0, 10000);
-    // float aa = arithmetic_mean(structure3, 10000);
-    // float bb = mediana(structure3, 10000);
-    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   merge_sort 10 000 \n";
-
-    // merge_sort(structure3.data(), 0, 100000);
-    // aa = arithmetic_mean(structure3, 100000);
-    // bb = mediana(structure3, 100000);
-    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   merge_sort 100 000 \n";
-
-    // merge_sort(structure3.data(), 0, 500000);
-    // aa = arithmetic_mean(structure3, 500000);
-    // bb = mediana(structure3, 500000);
-    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   merge_sort 500 000 \n";
-
-    // merge_sort(structure3.data(), 0, structure3.size()-1);
-    // aa = arithmetic_mean(structure3, structure3.size()-1);
-    // bb = mediana(structure3, structure3.size()-1);
-    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   merge_sort max \n";
-
-    
-
-    quicksort(structure3.data(), 0, 10000);
-    float aa = arithmetic_mean(structure3, 10000);
-    float bb = mediana(structure3, 10000);
-    std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   quicksort 10 000 \n";
-
-    quicksort(structure3.data(), 0, 100000);
-    aa = arithmetic_mean(structure3, 100000);
-    bb = mediana(structure3, 100000);
-    std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   quicksort 100 000 \n";
-
-    quicksort(structure3.data(), 0, 500000);
-    aa = arithmetic_mean(structure3, 500000);
-    bb = mediana(structure3, 500000);
-    std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   quicksort 500 000 \n";
-
-    quicksort(structure3.data(), 0, structure3.size()-1);
-    aa = arithmetic_mean(structure3, structure3.size()-1);
-    bb = mediana(structure3, structure3.size()-1);
-    std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   quicksort max \n";
-
-
-
-    // intro_sort(structure3.data(), 10000);
-    // aa = arithmetic_mean(structure3, 10000);
-    // bb = mediana(structure3, 10000);
-    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   intro_sort 10 000 \n";
-
-    // intro_sort(structure3.data(), 100000);
-    // aa = arithmetic_mean(structure3, 100000);
-    // bb = mediana(structure3, 100000);
-    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "    intro_sort 100 000 \n";
-
-    // intro_sort(structure3.data(), 500000);
-    // aa = arithmetic_mean(structure3, 500000);
-    // bb = mediana(structure3, 500000);
-    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   intro_sort 500 000 \n";
-
-    // intro_sort(structure3.data(), structure3.size()-1);
-    // aa = arithmetic_mean(structure3, structure3.size()-1);
-    // bb = mediana(structure3, structure3.size()-1);
-    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   intro_sort max \n";
-    // std :: cout << "Kocham Zuzuie" << '\n';
-    // std :: sort(structure3.begin(),structure3.begin() + 10000);
-    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 10000, 0);
-    // std :: cout << aa / 10000 << '\n';
-
-    // std :: sort(structure3.begin(),structure3.begin() + 100000);
-    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 100000, 0);
-    // std :: cout << aa / 100000 << '\n';
-
-    // std :: sort(structure3.begin(),structure3.begin() + 500000);
-    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 500000, 0);
-    // std :: cout << aa / 500000 << '\n';
-    // std :: cout << "Kocham Zuzuie <3" << '\n';
-
-    // std :: sort(structure3.begin(),structure3.end());
-    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 10000, 0);
-    // std :: cout << aa / 10000 << '\n';
-    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 100000, 0);
-    // std :: cout << aa / 100000 << '\n';
-    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 500000, 0);
-    // std :: cout << aa / 500000 << '\n';
-
-    // aa =  std :: accumulate(structure3.begin(), structure3.end(), 0);
-    // std :: cout << aa / structure3.size() << '\n';
-
-
-
-
-
-
-
-    // for (int i = 100; i < 10000; i+=100)
-    // {
-
-    //     merge_sort(structure3.data(), 0, i);
-
-    //     aut elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-    //     dane << elapsed.count() << "\n";
-    //     std::cout << "\nCzas: " << elapsed.count() << " dla i: " << i << std::endl;
-
-    //     std::shuffle(structure3.data(), structure3.data() + i, g);
-    // }
-
-
-
-
-
-
-
-
 
     // for (int i = 100; i < 10000; i+=100)
     // {
@@ -545,7 +457,6 @@ int main()
     //     std::shuffle(structure3.data(), structure3.data() + i, g);
     // }
 
-    // std::cout << "Zaczynam działanie kapitanie dla 100tys\n";
 
     // for (int i = 100; i < 100000; i+=1000)
     // {
@@ -562,7 +473,6 @@ int main()
 
     // }
 
-    // std::cout << "Zaczynam działanie kapitanie dla 500tys\n";
 
     // for (int i = 100; i < 500000; i+=5000)
     // {
@@ -579,7 +489,6 @@ int main()
 
     // }
 
-    // std::cout << "Zaczynam działanie kapitanie dla maxa. Zapnij pasy.\n";
 
     //     for (int i = 100; i < structure3.size(); i+=10000)
     // {
@@ -598,17 +507,6 @@ int main()
 
 
 
-    // for (int i = 0; i < structure2.size(); i++)
-    // {
-    //     std::cout << structure2[i].first  << " " <<  structure2[i].second  << std::endl;
-    // }
-
-    // std::cout << "Tablica posortowana: " << std::endl;
-    // for( int i = 0; i < 10; i++)
-    // {
-    //     std::cout << tab[i] << " ";
-    // }
-    // std::cout << std::endl;
 
 
 
@@ -620,30 +518,9 @@ int main()
 /*                                                    */
 /******************************************************/
 
-// TESTY / DRIVER
-    // float tab[10] = {1.0, 14.0, 9.0, 3.0, 8.0, 0.0, 15.0, 9.0, 6.0, 5.0};
-
-    // std::cout << "Tablica nieposortowana: " << std::endl;
-    // for( int i = 0; i < 10; i++)
-    // {
-    //     std::cout << tab[i] << " ";
-    // }
-    // std::cout << std::endl;
-
-    // quicksort(tab, 0, 9);
-
-    // std::cout << "Tablica posortowana: " << std::endl;
-    // for( int i = 0; i < 10; i++)
-    // {
-    //     std::cout << tab[i] << " ";
-    // }
-    // std::cout << std::endl;
 
     // std::random_device rd;
     // std::mt19937 g(rd());
-
-    // std::cout << "Zaczynam działanie kapitanie dla 10tys\n";
-
 
     // for (int i = 100; i < 10000; i+=100)
     // {
@@ -659,7 +536,6 @@ int main()
     //     std::shuffle(structure3.data(), structure3.data() + i, g);
     // }
 
-    // std::cout << "Zaczynam działanie kapitanie dla 100tys\n";
 
     // for (int i = 100; i < 100000; i+=1000)
     // {
@@ -676,7 +552,6 @@ int main()
 
     // }
 
-    // std::cout << "Zaczynam działanie kapitanie dla 500tys\n";
 
     // for (int i = 100; i < 500000; i+=5000)
     // {
@@ -693,7 +568,6 @@ int main()
 
     // }
 
-    // std::cout << "Zaczynam działanie kapitanie dla maxa. Zapnij pasy.\n";
 
     //     for (int i = 100; i < structure3.size(); i+=10000)
     // {
@@ -722,9 +596,6 @@ int main()
     // std::random_device rd;
     // std::mt19937 g(rd());
 
-    // std::cout << "Zaczynam działanie kapitanie dla 10tys\n";
-
-
     // for (int i = 100; i < 10000; i+=100)
     // {
     //     auto begin = std::chrono::high_resolution_clock::now();
@@ -738,8 +609,6 @@ int main()
 
     //     std::shuffle(structure3.data(), structure3.data() + i, g);
     // }
-
-    // std::cout << "Zaczynam działanie kapitanie dla 100tys\n";
 
     // for (int i = 100; i < 100000; i+=1000)
     // {
@@ -756,8 +625,6 @@ int main()
 
     // }
 
-    // std::cout << "Zaczynam działanie kapitanie dla 500tys\n";
-
     // for (int i = 100; i < 500000; i+=5000)
     // {
     //     auto begin = std::chrono::high_resolution_clock::now();
@@ -772,8 +639,6 @@ int main()
     //     std::shuffle(structure3.data(), structure3.data() + i, g);
 
     // }
-
-    // std::cout << "Zaczynam działanie kapitanie dla maxa. Zapnij pasy.\n";
 
     //     for (int i = 100; i < structure3.size(); i+=10000)
     // {
@@ -792,4 +657,95 @@ int main()
 
 
 
+
+
+/******************************************************/
+/*                                                    */
+/*                 ŚREDNIA I MEDIANA                  */
+/*                                                    */
+/******************************************************/
+// 
+
+    // float aa;
+    // float bb;
+
+    // merge_sort(structure3.data(), 0, 10000);
+    // aa = arithmetic_mean(structure3, 10000);
+    // bb = mediana(structure3, 10000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   merge_sort 10 000 \n";
+
+    // merge_sort(structure3.data(), 0, 100000);
+    // aa = arithmetic_mean(structure3, 100000);
+    // bb = mediana(structure3, 100000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   merge_sort 100 000 \n";
+
+    // merge_sort(structure3.data(), 0, 500000);
+    // aa = arithmetic_mean(structure3, 500000);
+    // bb = mediana(structure3, 500000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   merge_sort 500 000 \n";
+
+    // merge_sort(structure3.data(), 0, structure3.size()-1);
+    // aa = arithmetic_mean(structure3, structure3.size()-1);
+    // bb = mediana(structure3, structure3.size()-1);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   merge_sort max \n";
+
+    
+
+    // quicksort(structure3.data(), 0, 10000);
+    // aa = arithmetic_mean(structure3, 10000);
+    // bb = mediana(structure3, 10000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   quicksort 10 000 \n";
+
+    // quicksort(structure3.data(), 0, 100000);
+    // aa = arithmetic_mean(structure3, 100000);
+    // bb = mediana(structure3, 100000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   quicksort 100 000 \n";
+
+    // quicksort(structure3.data(), 0, 500000);
+    // aa = arithmetic_mean(structure3, 500000);
+    // bb = mediana(structure3, 500000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   quicksort 500 000 \n";
+
+    // quicksort(structure3.data(), 0, structure3.size()-1);
+    // aa = arithmetic_mean(structure3, structure3.size()-1);
+    // bb = mediana(structure3, structure3.size()-1);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   quicksort max \n";
+
+
+
+    // intro_sort(structure3.data(), 10000);
+    // aa = arithmetic_mean(structure3, 10000);
+    // bb = mediana(structure3, 10000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   intro_sort 10 000 \n";
+
+    // intro_sort(structure3.data(), 100000);
+    // aa = arithmetic_mean(structure3, 100000);
+    // bb = mediana(structure3, 100000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "    intro_sort 100 000 \n";
+
+    // intro_sort(structure3.data(), 500000);
+    // aa = arithmetic_mean(structure3, 500000);
+    // bb = mediana(structure3, 500000);
+    // std::cout << "srednia: " << aa << "   " << "mediana: " << bb << "   intro_sort 500 000 \n";
+
+
+//sprawdzanie
+    // std :: sort(structure3.begin(),structure3.begin() + 100000);
+    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 100000, 0);
+    // std :: cout << aa / 100000 << '\n';
+
+    // std :: sort(structure3.begin(),structure3.begin() + 500000);
+    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 500000, 0);
+    // std :: cout << aa / 500000 << '\n';
+
+    // std :: sort(structure3.begin(),structure3.end());
+    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 10000, 0);
+    // std :: cout << aa / 10000 << '\n';
+    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 100000, 0);
+    // std :: cout << aa / 100000 << '\n';
+    // aa =  std :: accumulate(structure3.begin(), structure3.begin() + 500000, 0);
+    // std :: cout << aa / 500000 << '\n';
+
+    // aa =  std :: accumulate(structure3.begin(), structure3.end(), 0);
+    // std :: cout << aa / structure3.size() << '\n';
 }
