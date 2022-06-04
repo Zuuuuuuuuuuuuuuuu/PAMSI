@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../inc/board.hh
+iostream
+-
+SFML/Graphics.hpp
+-
+
+../inc/circle.hh
+iostream
+-
+SFML/Graphics.hpp
+-
+
+../inc/cross.hh
+iostream
+-
+SFML/Graphics.hpp
+-
+
+/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/board.cpp
+board.hh
+/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/board.hh
+
+/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/main.cpp
+cross.hh
+/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/cross.hh
+circle.hh
+/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/circle.hh
+board.hh
+/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/board.hh
+iostream
+-
+

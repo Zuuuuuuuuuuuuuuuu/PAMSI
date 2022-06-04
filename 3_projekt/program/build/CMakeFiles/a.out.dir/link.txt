@@ -1,0 +1,1 @@
+/bin/x86_64-linux-gnu-g++-9  -g  -rdynamic CMakeFiles/a.out.dir/src/board.cpp.o CMakeFiles/a.out.dir/src/circle.cpp.o CMakeFiles/a.out.dir/src/cross.cpp.o CMakeFiles/a.out.dir/src/main.cpp.o  -o a.out  -lsfml-graphics -lsfml-window -lsfml-system 
