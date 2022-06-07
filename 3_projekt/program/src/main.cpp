@@ -2,11 +2,13 @@
 #include <SFML/Graphics.hpp>
 
 constexpr int one_side_board_size = 800;
-constexpr int infinity = 900000;
-constexpr int minus_infinity = -900000;
+constexpr int infinity = 900000000;
+constexpr int minus_infinity = -900000000;
+
+char winner = ' ';
 
 
-void rate_positions(int &number_of_cells, char **tab)       // ocenia pozycje albo po zakończeniu gry, albo podczas analizy, gdy głębokość=0
+int rate_positions(int &number_of_cells, char **tab)       // ocenia pozycje albo po zakończeniu gry, albo podczas analizy, gdy głębokość=0
 {
     int position_rating = 0;
     int tmp = 0;
@@ -82,6 +84,7 @@ void rate_positions(int &number_of_cells, char **tab)       // ocenia pozycje al
         if (tmp)
             position_rating += infinity;
     }
+    return position_rating;
 }
 
 
@@ -100,9 +103,21 @@ bool check_win(int &number_of_cells, char **tab)
             else if (tab[i][j] == 'O')
                 circles++; 
         }
-    
-        if (crosses == number_of_cells || circles == number_of_cells)       // jeśli w rzędzie wygrana
+
+        if (crosses == number_of_cells)     // jeśli w rzędzie wygrana
+        {
+            winner = 'X';
             return true;
+        }
+
+        if (circles == number_of_cells)
+        {
+            winner = 'O';
+            return true;
+        }
+
+    circles = 0;
+    crosses = 0;
     }
 
     circles = 0;
@@ -118,8 +133,20 @@ bool check_win(int &number_of_cells, char **tab)
                 circles++; 
         }
     
-        if (crosses == number_of_cells || circles == number_of_cells)       // jeśli w kolumnie wygrana
+        if (crosses == number_of_cells)     // jeśli w rzędzie wygrana
+        {
+            winner = 'X';
             return true;
+        }
+
+        if (circles == number_of_cells)
+        {
+            winner = 'O';
+            return true;
+        }
+    
+    circles = 0;
+    crosses = 0;
     }
 
     circles = 0;
@@ -133,8 +160,17 @@ bool check_win(int &number_of_cells, char **tab)
                 circles++; 
         }
     
-    if (crosses == number_of_cells || circles == number_of_cells)       // jeśli po przekątnej wygrana
-        return true;
+        if (crosses == number_of_cells)     // jeśli w rzędzie wygrana
+        {
+            winner = 'X';
+            return true;
+        }
+
+        if (circles == number_of_cells)
+        {
+            winner = 'O';
+            return true;
+        }
 
 
     circles = 0;
@@ -148,31 +184,23 @@ bool check_win(int &number_of_cells, char **tab)
             circles++;
     }
     
-    if (crosses == number_of_cells || circles == number_of_cells)       // jeśli po przekątnej wygrana
-        return true;
+        if (crosses == number_of_cells)     // jeśli w rzędzie wygrana
+        {
+            winner = 'X';
+            return true;
+        }
+
+        if (circles == number_of_cells)
+        {
+            winner = 'O';
+            return true;
+        }
 
 
-    circles, crosses = 0;
+    circles = 0;
+    crosses = 0;
     return false;
 }
-
-
-
-
-int minimax_alpha_beta(int node, int depth, int a, int b)
-{
-    // check_win ale WHO won musze miec to info
-
-}
-
-
-
-
-
-// void best_ai_move(int depth)
-// {
-
-// }
 
 bool is_finished(int &number_of_cells, char **tab)
 {
@@ -188,6 +216,117 @@ bool is_finished(int &number_of_cells, char **tab)
     }
     return true;
 }
+
+
+int minimax_alpha_beta(char current_player, int depth, int a, int b, int &number_of_cells, char **tab)
+{
+    check_win(number_of_cells, tab);
+
+    if (winner != ' ')
+    {
+        if (current_player == 'X')
+            return 10^8;            // max wartosc
+        else if (current_player == 'O')
+            return -1 * 10^8;       // min wartosc
+    }
+
+    if (is_finished(number_of_cells, tab) || depth == 0)
+    {
+        if (current_player == 'X')
+            return rate_positions(number_of_cells, tab);    // zwraca position_rating
+        else
+            return -rate_positions(number_of_cells, tab);
+    }
+
+    int best_score;
+
+    if (current_player == 'X')
+    {
+        current_player = 'O';          // zamiana graczy
+        best_score = infinity;
+    }
+    else
+    {
+        current_player = 'X';
+        best_score = -infinity;
+    }
+
+    int tmp;
+    for (int i = 0; i < number_of_cells; i++)
+    {
+        for (int j = 0; j < number_of_cells; j++)
+        {
+            if (tab[i][j] == ' ')
+            {
+                if (current_player == 'X')
+                {
+                    tab[i][j] = 'O';
+                    tmp = minimax_alpha_beta(current_player, depth-1, a, b, number_of_cells, tab);
+                    if (best_score < tmp)
+                        best_score = tmp;
+                    
+                    if (a < best_score)
+                        a = best_score;
+
+                    tab[i][j] = ' ';
+                    if (a >= b)
+                        return best_score;
+                }
+                else
+                {
+                    tab[i][j] == 'X';
+                    tmp = minimax_alpha_beta(current_player, depth-1, a, b, number_of_cells, tab);
+                    if (best_score > tmp)
+                        best_score = tmp;
+                    
+                    if (a > best_score)
+                        a = best_score;
+
+                    tab[i][j] = ' ';
+                    if (a >= b)
+                        return best_score;
+                }
+            }
+        }
+    }
+    return best_score;
+}
+
+
+
+std::pair<int, int> best_ai_move(char current_player, int depth, int &number_of_cells, char **tab)
+{
+    int best_score = -infinity;
+    int tmp;
+    int set_i;
+    int set_j;
+
+    for (int i = 0; i < number_of_cells; i++)
+    {
+        for (int j = 0; j < number_of_cells; j++)
+        {
+            if (tab[i][j] == ' ')
+            {
+                tab[i][j] = 'X';
+                tmp = minimax_alpha_beta(current_player, depth, -infinity, infinity, number_of_cells, tab);
+                tab[i][j] = ' ';
+                if (tmp > best_score)
+                {
+                    best_score = tmp;
+                    set_i = i;
+                    set_j = j;
+                }
+            }
+        }
+    }
+
+    if (set_i < number_of_cells && set_j < number_of_cells)
+        tab[set_i][set_j] = 'X';
+
+    return std::make_pair(set_i, set_j);
+}
+
+
 
 void draw_board(sf::RenderWindow &window, int cells)
 {
@@ -216,9 +355,13 @@ void draw_board(sf::RenderWindow &window, int cells)
 
 int main()
 {
+    std::pair<int, int> coordinates_best_ai_move;
     int number_of_cells;
-    std::cout << "Podaj rozmiar planszy (liczbę komórek w rzędzie): ";
+    int depth;
+    std::cout << "KÓŁKO I KRZYŻYK. Podaj rozmiar planszy (liczbę komórek w rzędzie): ";
     std::cin >> number_of_cells;
+    std::cout << "\nPodaj poziom trudności (głębokość): ";
+    std:: cin >> depth;
 
     // TWORZENIE DYNAMICZNEJ TABLICY DWUWYMIAROWEJ I WPISYWANIE W KAŻDE POLE SPACJI
     char **tab = new char * [number_of_cells];
@@ -265,6 +408,8 @@ int main()
     cross.setLineSpacing(0);
     cross.setLetterSpacing(0);
 
+    char current_player = 'O';
+
     // WYŚWIETLENIE NARYSOWANEJ PLANSZY I GŁÓWNA PĘTLA
     board.clear(sf::Color::White);
     draw_board(board, number_of_cells);
@@ -303,6 +448,10 @@ int main()
                 circle.setPosition(row * one_cell_size + (circle.getCharacterSize() * 0.1), column * one_cell_size + (circle.getCharacterSize() * -0.13));       // centrowanie
                 board.draw(circle);
                 board.display();
+                coordinates_best_ai_move = best_ai_move('X', depth, number_of_cells, tab);
+                cross.setPosition(coordinates_best_ai_move.first * one_cell_size + (circle.getCharacterSize() * 0.1), coordinates_best_ai_move.second * one_cell_size + (circle.getCharacterSize() * -0.13));       // centrowanie
+                board.draw(cross);
+                board.display();
 
 
                 if (check_win(number_of_cells, tab))
@@ -311,6 +460,8 @@ int main()
 
                 if (is_finished(number_of_cells, tab))
                     std::cout << "Gra skończona\n";
+
+                while (event.mouseButton.button == sf::Mouse::Left) {}
 
                 
                 
