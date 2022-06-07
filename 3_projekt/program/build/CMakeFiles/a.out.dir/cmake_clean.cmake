@@ -1,7 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/a.out.dir/src/board.cpp.o"
-  "CMakeFiles/a.out.dir/src/circle.cpp.o"
-  "CMakeFiles/a.out.dir/src/cross.cpp.o"
   "CMakeFiles/a.out.dir/src/main.cpp.o"
   "a.out"
   "a.out.pdb"

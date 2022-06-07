@@ -1,21 +1,6 @@
 [
 {
   "directory": "/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/inc  -g   -o CMakeFiles/a.out.dir/src/board.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/board.cpp",
-  "file": "/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/board.cpp"
-},
-{
-  "directory": "/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/inc  -g   -o CMakeFiles/a.out.dir/src/circle.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/circle.cpp",
-  "file": "/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/circle.cpp"
-},
-{
-  "directory": "/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/inc  -g   -o CMakeFiles/a.out.dir/src/cross.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/cross.cpp",
-  "file": "/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/cross.cpp"
-},
-{
-  "directory": "/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/build",
   "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/inc  -g   -o CMakeFiles/a.out.dir/src/main.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/main.cpp",
   "file": "/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/main.cpp"
 }

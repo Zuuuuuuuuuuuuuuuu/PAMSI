@@ -57,48 +57,9 @@ include CMakeFiles/a.out.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/a.out.dir/flags.make
 
-CMakeFiles/a.out.dir/src/board.cpp.o: CMakeFiles/a.out.dir/flags.make
-CMakeFiles/a.out.dir/src/board.cpp.o: ../src/board.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/a.out.dir/src/board.cpp.o"
-	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.out.dir/src/board.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/board.cpp
-
-CMakeFiles/a.out.dir/src/board.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.out.dir/src/board.cpp.i"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/board.cpp > CMakeFiles/a.out.dir/src/board.cpp.i
-
-CMakeFiles/a.out.dir/src/board.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/src/board.cpp.s"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/board.cpp -o CMakeFiles/a.out.dir/src/board.cpp.s
-
-CMakeFiles/a.out.dir/src/circle.cpp.o: CMakeFiles/a.out.dir/flags.make
-CMakeFiles/a.out.dir/src/circle.cpp.o: ../src/circle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/a.out.dir/src/circle.cpp.o"
-	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.out.dir/src/circle.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/circle.cpp
-
-CMakeFiles/a.out.dir/src/circle.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.out.dir/src/circle.cpp.i"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/circle.cpp > CMakeFiles/a.out.dir/src/circle.cpp.i
-
-CMakeFiles/a.out.dir/src/circle.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/src/circle.cpp.s"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/circle.cpp -o CMakeFiles/a.out.dir/src/circle.cpp.s
-
-CMakeFiles/a.out.dir/src/cross.cpp.o: CMakeFiles/a.out.dir/flags.make
-CMakeFiles/a.out.dir/src/cross.cpp.o: ../src/cross.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/a.out.dir/src/cross.cpp.o"
-	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.out.dir/src/cross.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/cross.cpp
-
-CMakeFiles/a.out.dir/src/cross.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.out.dir/src/cross.cpp.i"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/cross.cpp > CMakeFiles/a.out.dir/src/cross.cpp.i
-
-CMakeFiles/a.out.dir/src/cross.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.out.dir/src/cross.cpp.s"
-	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/cross.cpp -o CMakeFiles/a.out.dir/src/cross.cpp.s
-
 CMakeFiles/a.out.dir/src/main.cpp.o: CMakeFiles/a.out.dir/flags.make
 CMakeFiles/a.out.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/a.out.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/a.out.dir/src/main.cpp.o"
 	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.out.dir/src/main.cpp.o -c /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/src/main.cpp
 
 CMakeFiles/a.out.dir/src/main.cpp.i: cmake_force
@@ -111,21 +72,15 @@ CMakeFiles/a.out.dir/src/main.cpp.s: cmake_force
 
 # Object files for target a.out
 a_out_OBJECTS = \
-"CMakeFiles/a.out.dir/src/board.cpp.o" \
-"CMakeFiles/a.out.dir/src/circle.cpp.o" \
-"CMakeFiles/a.out.dir/src/cross.cpp.o" \
 "CMakeFiles/a.out.dir/src/main.cpp.o"
 
 # External object files for target a.out
 a_out_EXTERNAL_OBJECTS =
 
-a.out: CMakeFiles/a.out.dir/src/board.cpp.o
-a.out: CMakeFiles/a.out.dir/src/circle.cpp.o
-a.out: CMakeFiles/a.out.dir/src/cross.cpp.o
 a.out: CMakeFiles/a.out.dir/src/main.cpp.o
 a.out: CMakeFiles/a.out.dir/build.make
 a.out: CMakeFiles/a.out.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable a.out"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable a.out"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/a.out.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

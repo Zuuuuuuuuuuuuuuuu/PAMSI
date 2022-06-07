@@ -1,3 +1,0 @@
-/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/build/CMakeFiles/rebuild_cache.dir
-/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/build/CMakeFiles/edit_cache.dir
-/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/program/build/CMakeFiles/a.out.dir

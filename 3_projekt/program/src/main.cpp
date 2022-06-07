@@ -156,20 +156,23 @@ bool check_win(int &number_of_cells, char **tab)
     return false;
 }
 
+
+
+
+int minimax_alpha_beta(int node, int depth, int a, int b)
+{
+    // check_win ale WHO won musze miec to info
+
+}
+
+
+
+
+
 // void best_ai_move(int depth)
 // {
 
 // }
-
-
-
-
-
-// int minimax_alpha_beta(int node, int depth, bool maximizing_player)
-// {
-
-// }
-
 
 bool is_finished(int &number_of_cells, char **tab)
 {

@@ -123,87 +123,6 @@ a.out/fast:
 	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/build
 .PHONY : a.out/fast
 
-src/board.o: src/board.cpp.o
-
-.PHONY : src/board.o
-
-# target to build an object file
-src/board.cpp.o:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/board.cpp.o
-.PHONY : src/board.cpp.o
-
-src/board.i: src/board.cpp.i
-
-.PHONY : src/board.i
-
-# target to preprocess a source file
-src/board.cpp.i:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/board.cpp.i
-.PHONY : src/board.cpp.i
-
-src/board.s: src/board.cpp.s
-
-.PHONY : src/board.s
-
-# target to generate assembly for a file
-src/board.cpp.s:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/board.cpp.s
-.PHONY : src/board.cpp.s
-
-src/circle.o: src/circle.cpp.o
-
-.PHONY : src/circle.o
-
-# target to build an object file
-src/circle.cpp.o:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/circle.cpp.o
-.PHONY : src/circle.cpp.o
-
-src/circle.i: src/circle.cpp.i
-
-.PHONY : src/circle.i
-
-# target to preprocess a source file
-src/circle.cpp.i:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/circle.cpp.i
-.PHONY : src/circle.cpp.i
-
-src/circle.s: src/circle.cpp.s
-
-.PHONY : src/circle.s
-
-# target to generate assembly for a file
-src/circle.cpp.s:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/circle.cpp.s
-.PHONY : src/circle.cpp.s
-
-src/cross.o: src/cross.cpp.o
-
-.PHONY : src/cross.o
-
-# target to build an object file
-src/cross.cpp.o:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/cross.cpp.o
-.PHONY : src/cross.cpp.o
-
-src/cross.i: src/cross.cpp.i
-
-.PHONY : src/cross.i
-
-# target to preprocess a source file
-src/cross.cpp.i:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/cross.cpp.i
-.PHONY : src/cross.cpp.i
-
-src/cross.s: src/cross.cpp.s
-
-.PHONY : src/cross.s
-
-# target to generate assembly for a file
-src/cross.cpp.s:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/cross.cpp.s
-.PHONY : src/cross.cpp.s
-
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -240,15 +159,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... a.out"
-	@echo "... src/board.o"
-	@echo "... src/board.i"
-	@echo "... src/board.s"
-	@echo "... src/circle.o"
-	@echo "... src/circle.i"
-	@echo "... src/circle.s"
-	@echo "... src/cross.o"
-	@echo "... src/cross.i"
-	@echo "... src/cross.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
