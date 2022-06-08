@@ -1,0 +1,11 @@
+\babel@toc {polish}{}
+\contentsline {section}{\numberline {1}Wprowadzenie}{2}{section.1}%
+\contentsline {section}{\numberline {2}Opis tworzonej gry}{2}{section.2}%
+\contentsline {section}{\numberline {3}Graficzny interfejs użytkownika}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Kółko i Krzyżyk}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Rysowanie planszy}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Obsługa ,,wydarzeń''}{3}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Oznaczenie wygranej}{4}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Techniki AI}{4}{section.4}%
+\contentsline {section}{\numberline {5}Podsumowanie i wnioski}{4}{section.5}%
+\contentsline {section}{\numberline {6}Literatura}{5}{section.6}%

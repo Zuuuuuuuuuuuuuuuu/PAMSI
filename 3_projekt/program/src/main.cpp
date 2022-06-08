@@ -1,11 +1,11 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-constexpr int one_side_board_size = 800;
+constexpr int one_side_number_of_cells = 800;
 constexpr int infinity = 900000000;
 constexpr int minus_infinity = -900000000;
 
-char winner = ' ';
+char winner = '-';
 
 
 int rate_positions(int &number_of_cells, char **tab)       // ocenia pozycje albo po zakończeniu gry, albo podczas analizy, gdy głębokość=0
@@ -29,7 +29,7 @@ int rate_positions(int &number_of_cells, char **tab)       // ocenia pozycje alb
         }
 
         if (tmp)
-            position_rating += infinity;    // jakaś bardzo duża liczba, jeżeli jest fajna pozycja X (ai) -- np. dwa X w rzędzie
+            position_rating += 10^tmp;    // jakaś bardzo duża liczba, jeżeli jest fajna pozycja X (ai) -- np. dwa X w rzędzie
     }
 
     
@@ -49,7 +49,7 @@ int rate_positions(int &number_of_cells, char **tab)       // ocenia pozycje alb
         }
         
         if (tmp)
-            position_rating += infinity;    // jakaś bardzo duża liczba
+            position_rating += 10^tmp;    // jakaś bardzo duża liczba
     }
 
     tmp = 0;
@@ -65,7 +65,7 @@ int rate_positions(int &number_of_cells, char **tab)       // ocenia pozycje alb
         } 
     
         if (tmp)
-            position_rating += infinity;    // jakaś bardzo duża liczba
+            position_rating += 10^tmp;    // jakaś bardzo duża liczba
     }
     
 
@@ -82,7 +82,7 @@ int rate_positions(int &number_of_cells, char **tab)       // ocenia pozycje alb
         }
 
         if (tmp)
-            position_rating += infinity;
+            position_rating += 10^tmp;
     }
     return position_rating;
 }
@@ -90,9 +90,10 @@ int rate_positions(int &number_of_cells, char **tab)       // ocenia pozycje alb
 
 
 
-bool check_win(int &number_of_cells, char **tab)
+bool check_win(const int &number_of_cells, char **tab)
 {
-    int circles, crosses = 0;
+    int circles = 0;
+    int crosses = 0;
 
     for (int i = 0; i < number_of_cells; i++)       // sprawdzenie rzędów
     {
@@ -195,10 +196,8 @@ bool check_win(int &number_of_cells, char **tab)
             winner = 'O';
             return true;
         }
-
-
-    circles = 0;
-    crosses = 0;
+    
+    winner = '-';
     return false;
 }
 
@@ -208,7 +207,7 @@ bool is_finished(int &number_of_cells, char **tab)
     {
         for (int j=0; j < number_of_cells; j++)
         {
-            if (tab[i][j] == ' ')
+            if (tab[i][j] == '-')
             {
                 return false;
             }
@@ -222,13 +221,13 @@ int minimax_alpha_beta(char current_player, int depth, int a, int b, int &number
 {
     check_win(number_of_cells, tab);
 
-    if (winner != ' ')
-    {
-        if (current_player == 'X')
+    //if (winner != '-')                  // ??????????????
+    
+        if (current_player == 'X')      // ??????????????
             return 10^8;            // max wartosc
-        else if (current_player == 'O')
+        else
             return -1 * 10^8;       // min wartosc
-    }
+    
 
     if (is_finished(number_of_cells, tab) || depth == 0)
     {
@@ -256,11 +255,11 @@ int minimax_alpha_beta(char current_player, int depth, int a, int b, int &number
     {
         for (int j = 0; j < number_of_cells; j++)
         {
-            if (tab[i][j] == ' ')
+            if (tab[i][j] == '-')
             {
                 if (current_player == 'X')
                 {
-                    tab[i][j] = 'O';
+                    tab[i][j] = 'X';
                     tmp = minimax_alpha_beta(current_player, depth-1, a, b, number_of_cells, tab);
                     if (best_score < tmp)
                         best_score = tmp;
@@ -268,13 +267,13 @@ int minimax_alpha_beta(char current_player, int depth, int a, int b, int &number
                     if (a < best_score)
                         a = best_score;
 
-                    tab[i][j] = ' ';
+                    tab[i][j] = '-';
                     if (a >= b)
                         return best_score;
                 }
                 else
                 {
-                    tab[i][j] == 'X';
+                    tab[i][j] = 'O';
                     tmp = minimax_alpha_beta(current_player, depth-1, a, b, number_of_cells, tab);
                     if (best_score > tmp)
                         best_score = tmp;
@@ -282,7 +281,7 @@ int minimax_alpha_beta(char current_player, int depth, int a, int b, int &number
                     if (a > best_score)
                         a = best_score;
 
-                    tab[i][j] = ' ';
+                    tab[i][j] = '-';
                     if (a >= b)
                         return best_score;
                 }
@@ -294,9 +293,9 @@ int minimax_alpha_beta(char current_player, int depth, int a, int b, int &number
 
 
 
-std::pair<int, int> best_ai_move(char current_player, int depth, int &number_of_cells, char **tab)
+std::pair<int, int> best_ai_move(int depth, int &number_of_cells, char **tab)
 {
-    int best_score = -infinity;
+    int best_score = minus_infinity;
     int tmp;
     int set_i;
     int set_j;
@@ -305,11 +304,11 @@ std::pair<int, int> best_ai_move(char current_player, int depth, int &number_of_
     {
         for (int j = 0; j < number_of_cells; j++)
         {
-            if (tab[i][j] == ' ')
+            if (tab[i][j] == '-')
             {
                 tab[i][j] = 'X';
-                tmp = minimax_alpha_beta(current_player, depth, -infinity, infinity, number_of_cells, tab);
-                tab[i][j] = ' ';
+                tmp = minimax_alpha_beta('X', depth, -infinity, infinity, number_of_cells, tab);
+                tab[i][j] = '-';
                 if (tmp > best_score)
                 {
                     best_score = tmp;
@@ -332,7 +331,7 @@ void draw_board(sf::RenderWindow &window, int cells)
 {
     int one_cell_size = window.getSize().x / cells;
     int tmp = one_cell_size;
-    sf::RectangleShape rectangle(sf::Vector2f(5, one_side_board_size));
+    sf::RectangleShape rectangle(sf::Vector2f(5, one_side_number_of_cells));
     rectangle.setFillColor(sf::Color::Black);
 
     for (int i = 1; i <= cells - 1; i++)
@@ -374,12 +373,12 @@ int main()
     {
         for (int j=0; j<number_of_cells; j++)
         {
-            tab[i][j] = ' ';
+            tab[i][j] = '-';
         }
     }
 
     // TWORZENIE PLANSZY
-    sf::RenderWindow board(sf::VideoMode(one_side_board_size, one_side_board_size), "Tic tac toe");
+    sf::RenderWindow board(sf::VideoMode(one_side_number_of_cells, one_side_number_of_cells), "Tic tac toe");
     
     int one_cell_size = board.getSize().x / number_of_cells;
 
@@ -408,13 +407,12 @@ int main()
     cross.setLineSpacing(0);
     cross.setLetterSpacing(0);
 
-    char current_player = 'O';
-
     // WYŚWIETLENIE NARYSOWANEJ PLANSZY I GŁÓWNA PĘTLA
     board.clear(sf::Color::White);
     draw_board(board, number_of_cells);
     board.display();
     
+
     while (board.isOpen())
     {
         sf::Event event;
@@ -433,47 +431,44 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 board.close();
-        }
 
-        
-
-        if (event.type == sf::Event::MouseButtonPressed)
-        {
-            if (event.mouseButton.button == sf::Mouse::Left)
+                if (event.type == sf::Event::MouseButtonPressed)
             {
-                sf::Vector2i position = sf::Mouse::getPosition(board);
-                int row = position.x / one_cell_size;
-                int column = position.y / one_cell_size;
-                tab[row][column] = 'O';
-                circle.setPosition(row * one_cell_size + (circle.getCharacterSize() * 0.1), column * one_cell_size + (circle.getCharacterSize() * -0.13));       // centrowanie
-                board.draw(circle);
-                board.display();
-                coordinates_best_ai_move = best_ai_move('X', depth, number_of_cells, tab);
-                cross.setPosition(coordinates_best_ai_move.first * one_cell_size + (circle.getCharacterSize() * 0.1), coordinates_best_ai_move.second * one_cell_size + (circle.getCharacterSize() * -0.13));       // centrowanie
-                board.draw(cross);
-                board.display();
+                if (event.mouseButton.button == sf::Mouse::Left)
+                {
+                    sf::Vector2i position = sf::Mouse::getPosition(board);
+                    int column = position.x / one_cell_size;
+                    int row = position.y / one_cell_size;
+                    tab[row][column] = 'O';
+                    circle.setPosition(column * one_cell_size + (circle.getCharacterSize() * 0.1), row * one_cell_size + (circle.getCharacterSize() * -0.13));       // centrowanie
+                    board.draw(circle);
+                    coordinates_best_ai_move = best_ai_move(depth, number_of_cells, tab);
+                    cross.setPosition(coordinates_best_ai_move.second * one_cell_size + (circle.getCharacterSize() * 0.1), coordinates_best_ai_move.first * one_cell_size + (circle.getCharacterSize() * -0.13));       // centrowanie
+                    board.draw(cross);
+                    board.display();
+                    
+                    if (check_win(number_of_cells, tab))
+                        std::cout << "Gra wygrana, winner: " << winner << std::endl;
+                    else std::cout << "Remis, winner: " << winner << std::endl;
 
+                    if (is_finished(number_of_cells, tab))
+                        std::cout << "Gra skończona\n";
 
-                if (check_win(number_of_cells, tab))
-                    std::cout << "Gra wygrana\n";
-                else std::cout << "Remis\n";
-
-                if (is_finished(number_of_cells, tab))
-                    std::cout << "Gra skończona\n";
-
-                while (event.mouseButton.button == sf::Mouse::Left) {}
-
-                
-                
+                    for(int i = 0;i<number_of_cells;++i)
+                    {
+                        for(int j = 0; j<number_of_cells;++j)
+                        {
+                            std::cout<<tab[i][j]<<'\t';
+                        }
+                        std::cout<<std::endl;
+                    }              
+                }
             }
-
         }
-                
+
         
+
         
     }
-    
-    
-
-    return 0;
+return 0;
 }

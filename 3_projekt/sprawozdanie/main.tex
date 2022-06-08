@@ -1,0 +1,180 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage[table,xcdraw,dvipsnames]{xcolor}
+\usepackage{color}
+\usepackage{subfig}
+\usepackage{sidecap}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{multirow}
+\setlength{\parindent}{0pt}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\titlelabel{\thetitle.\quad}
+\usepackage{amsmath}
+\usepackage{anyfontsize}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{pgfplots}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{pgfplotstable}
+\newgeometry{tmargin=1.8cm,bmargin=1.8cm,lmargin =1.8cm,rmargin=1.8cm}
+
+\newgeometry{tmargin=1.8cm,bmargin=1.8cm,lmargin =1.8cm,rmargin=1.8cm}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textit{Zuzanna Mejer} }
+\lhead{\textit{Kółko i krzyżyk} }
+\cfoot{\thepage}
+
+
+\begin{document}
+\renewcommand{\figurename}{Rys.}
+\renewcommand{\tablename}{Tab.}
+    
+\input{str_tytulowa.tex}
+\tableofcontents
+\newpage
+
+\section{Wprowadzenie}
+Zadanie polegało na zaimplementowaniu gry Kółko i Krzyżyk z wykorzystaniem technik sztucznej inteligencji - algorytmu Minimax z alfa-beta cięciami. Użytkownik miał mieć możliwości definiowania rozmiaru planszy wraz z ilością znaków w rzędzie. 
+
+\section{Opis tworzonej gry}
+Kółko i Krzyżyk to gra o sumie zerowej, w której bierze udział dwóch użytkowników. W tym przypadku jest to gracz i komputer. Obydwoje gracze dążą do ustawienia swoich znaków w rzędzie, kolumnie lub po przekątnej tak, aby zachować ciągłość swoich znaków (żeby znak przeciwnika nie przeszkodził w tworzeniu linii). Jednocześnie, gracze dążą do tego, żeby przerwać ciągłość znaków przeciwnika w linii. W celu stworzenia gry w Kółko i Krzyżyk przyjęto parę założeń:
+\begin{itemize}
+    \item Grę zawsze rozpoczyna Kółko.
+    \item Użytkownik nie może wybrać czy jest Kółkiem, czy Krzyżykiem.Użytkownik zawsze jest Kółkiem i zatem zawsze rozpoczyna grę.
+    \item Przed rozpoczęciem gry użytkownik musi zdefiniować rozmiar kwadratowej planszy, to znaczy ile chce mieć kratek w rzędzie.
+    \item W zależności od wybranego rozmiaru planszy, do wygranej należy ułożyć w rzędzie, kolumnie lub po przekątnej tyle znaków, ile wynosi liczba kratek w jednej linii na planszy. To znaczy, że trzeba ze znaków ułożyć ciągłą linię od jednego końca planszy, do drugiego. 
+\end{itemize}
+
+\section{Graficzny interfejs użytkownika}
+W celu ułatwienia użytkownikowi obsługi gry, stworzono graficzny interfejs. Wykorzystano w tym celu bibliotekę programistyczną \textit{SFML} (Simple and Fast Multimedia Library).
+
+\subsection{Kółko i Krzyżyk}
+Kółko i Krzyżyk zostały zaimplementowane i rysowane jako litery ,,X'' i ,,O'' czcionką Arial o odpowiednio dobranym rozmiarze tak, żeby wpasowywały się w środek kratki, niezależnie od liczby kratek na planszy. Przedstawia to poniższy kod:
+
+\lstset{language=C++, firstnumber=1, keywordstyle=\color{blue}, numbers=left, frame = single}
+\begin{lstlisting}
+    sf::Font font;
+    if (!font.loadFromFile("arial.ttf"))
+    {
+        std::cout << "Nie mamy takiej czcionki\n";
+    }
+
+    sf::Text circle;
+    circle.setFont(font);
+    circle.setString("O");
+    circle.setCharacterSize(one_cell_size);
+    circle.setFillColor(sf::Color::Black);
+    circle.setLineSpacing(0);
+    circle.setLetterSpacing(0);
+
+    
+    sf::Text cross;
+    cross.setFont(font);
+    cross.setString("X");
+    cross.setCharacterSize(one_cell_size);
+    cross.setFillColor(sf::Color::Black);
+    cross.setLineSpacing(0);
+    cross.setLetterSpacing(0);
+
+\end{lstlisting}
+
+\subsection{Rysowanie planszy}
+Rysowanie planszy odbywa się tylko raz na początku gry. Po podaniu przez użytkownika rozmiaru planszy, program dostosowuje rozmiar jednej kratki do wielkości okna, zdefiniowanej jako zmienna globalna: \textit{constexpr int one\_side\_number\_of\_cells = 800;}. Następnie rysuje kratki za pomocą prostokątów o odpowiednim rozmiarze i odpowiedniej rotacji. Jest to przedstawione poniżej:
+
+
+\lstset{language=C++, firstnumber=1, keywordstyle=\color{blue}, numbers=left, frame = single}
+\begin{lstlisting}
+void draw_board(sf::RenderWindow &window, int cells)
+{
+    int one_cell_size = window.getSize().x / cells;
+    int tmp = one_cell_size;
+    sf::RectangleShape rectangle(sf::Vector2f(5, one_side_number_of_cells));
+    rectangle.setFillColor(sf::Color::Black);
+
+    for (int i = 1; i <= cells - 1; i++)
+    {
+        rectangle.setPosition(one_cell_size, 0);
+        window.draw(rectangle);
+        one_cell_size = one_cell_size + tmp;
+    }
+    
+    one_cell_size = window.getSize().x / cells;
+    rectangle.rotate(-90);
+    for (int i = 1; i <= cells - 1; i++)
+    {
+        rectangle.setPosition(0, one_cell_size);
+        window.draw(rectangle);
+        one_cell_size = one_cell_size + tmp;
+    }
+}
+\end{lstlisting}
+
+
+
+
+
+\subsection{Obsługa ,,wydarzeń''}
+
+Każdorazowe kliknięcie myszką na planszę jest obsługiwane przez \textit{sf::Event}. Po wykryciu kliknięcia, obliczana jest pozycja myszki i rysowany jest znak kółka w odpowiednim miejscu. Niestety program nie jest odporny na błędy w postaci kilkukrotnego klikania myszką w jedno miejsce. W takim przypadku na planszy pojawi się więcej krzyżyków tak, jakby gra toczyła się dalej. Kod przedstawiony poniżej opisuje także obsługę zamknięcia okna z grą, co jest jednoznaczne z zakończeniem gry.
+
+\lstset{language=C++, firstnumber=1, keywordstyle=\color{blue}, numbers=left, frame = single}
+\begin{lstlisting}
+while (board.pollEvent(event))
+{
+    if (event.type == sf::Event::Closed)
+        board.close();
+
+    if (event.type == sf::Event::MouseButtonPressed)
+    {
+        if (event.mouseButton.button == sf::Mouse::Left)
+        {
+            sf::Vector2i position = sf::Mouse::getPosition(board);
+            int column = position.x / one_cell_size;
+            int row = position.y / one_cell_size;
+            tab[row][column] = 'O';
+            circle.setPosition(column * one_cell_size + 
+            (circle.getCharacterSize() * 0.1), 
+            row * one_cell_size + (circle.getCharacterSize() * -0.13));       
+            board.draw(circle);
+            board.display();
+        }
+    }
+}
+
+\end{lstlisting}
+
+
+\subsection{Oznaczenie wygranej}
+
+\colorbox{WildStrawberry}{ohoho}
+
+\section{Techniki AI}
+
+\section{Podsumowanie i wnioski}
+\begin{enumerate}
+    \item o tych kliknieciach ze nie ok kilkukrotne
+    \item no czy dziala To
+    \item i dla jakich glebokosci
+    \item ze sfml jest super, ale szkoda ze nie ma buttons
+    \item gdybym robila dopracowanie to jeszcze bym dodala mozliwosci 2: 1. wybranie przez uzytkownika kolko czy krzyzyk i 2. moze ile tych znakow w rzedzie do wygranej itd.
+\end{enumerate}
+
+\section{Literatura}
+\begin{itemize}
+    \item https://www.sfml-dev.org/ (dostęp: 8.06.2022)
+    \item https://en.wikipedia.org/wiki/Minimax (dostęp: 8.06.2022)
+    \item Notatki z wykładów
+\end{itemize}
+
+\end{document}
