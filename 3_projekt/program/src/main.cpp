@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <cmath>
 
 constexpr int one_side_number_of_cells = 800;
 constexpr int infinity = 900000000;
@@ -29,7 +30,7 @@ int rate_positions(int &number_of_cells, char **tab)       // ocenia pozycje alb
         }
 
         if (tmp)
-            position_rating += 10^tmp;    // jakaś bardzo duża liczba, jeżeli jest fajna pozycja X (ai) -- np. dwa X w rzędzie
+            position_rating += pow(10, tmp);    // jakaś bardzo duża liczba, jeżeli jest fajna pozycja X (ai) -- np. dwa X w rzędzie
     }
 
     
@@ -49,7 +50,7 @@ int rate_positions(int &number_of_cells, char **tab)       // ocenia pozycje alb
         }
         
         if (tmp)
-            position_rating += 10^tmp;    // jakaś bardzo duża liczba
+            position_rating += pow(10, tmp);    // jakaś bardzo duża liczba
     }
 
     tmp = 0;
@@ -65,7 +66,7 @@ int rate_positions(int &number_of_cells, char **tab)       // ocenia pozycje alb
         } 
     
         if (tmp)
-            position_rating += 10^tmp;    // jakaś bardzo duża liczba
+            position_rating += pow(10, tmp);    // jakaś bardzo duża liczba
     }
     
 
@@ -82,7 +83,7 @@ int rate_positions(int &number_of_cells, char **tab)       // ocenia pozycje alb
         }
 
         if (tmp)
-            position_rating += 10^tmp;
+            position_rating += pow(10, tmp);
     }
     return position_rating;
 }
@@ -221,13 +222,13 @@ int minimax_alpha_beta(char current_player, int depth, int a, int b, int &number
 {
     check_win(number_of_cells, tab);
 
-    //if (winner != '-')                  // ??????????????
-    
+    if (winner != '-')                  // ??????????????
+    {
         if (current_player == 'X')      // ??????????????
-            return 10^8;            // max wartosc
+            return pow(10,8);            // max wartosc
         else
-            return -1 * 10^8;       // min wartosc
-    
+            return -pow(10,8);       // min wartosc
+    }
 
     if (is_finished(number_of_cells, tab) || depth == 0)
     {
