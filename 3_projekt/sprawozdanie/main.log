@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.3.8)  9 JUN 2022 01:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.3.8)  9 JUN 2022 01:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -940,13 +940,13 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 390.
 Here is how much of TeX's memory you used:
  32198 strings out of 483148
  739839 string characters out of 5965417
- 1308949 words of memory out of 5000000
+ 1308936 words of memory out of 5000000
  46347 multiletter control sequences out of 15000+600000
  545098 words of font info for 49 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
  68i,12n,98p,1735b,1893s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbi1440.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2488.603pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm3583.670pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2488.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/sprawozdanie/main.pdf (11 pages, 194035 bytes).
+Output written on /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/sprawozdanie/main.pdf (11 pages, 194032 bytes).
 PDF statistics:
  895 PDF objects out of 1000 (max. 8388607)
  487 compressed objects within 5 object streams
