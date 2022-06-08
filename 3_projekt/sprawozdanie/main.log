@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.3.8)  8 JUN 2022 16:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.3.8)  9 JUN 2022 01:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -882,7 +882,7 @@ Package pgfplots Warning: running in backwards compatibility mode (unsuitable ti
  on input line 39.
 
 (/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/sprawozdanie/str_tytulowa.tex
-<logo-PWr.png, id=47, 540.0978pt x 135.8676pt>
+<logo-PWr.png, id=59, 540.0978pt x 135.8676pt>
 File: logo-PWr.png Graphic file (type png)
 <use logo-PWr.png>
 Package pdftex.def Info: logo-PWr.png  used on input line 4.
@@ -918,28 +918,38 @@ Overfull \hbox (23.80891pt too wide) in paragraph at lines 102--103
  []
 
 [3] [4] [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 180.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 180.
+Overfull \hbox (16.76057pt too wide) in paragraph at lines 224--225
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[6] [7]
+Overfull \hbox (30.85725pt too wide) in paragraph at lines 336--337
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[8] [9] [10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 390.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 390.
  (/home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/sprawozdanie/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 180.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 180.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 390.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 390.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: CA97A23D54330E0C837D2D4FA95DC1CA;591.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 180.
+(rerunfilecheck)             Checksum: 043240B922813F1675E7A4EA2D822111;995.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 390.
  ) 
 Here is how much of TeX's memory you used:
- 31951 strings out of 483148
- 736291 string characters out of 5965417
- 1302876 words of memory out of 5000000
- 46298 multiletter control sequences out of 15000+600000
- 544397 words of font info for 48 fonts, out of 8000000 for 9000
+ 32198 strings out of 483148
+ 739839 string characters out of 5965417
+ 1308949 words of memory out of 5000000
+ 46347 multiletter control sequences out of 15000+600000
+ 545098 words of font info for 49 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
- 68i,12n,98p,776b,1893s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2488.603pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm3583.670pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2488.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/sprawozdanie/main.pdf (6 pages, 160084 bytes).
+ 68i,12n,98p,1735b,1893s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbi1440.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1728.600pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2488.603pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm3583.670pk> </home/zuzanna/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2488.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on /home/zuzanna/Pulpit/sem4/PAMSI/3_projekt/sprawozdanie/main.pdf (11 pages, 194035 bytes).
 PDF statistics:
- 585 PDF objects out of 1000 (max. 8388607)
- 222 compressed objects within 3 object streams
- 91 named destinations out of 1000 (max. 500000)
- 98 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 895 PDF objects out of 1000 (max. 8388607)
+ 487 compressed objects within 5 object streams
+ 288 named destinations out of 1000 (max. 500000)
+ 122 words of extra memory for PDF output out of 10000 (max. 10000000)
 

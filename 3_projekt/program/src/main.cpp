@@ -106,7 +106,7 @@ bool check_win(const int &number_of_cells, char **tab)
                 circles++; 
         }
 
-        if (crosses == number_of_cells)     // jeśli w rzędzie wygrana
+        if (crosses == number_of_cells)     // jeśli wygrana
         {
             winner = 'X';
             return true;
@@ -135,7 +135,7 @@ bool check_win(const int &number_of_cells, char **tab)
                 circles++; 
         }
     
-        if (crosses == number_of_cells)     // jeśli w rzędzie wygrana
+        if (crosses == number_of_cells)     // jeśli wygrana
         {
             winner = 'X';
             return true;
@@ -162,7 +162,7 @@ bool check_win(const int &number_of_cells, char **tab)
                 circles++; 
         }
     
-        if (crosses == number_of_cells)     // jeśli w rzędzie wygrana
+        if (crosses == number_of_cells)     // jeśli wygrana
         {
             winner = 'X';
             return true;
@@ -186,7 +186,7 @@ bool check_win(const int &number_of_cells, char **tab)
             circles++;
     }
     
-        if (crosses == number_of_cells)     // jeśli w rzędzie wygrana
+        if (crosses == number_of_cells)     // jeśli wygrana
         {
             winner = 'X';
             return true;
@@ -222,9 +222,9 @@ int minimax_alpha_beta(char current_player, int depth, int a, int b, int &number
 {
     check_win(number_of_cells, tab);
 
-    if (winner != '-')                  // ??????????????
+    if (winner != '-')                
     {
-        if (current_player == 'X')      // ??????????????
+        if (current_player == 'X')      
             return pow(10,8);            // max wartosc
         else
             return -pow(10,8);       // min wartosc
@@ -261,11 +261,11 @@ int minimax_alpha_beta(char current_player, int depth, int a, int b, int &number
                 if (current_player == 'X')
                 {
                     tab[i][j] = 'X';
-                    tmp = minimax_alpha_beta(current_player, depth-1, a, b, number_of_cells, tab);
+                    tmp = minimax_alpha_beta(current_player, depth-1, a, b, number_of_cells, tab);  //rekurencyjnie
                     if (best_score < tmp)
                         best_score = tmp;
                     
-                    if (a < best_score)
+                    if (a < best_score)     // odcinanie gałęzi
                         a = best_score;
 
                     tab[i][j] = '-';
@@ -360,7 +360,7 @@ int main()
     int depth;
     std::cout << "KÓŁKO I KRZYŻYK. Podaj rozmiar planszy (liczbę komórek w rzędzie): ";
     std::cin >> number_of_cells;
-    std::cout << "\nPodaj poziom trudności (głębokość): ";
+    std::cout << "Podaj poziom trudności (głębokość): ";
     std:: cin >> depth;
 
     // TWORZENIE DYNAMICZNEJ TABLICY DWUWYMIAROWEJ I WPISYWANIE W KAŻDE POLE SPACJI

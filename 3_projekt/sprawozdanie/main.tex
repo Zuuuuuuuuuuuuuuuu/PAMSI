@@ -154,20 +154,230 @@ while (board.pollEvent(event))
 
 \end{lstlisting}
 
-
-\subsection{Oznaczenie wygranej}
-
-\colorbox{WildStrawberry}{ohoho}
-
 \section{Techniki AI}
+\subsection{Wstęp}
+Ogólnie, wykorzystane techniki można przedstawić za pomocą grafów, gdzie każde kolejne rozgałęzienie pokazuje możliwe ruchy gracza i komputera. Aby wydedukować jaki ruch będzie najoptymalniejszy do wykonania przez komputer, musi on z zadanej pozycji obliczyć wszystkie możliwości i wybrać tę, która da mu najszybsze zwycięstwo. W tym celu wykorzystano strategię Minimax, która ma na celu maksymalizację szans na wygraną jednego użytkownika (w tym przypadku komputera) i minimalizację szans na wygraną przeciwnika (w tym przypadku gracza). Ze względu na to, że pełen algorytm Minimax, czyli rozważanie wszystkich przypadków i rozwijanie drzewa do końca byłby zbyt kosztowny i długotrwały, zastosowano funkcję heurystyczną oraz alfa-beta cięcia. Funkcja heurystyczna ma na celu jedynie oszacowanie najoptymalniejszego ruchu, nie gwarantuje przy tym, że będzie to ruch prawidłowy czy najlepszy. Natomiast alfa-beta cięcia pozwalają wyeliminować z analizy węzły nie mające wpływu na wartośc przodków. To znaczy, że jeżeli w jakiejś części grafu znaleziono jakąś lepszą wartość i jakąś gorszą wartość, to ten węzeł, który wskazuje gorszą wartość, zostanie porzucony i komputer nie będzie analizować dalej tej gałęzi. Techniki AI zostały zaimplementowane jako 3 funkcje: \textit{rate\_positions} - do liczenia i nadawania wag poszczególnym rozwiązaniom, \textit{minimax\_alpha\_beta} - do wybierania najlepszej wagi oraz \textit{best\_ai\_move} do wywoływania algorytmu Minimax i do zwracania najlepszego ruchu dla komputera. Funkcje te zostały przedstawione i opisane poniżej.
+
+\subsection{Funkcja \textit{rate\_positions} - do liczenia i nadawania wag poszczególnym rozwiązaniom}
+\lstset{language=C++, firstnumber=1, keywordstyle=\color{blue}, numbers=left, frame = single}
+\begin{lstlisting}
+int rate_positions(int &number_of_cells, char **tab)       
+{
+    int position_rating = 0;
+    int tmp = 0;
+
+    for (int i=0; i < number_of_cells; i++)                
+    {
+        tmp = 0;
+        for (int j=0; j < number_of_cells; j++)
+        {
+            if (tab[i][j] == 'X')
+                tmp++;
+            
+            else if (tab[i][j] == 'O')
+            {
+                tmp = 0;
+                break;
+            } 
+        }
+
+        if (tmp)
+            position_rating += pow(10, tmp);    
+
+    
+    for (int i=0; i < number_of_cells; i++)                
+    {
+        tmp = 0;
+        for (int j=0; j < number_of_cells; j++)
+        {
+            if (tab[j][i] == 'X')
+                tmp++;
+            
+            else if (tab[j][i] == 'O')
+            {
+                tmp = 0;
+                break;
+            } 
+        }
+        
+        if (tmp)
+            position_rating += pow(10, tmp);   
+    }
+
+    tmp = 0;
+    for (int j=0; j < number_of_cells; j++)         
+    {
+        if (tab[j][j] == 'X')
+            tmp++;
+        
+        else if (tab[j][j] == 'O')
+        {
+            tmp = 0;
+            break;
+        } 
+    
+        if (tmp)
+            position_rating += pow(10, tmp);    
+    }
+    
+
+    for (int i = 0, j = number_of_cells - 1; i < number_of_cells; i++, j--)     
+    {
+        tmp = 0;
+        if (tab[i][j] == 'X')
+            tmp++;
+
+        else if (tab[i][j] == 'O')
+        {
+            tmp = 0;
+            break;
+        }
+
+        if (tmp)
+            position_rating += pow(10, tmp);
+    }
+    return position_rating;
+    }
+}
+\end{lstlisting}
+
+Funkcja \textit{rate\_positions} jest wywoływana w funkcji \textit{minimax\_alpha\_beta} w dwóch przypadkach: po zakończeniu gry albo gdy głębokość osiągnie wartość 0, czyli przy ostatnim wywołaniu Minimaxa. W obydwu przypadkach komputer analizuje sytuację na planszy, kiedy wszystkie pola są zajęte. Zatem funkcja ta składa się z przeszukiwania kolejno rzędów, kolumn i dwóch przekątnych. Jeżeli w którejś z nich znajdzie ciągłość znaków ,,X'' (czyli tych, którymi gra komputer), to nadaje takiemu rozwiązaniu odpowiednio dużą wagę. Jeżeli natomiast znajdzie rozwiązania, w których na przykład znaki ,,X'' są rozdzielone znakiem ,,O'' lub też rozwiązania, w których znaki ,,O'' zachowują ciągłość w linii, to nie nadaje im wag.  
+
+\subsection{Funkcja \textit{minimax\_alpha\_beta} - do wybierania najlepszej wagi}
+
+\lstset{language=C++, firstnumber=1, keywordstyle=\color{blue}, numbers=left, frame = single}
+\begin{lstlisting}
+int minimax_alpha_beta(char current_player, int depth, int a, int b,
+ int &number_of_cells, char **tab)
+{
+    check_win(number_of_cells, tab);
+
+    if (winner != '-')                
+    {
+        if (current_player == 'X')      
+            return pow(10,8);            // max wartosc
+        else
+            return -pow(10,8);       // min wartosc
+    }
+
+    if (is_finished(number_of_cells, tab) || depth == 0)
+    {
+        if (current_player == 'X')
+            return rate_positions(number_of_cells, tab);    
+        else
+            return -rate_positions(number_of_cells, tab);
+    }
+
+    int best_score;
+
+    if (current_player == 'X')
+    {
+        current_player = 'O';          // zamiana graczy
+        best_score = infinity;
+    }
+    else
+    {
+        current_player = 'X';
+        best_score = -infinity;
+    }
+
+    int tmp;
+    for (int i = 0; i < number_of_cells; i++)
+    {
+        for (int j = 0; j < number_of_cells; j++)
+        {
+            if (tab[i][j] == '-')
+            {
+                if (current_player == 'X')
+                {
+                    tab[i][j] = 'X';
+                    tmp = minimax_alpha_beta(current_player, depth-1, a, 
+                    b, number_of_cells, tab);
+                    if (best_score < tmp)
+                        best_score = tmp;
+                    
+                    if (a < best_score)
+                        a = best_score;
+
+                    tab[i][j] = '-';
+                    if (a >= b)
+                        return best_score;
+                }
+                else
+                {
+                    tab[i][j] = 'O';
+                    tmp = minimax_alpha_beta(current_player, depth-1, a, 
+                    b, number_of_cells, tab);
+                    if (best_score > tmp)
+                        best_score = tmp;
+                    
+                    if (a > best_score)
+                        a = best_score;
+
+                    tab[i][j] = '-';
+                    if (a >= b)
+                        return best_score;
+                }
+            }
+        }
+    }
+    return best_score;
+}
+\end{lstlisting}
+
+Funkcja \textit{minimax\_alpha\_beta} najpierw sprawdza czy funkcja już rozwinęła ścieżkę, w której doszło do zwycięstwa. Jeżeli tak, rozwiązaniom, w których zwyciężył ,,X'' (komputer) przypisuje maksymalną wartość, a rozwiązaniom, w których zwyciężyło ,,O'' (użytkownik), przypisuje minimalną wartość. Następnie, jeżeli gra jest skończona lub algorytm doszedł już do wskazanej głębokości, oceniana jest pozycja. Potem w każdorazowym wywołaniu funkcji, następuje zamiana gracza, którego ruch jest rozważany. Następnie, algorytm przechodzi po komórkach tablicy i w wolne miejsca wpisuje odpowiedni znak po to, by rekurencyjnie znów się wywołać, z głębokością pomniejszoną o 1. W ten sposób algorytm dochodzi do końcowej głębokości (do pewnego rozwinięcia drzewa), z czego każda rozważana możliwość zagrania ma swoją wartość. Na koniec algorytm stosuje alfa-beta cięcia, to znaczy, że będąc na końcowej głębokości, wraca do rodzica, wybierając najlepszą ścieżkę i odrzucając inne rozwiązania.
+
+
+\subsection{Funkcja {best\_ai\_move} - do wywoływania algorytmu Minimax i do zwracania pozycji najlepszego ruchu dla komputera}
+
+
+\lstset{language=C++, firstnumber=1, keywordstyle=\color{blue}, numbers=left, frame = single}
+\begin{lstlisting}
+std::pair<int, int> best_ai_move(int depth, int &number_of_cells, char **tab)
+{
+    int best_score = minus_infinity;
+    int tmp;
+    int set_i;
+    int set_j;
+
+    for (int i = 0; i < number_of_cells; i++)
+    {
+        for (int j = 0; j < number_of_cells; j++)
+        {
+            if (tab[i][j] == '-')
+            {
+                tab[i][j] = 'X';
+                tmp = minimax_alpha_beta('X', depth, -infinity,
+                infinity, number_of_cells, tab);
+                tab[i][j] = '-';
+                if (tmp > best_score)
+                {
+                    best_score = tmp;
+                    set_i = i;
+                    set_j = j;
+                }
+            }
+        }
+    }
+
+    if (set_i < number_of_cells && set_j < number_of_cells)
+        tab[set_i][set_j] = 'X';
+
+    return std::make_pair(set_i, set_j);
+}
+
+\end{lstlisting}
+
+Funkcja ta przechodzi kolejno po komórkach planszy i gdy napotka puste pole, wpisuje tam znak ,,X'', po czym wywołuje funkcje \textit{minimax\_alpha\_beta}, która rozbudowuje drzewo i wybiera najlepszą wagę, którą zapisuje do zmiennej \textit{tmp}. Po cofnięciu wprowadzonej zmiany do komórki planszy, funkcja ta porównuje zmienną \textit{tmp} z inną ustaloną wartością (minimalną). Jeżeli znajdzie pozycję większą od ustalonej, wpisuje i zwraca w którą komórkę komputer wykona ruch.
+
 
 \section{Podsumowanie i wnioski}
 \begin{enumerate}
-    \item o tych kliknieciach ze nie ok kilkukrotne
-    \item no czy dziala To
-    \item i dla jakich glebokosci
-    \item ze sfml jest super, ale szkoda ze nie ma buttons
-    \item gdybym robila dopracowanie to jeszcze bym dodala mozliwosci 2: 1. wybranie przez uzytkownika kolko czy krzyzyk i 2. moze ile tych znakow w rzedzie do wygranej itd.
+    \item SFML jest bogato wyposażoną biblioteką, którą wykorzystuje się do tworzenia na przykład graficznych interfejsów czy gier. Nie oferuje jednak gotowych rozwiązań do tworzenia guzików, które byłyby przydatne do komunikacji z użytkownikiem. Zamiast tego, w projekcie wykorzystano w tym celu terminal.
+    \item W programie znajduje się niedopatrzenie, które umożliwia użytkownikowi wpisanie znaku nieskończenie wiele razy w tę samą komórkę planszy. 
+    \item Program działa poprawnie. Dla każdego testowanego rozmiaru planszy zaimplementowane techniki AI blokują wygraną użytkownika i dążą do wygranej komputera.
+    \item Przed rozpoczęciem należy ustawić poziom trudności gry. Jest to jednoznaczne z ustawieniem głębokości, do jakiej komputer będzie liczyć różne warianty. Optymalny wybór poziomu trudności zależy od rozmiaru planszy. Dla planszy 3x3 i głębokości 5, ruch komputera następuje praktycznie od razu, natomiast dla planszy 5x5 i tej samej głębokości, na ruch komputera trzeba poczekać około 50 sekund.
+    \item Jest jeszcze wiele rzeczy do dopracowania bądź zaimplementowania w omawianym projekcie, na przykład: dodanie możliwości wyboru znaku przez użytkownika, lepsze oznaczenie wygranej z wykorzystaniem graficznego interfejsu, czy na przykład możliwość definiowania liczby tych samych znaków w linii potrzebnej do wygranej.
 \end{enumerate}
 
 \section{Literatura}
